@@ -499,12 +499,12 @@
         top: 16px;
         left: 16px;
         z-index: 200;
-        width: 40px;
-        height: 40px;
         background: var(--panel);
         border: 1px solid var(--border);
-        border-radius: 6px;
         color: var(--text);
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
         font-size: 1.2rem;
         cursor: pointer;
         align-items: center;
@@ -520,8 +520,8 @@
 
       /* ========== Footer ========== */
       .footer {
-        margin-top: 64px;
-        padding-top: 24px;
+        margin: 0;
+        padding: 40px 0 20px;
         border-top: 1px solid var(--border);
         color: var(--text-secondary);
         font-size: 0.85rem;
@@ -546,9 +546,6 @@
 
       /* ========== Responsive ========== */
       @media (max-width: 900px) {
-        .menu-toggle {
-          display: flex;
-        }
         .sidebar {
           transform: translateX(-100%);
         }
@@ -560,7 +557,18 @@
         }
         .main {
           margin-left: 0;
-          padding: 72px 20px 60px;
+          padding: 64px 20px 60px;
+          width: 100%;
+          min-width: 0;
+          overflow-x: hidden;
+        }
+        .main table {
+          display: block;
+          max-width: 100%;
+          overflow-x: auto;
+        }
+        .menu-toggle {
+          display: flex;
         }
         .hero h1 {
           font-size: 1.8rem;
@@ -5848,40 +5856,38 @@ mvc.perform(get("/api/users/1"))
           </div>
         </div>
       </section>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <span>🍃 Spring Boot 从入门到精通 · 学习笔记</span>
+          <span>共 18 章 · 4 阶段 · 助你精通企业级 Spring Boot 开发</span>
+        </div>
+      </footer>
     </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>🍃 Spring Boot 从入门到精通 · 学习笔记</span>
-        <span>共 18 章 · 4 阶段 · 助你精通企业级 Spring Boot 开发</span>
-      </div>
-    </footer>
-
     <script>
-      // 移动端抽屉目录
-      const menuToggle = document.querySelector('.menu-toggle')
-      const sidebar = document.querySelector('.sidebar')
-      const overlay = document.querySelector('.overlay')
-      if (menuToggle && sidebar) {
-        menuToggle.addEventListener('click', () => {
-          sidebar.classList.toggle('open')
-          menuToggle.classList.toggle('open')
-          if (overlay) overlay.classList.toggle('open')
-        })
-      }
-      if (overlay) {
-        overlay.addEventListener('click', () => {
-          sidebar.classList.remove('open')
-          menuToggle.classList.remove('open')
-          overlay.classList.remove('open')
-        })
-      }
+      const toggle = document.getElementById('menuToggle')
+      const sidebar = document.getElementById('sidebar')
+      const overlay = document.getElementById('overlay')
+
+      toggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open')
+        overlay.classList.toggle('open')
+      })
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open')
+        overlay.classList.remove('open')
+      })
 
       document.querySelectorAll('.toc a').forEach((link) => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (event) => {
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) {
+            event.preventDefault()
+            target.scrollIntoView({ behavior: 'smooth' })
+          }
           sidebar.classList.remove('open')
-          menuToggle.classList.remove('open')
-          if (overlay) overlay.classList.remove('open')
+          overlay.classList.remove('open')
         })
       })
 
