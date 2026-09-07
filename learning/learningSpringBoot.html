@@ -5858,19 +5858,21 @@ mvc.perform(get("/api/users/1"))
     </footer>
 
     <script>
-      // 移动端目录抽屉
-      const menuToggle = document.getElementById('menuToggle')
+      // 移动端抽屉目录
+      const menuToggle = document.querySelector('.menu-toggle')
       const sidebar = document.querySelector('.sidebar')
       const overlay = document.querySelector('.overlay')
       if (menuToggle && sidebar) {
         menuToggle.addEventListener('click', () => {
           sidebar.classList.toggle('open')
+          menuToggle.classList.toggle('open')
           if (overlay) overlay.classList.toggle('open')
         })
       }
       if (overlay) {
         overlay.addEventListener('click', () => {
           sidebar.classList.remove('open')
+          menuToggle.classList.remove('open')
           overlay.classList.remove('open')
         })
       }
@@ -5878,6 +5880,7 @@ mvc.perform(get("/api/users/1"))
       document.querySelectorAll('.toc a').forEach((link) => {
         link.addEventListener('click', () => {
           sidebar.classList.remove('open')
+          menuToggle.classList.remove('open')
           if (overlay) overlay.classList.remove('open')
         })
       })

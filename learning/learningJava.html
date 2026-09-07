@@ -51,10 +51,6 @@
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
-      body.menu-open {
-        overflow: hidden;
-      }
-
       /* ========== Scrollbar ========== */
       ::-webkit-scrollbar {
         width: 6px;
@@ -3743,38 +3739,31 @@ return switch (obj) {
     </main>
 
     <script>
-      // Mobile menu toggle
-      const menuToggle = document.getElementById('menuToggle')
-      const sidebar = document.getElementById('sidebar')
-      const overlay = document.getElementById('overlay')
-
-      function closeMenu() {
-        sidebar.classList.remove('open')
-        overlay.classList.remove('open')
-        menuToggle.setAttribute('aria-expanded', 'false')
-        document.body.classList.remove('menu-open')
+      // 移动端抽屉目录
+      const menuToggle = document.querySelector('.menu-toggle')
+      const sidebar = document.querySelector('.sidebar')
+      const overlay = document.querySelector('.overlay')
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('open')
+          menuToggle.classList.toggle('open')
+          if (overlay) overlay.classList.toggle('open')
+        })
       }
 
-      menuToggle.addEventListener('click', () => {
-        const isOpen = sidebar.classList.toggle('open')
-        overlay.classList.toggle('open', isOpen)
-        menuToggle.setAttribute('aria-expanded', String(isOpen))
-        document.body.classList.toggle('menu-open', isOpen)
-      })
-      overlay.addEventListener('click', closeMenu)
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') closeMenu()
-      })
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          sidebar.classList.remove('open')
+          menuToggle.classList.remove('open')
+          overlay.classList.remove('open')
+        })
+      }
 
-      // Close sidebar on link click (mobile)
       document.querySelectorAll('.toc a').forEach((link) => {
-        link.addEventListener('click', (e) => {
-          const target = document.querySelector(link.getAttribute('href'))
-          if (target) {
-            e.preventDefault()
-            target.scrollIntoView({ behavior: 'smooth' })
-          }
-          closeMenu()
+        link.addEventListener('click', () => {
+          sidebar.classList.remove('open')
+          menuToggle.classList.remove('open')
+          if (overlay) overlay.classList.remove('open')
         })
       })
 
