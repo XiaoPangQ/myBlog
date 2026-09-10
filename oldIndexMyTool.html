@@ -1,0 +1,543 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/jpeg" href="images/avatar.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的工具箱 · Zinx 的博客</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --surface: #ffffff;
+        --surface-soft: #eef4ff;
+        --panel: #f8fafc;
+        --text: #172033;
+        --muted: #64748b;
+        --line: #e5e7eb;
+        --primary: #2563eb;
+        --primary-soft: rgba(37, 99, 235, 0.08);
+        --green: #10b981;
+        --green-soft: rgba(16, 185, 129, 0.08);
+        --orange: #f59e0b;
+        --orange-soft: rgba(245, 158, 11, 0.1);
+        --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        --radius: 18px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 26%),
+          linear-gradient(180deg, #f8fafc 0%, #f3f6fb 100%);
+        color: var(--text);
+        font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        line-height: 1.7;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 24px 72px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), #7c3aed);
+        color: white;
+        font-size: 1.05rem;
+        box-shadow: 0 12px 24px rgba(69, 92, 255, 0.25);
+      }
+
+      .topnav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .topnav a {
+        padding: 8px 12px;
+        border-radius: 10px;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .topnav a:hover {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+        gap: 28px;
+        align-items: center;
+        padding: 42px 0 18px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding: 8px 12px;
+        border: 1px solid rgba(37, 99, 235, 0.16);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--primary);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--green), var(--primary));
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.05;
+        letter-spacing: -0.06em;
+      }
+
+      .lead {
+        max-width: 720px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.06rem;
+      }
+
+      .hero-panel {
+        padding: 28px;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(239,246,255,0.9));
+        box-shadow: var(--shadow);
+      }
+
+      .mini-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .stat-box {
+        padding: 14px 12px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.75);
+        text-align: center;
+      }
+
+      .stat-box strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.12rem;
+      }
+
+      .stat-box span {
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .section {
+        margin-top: 52px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+      }
+
+      .section-head span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+
+      .tool-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 210px;
+        padding: 18px 18px 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 18px 32px rgba(37, 99, 235, 0.07);
+      }
+
+      .tool-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .tool-icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        font-size: 1.6rem;
+        background: linear-gradient(135deg, var(--surface-soft), #e0f2fe);
+      }
+
+      .tool-tag {
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .tool-card h3 {
+        margin: 0 0 8px;
+        font-size: 1.14rem;
+      }
+
+      .tool-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .tool-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .tool-footer strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .tool-footer span {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .section-note {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 64px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 760px) {
+        .topbar { flex-wrap: wrap; }
+        .hero { grid-template-columns: 1fr; }
+        .section-head { align-items: start; flex-direction: column; }
+        footer { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a href="index.html" class="brand" aria-label="返回博客首页">
+          <span class="brand-mark">Z</span>
+          <span class="brand-name">Zinx 的博客</span>
+        </a>
+        <nav class="topnav" aria-label="工具箱导航">
+          <a href="index.html">首页</a>
+          <a href="resume.html">关于我</a>
+          <a href="#tools">工具列表</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Daily Tools</div>
+          <h1>我的工具箱</h1>
+          <p class="lead">
+            汇总我日常工作、学习和开发中最常用的在线工具、站点导航与效率入口，方便查资料、处理问题、检索资源和提升工作效率。
+          </p>
+        </div>
+
+        <aside class="hero-panel" aria-label="工具箱统计">
+          <div class="mini-stat-grid">
+            <div class="stat-box">
+              <strong>18</strong>
+              <span>常用工具</span>
+            </div>
+            <div class="stat-box">
+              <strong>8</strong>
+              <span>资源频道</span>
+            </div>
+            <div class="stat-box">
+              <strong>Daily</strong>
+              <span>高频打开</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="tools">
+        <div class="section-head">
+          <h2>在线工具</h2>
+          <span>高频使用 · 适合日常开发和学习</span>
+        </div>
+        <div class="card-grid">
+          <a class="tool-card" href="https://chat.openai.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🤖</div>
+              <span class="tool-tag">AI</span>
+            </div>
+            <h3>ChatGPT</h3>
+            <p>写内容、总结问题、提炼思路、快速生成方案的实用 AI 助手。</p>
+            <div class="tool-footer"><strong>在线工具</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.bing.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🔍</div>
+              <span class="tool-tag">搜索</span>
+            </div>
+            <h3>Bing</h3>
+            <p>日常搜索、资料检索和英文信息查询的靠谱入口。</p>
+            <div class="tool-footer"><strong>搜索引擎</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://github.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">💻</div>
+              <span class="tool-tag">开发</span>
+            </div>
+            <h3>GitHub</h3>
+            <p>查看源码、复现方案、追踪问题和学习开源项目的主力站点。</p>
+            <div class="tool-footer"><strong>代码托管</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.google.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🌐</div>
+              <span class="tool-tag">搜索</span>
+            </div>
+            <h3>Google</h3>
+            <p>查英文资料、官方文档和跨语言技术信息的补充入口。</p>
+            <div class="tool-footer"><strong>国际搜索</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.bilibili.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🎬</div>
+              <span class="tool-tag">学习</span>
+            </div>
+            <h3>Bilibili</h3>
+            <p>看技术视频、学习方法和补足零散知识点的高频内容平台。</p>
+            <div class="tool-footer"><strong>视频学习</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.zhihu.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">❓</div>
+              <span class="tool-tag">问答</span>
+            </div>
+            <h3>知乎</h3>
+            <p>看行业经验、技术讨论和不同视角的解释与实践思路。</p>
+            <div class="tool-footer"><strong>问答社区</strong><span>打开</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>开发与资源导航</h2>
+          <span>工程实践 · 资料查询 · 依赖与包管理</span>
+        </div>
+        <div class="card-grid">
+          <a class="tool-card" href="https://www.npmjs.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">📦</div>
+              <span class="tool-tag">前端</span>
+            </div>
+            <h3>npm</h3>
+            <p>查找前端依赖、组件库、工具链和常用包资源。</p>
+            <div class="tool-footer"><strong>包管理</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://pypi.org/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🐍</div>
+              <span class="tool-tag">Python</span>
+            </div>
+            <h3>PyPI</h3>
+            <p>搜索 Python 包、第三方库和工具资源，适合环境与依赖管理。</p>
+            <div class="tool-footer"><strong>包管理</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.docker.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🐳</div>
+              <span class="tool-tag">容器</span>
+            </div>
+            <h3>Docker</h3>
+            <p>查看镜像、文档和容器实践案例，解决部署与环境问题。</p>
+            <div class="tool-footer"><strong>开发工具</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">📘</div>
+              <span class="tool-tag">文档</span>
+            </div>
+            <h3>MDN</h3>
+            <p>查前端 Web API、HTML、CSS 和 JavaScript 规则说明。</p>
+            <div class="tool-footer"><strong>技术文档</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://stackoverflow.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🛠️</div>
+              <span class="tool-tag">问答</span>
+            </div>
+            <h3>Stack Overflow</h3>
+            <p>解决技术细节、框架问题和工程异常的参考性问答平台。</p>
+            <div class="tool-footer"><strong>开发社区</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.cnblogs.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">📒</div>
+              <span class="tool-tag">博客</span>
+            </div>
+            <h3>博客园</h3>
+            <p>阅读技术文章、了解案例经验和积累工程实践中的思路。</p>
+            <div class="tool-footer"><strong>技术社区</strong><span>打开</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>学习与资讯</h2>
+          <span>技术视野 · 经验分享 · 关注前沿</span>
+        </div>
+        <div class="card-grid">
+          <a class="tool-card" href="https://juejin.cn/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">🧩</div>
+              <span class="tool-tag">技术</span>
+            </div>
+            <h3>掘金</h3>
+            <p>看前沿文章、工程经验和实战分享，适合补充技术视野。</p>
+            <div class="tool-footer"><strong>资讯站</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.csdn.net/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">📝</div>
+              <span class="tool-tag">技术</span>
+            </div>
+            <h3>CSDN</h3>
+            <p>查看开发实践、故障处理和方案整理，适合定位具体问题。</p>
+            <div class="tool-footer"><strong>开发社区</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.v2ex.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">💬</div>
+              <span class="tool-tag">社区</span>
+            </div>
+            <h3>V2EX</h3>
+            <p>观察开发者讨论、产品反馈和技术圈的真实观点与趋势。</p>
+            <div class="tool-footer"><strong>社区讨论</strong><span>打开</span></div>
+          </a>
+
+          <a class="tool-card" href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">
+            <div class="tool-top">
+              <div class="tool-icon">📌</div>
+              <span class="tool-tag">生活</span>
+            </div>
+            <h3>小红书</h3>
+            <p>搜索使用心得、效率方法和实用资源整理，适合扩展视野。</p>
+            <div class="tool-footer"><strong>生活 & 学习</strong><span>打开</span></div>
+          </a>
+        </div>
+      </section>
+
+      <p class="section-note">说明：这里的工具会持续更新，后续会加入更多工作、学习和效率相关的入口。</p>
+
+      <footer>
+        <span>© 2026 Zinx · Keep learning, keep sharing.</span>
+        <span>我的工具箱 · 常用工具与站点导航</span>
+      </footer>
+    </main>
+  </body>
+</html>

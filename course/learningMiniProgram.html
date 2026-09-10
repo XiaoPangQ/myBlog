@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/jpeg" href="../images/avatar.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redis 实战指南 · Zinx的技术手记</title>
+    <title>Redis 实战指南 · Zinx的博客</title>
     <style>
       :root {
         --bg: #08111f;
@@ -575,7 +575,6 @@
     <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
     <div class="overlay" id="overlay"></div>
 
-
     <nav class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <h2><span class="logo-icon">📱</span> 微信小程序部署实战</h2>
@@ -607,7 +606,8 @@
         <span class="hero-badge">📱 部署实战 · 跟着做就能上线</span>
         <h1>微信小程序部署实战指南</h1>
         <p>
-          从注册账号到正式上线：ICP 备案、开发者工具、服务器域名或云开发、隐私保护指引、
+          从注册账号到正式上线：ICP
+          备案、开发者工具、服务器域名或云开发、隐私保护指引、
           提交审核、发布与回滚，完整链路逐步操作。每一步卡点都给出对应报错与解决办法，
           跟着做就能把小程序真正部署上线。
         </p>
@@ -624,30 +624,33 @@
 
         <h3>「部署小程序」到底要做什么</h3>
         <p>
-          和普通网站不同，小程序没有「域名 + 服务器」就完事这么简单。它的上线要过
+          和普通网站不同，小程序没有「域名 +
+          服务器」就完事这么简单。它的上线要过
           <strong>两道闸门</strong>：
         </p>
         <ul>
           <li>
-            <strong>平台审核闸门</strong>：你的代码要<strong>上传</strong>到微信服务器，经
+            <strong>平台审核闸门</strong
+            >：你的代码要<strong>上传</strong>到微信服务器，经
             微信<strong>人工审核</strong>通过后<strong>发布</strong>，用户才能搜到、用到。审核不通过，代码写得再好也上不了线。
           </li>
           <li>
             <strong>合规闸门</strong>：小程序涉及网络请求的域名必须
             <strong>ICP 备案 + HTTPS</strong>；涉及用户信息的必须配置
-            <strong>用户隐私保护指引</strong>；2023 年 9 月起新小程序还必须先完成
-            <strong>小程序备案</strong>才能上架。
+            <strong>用户隐私保护指引</strong>；2023 年 9
+            月起新小程序还必须先完成 <strong>小程序备案</strong>才能上架。
           </li>
         </ul>
         <p>
-          所以「部署」实际包含两条线：<strong>代码上线线</strong>（开发工具 → 上传 →
-          审核 → 发布）和 <strong>后端服务线</strong>（自建服务器 + 合法域名，或微信云开发）。
-          本指南两条线都讲，跟着走即可。
+          所以「部署」实际包含两条线：<strong>代码上线线</strong>（开发工具 →
+          上传 → 审核 → 发布）和 <strong>后端服务线</strong>（自建服务器 +
+          合法域名，或微信云开发）。 本指南两条线都讲，跟着走即可。
         </p>
 
         <div class="callout info">
           <div class="callout-title">📌 全流程路线图（强烈建议先看这张图）</div>
-          注册账号（1 天） → 完善信息 + <strong>发起 ICP 备案（与开发并行，1~3 周）</strong>
+          注册账号（1 天） → 完善信息 +
+          <strong>发起 ICP 备案（与开发并行，1~3 周）</strong>
           → 下载开发者工具 → 创建/导入项目 → 本地模拟器调试 → 真机预览 →
           后端就绪（自建域名 / 云开发，可提前做） → 上传代码 → 体验版真机回归 →
           提交审核（1~7 天） → 审核通过 → 发布上线 → 日常运维迭代。
@@ -656,7 +659,9 @@
 
         <h3>第一步：选主体类型（个人还是企业）</h3>
         <p>
-          注册时选的「主体类型」决定了小程序能做多少事，<strong>注册后个人主体不能直接升级为企业主体</strong>
+          注册时选的「主体类型」决定了小程序能做多少事，<strong
+            >注册后个人主体不能直接升级为企业主体</strong
+          >
           （只能重新注册或用企业资料做账号迁移），所以先想清楚：
         </p>
         <div class="table-wrap">
@@ -672,7 +677,10 @@
               <tr>
                 <td><strong>注册成本</strong></td>
                 <td>免费，仅需身份证 + 手机号</td>
-                <td>免费注册；微信认证 300 元/年（个体工商户可用对公或法人扫脸认证）</td>
+                <td>
+                  免费注册；微信认证 300
+                  元/年（个体工商户可用对公或法人扫脸认证）
+                </td>
               </tr>
               <tr>
                 <td><strong>名称规则</strong></td>
@@ -704,14 +712,16 @@
         </div>
         <div class="callout warn">
           <div class="callout-title">⚠️ 想清楚再注册</div>
-          个人主体做不了：微信支付、电商交易、AI 对话类（深度合成需企业认证）等。
+          个人主体做不了：微信支付、电商交易、AI
+          对话类（深度合成需企业认证）等。
           如果你未来确定要商业化，直接注册企业主体，别先注册个人号再后悔——
           迁移主体比重新注册麻烦得多。
         </div>
 
         <h3>一个决策帮你选后端方案</h3>
         <p>
-          后端怎么搭，取决于你有没有服务器、域名和备案条件。先给结论，第 5~7 章展开：
+          后端怎么搭，取决于你有没有服务器、域名和备案条件。先给结论，第 5~7
+          章展开：
         </p>
         <div class="table-wrap">
           <table>
@@ -756,7 +766,9 @@
               <tr>
                 <td>个人主体能不能换成企业主体？</td>
                 <td>主体类型注册后不可直接修改</td>
-                <td>用企业资料重新注册，或走「账号迁移」流程（需双方配合），个人资料不支持迁移</td>
+                <td>
+                  用企业资料重新注册，或走「账号迁移」流程（需双方配合），个人资料不支持迁移
+                </td>
               </tr>
               <tr>
                 <td>注册时主体类型选错了怎么办？</td>
@@ -766,12 +778,16 @@
               <tr>
                 <td>小程序没备案能先开发吗？</td>
                 <td>备案与开发互不阻塞</td>
-                <td>能。备案期间正常开发、真机预览、体验版测试，只是不能提交审核发布</td>
+                <td>
+                  能。备案期间正常开发、真机预览、体验版测试，只是不能提交审核发布
+                </td>
               </tr>
               <tr>
                 <td>一定要先有代码才能备案吗？</td>
                 <td>不需要</td>
-                <td>备案只需账号信息与服务内容描述，可注册后立刻提交，代码写完备案也基本下来了</td>
+                <td>
+                  备案只需账号信息与服务内容描述，可注册后立刻提交，代码写完备案也基本下来了
+                </td>
               </tr>
             </tbody>
           </table>
@@ -790,27 +806,35 @@
             <strong>小程序</strong>。
           </li>
           <li>
-            <strong>填邮箱</strong>：使用一个<strong>从未注册过公众号 / 小程序 / 开放平台</strong>
+            <strong>填邮箱</strong>：使用一个<strong
+              >从未注册过公众号 / 小程序 / 开放平台</strong
+            >
             的邮箱，设置密码后去邮箱点激活链接。激活链接 24 小时内有效。
           </li>
           <li>
             <strong>选主体类型</strong>：个人选「个人」，企业/个体户选对应类型。
-            个人主体需要：管理员本人身份证信息 + 手机号，并用绑定了银行卡的微信扫码验证。
+            个人主体需要：管理员本人身份证信息 +
+            手机号，并用绑定了银行卡的微信扫码验证。
           </li>
           <li>
-            <strong>完善基本信息</strong>：设置小程序<strong>名称、头像、简介</strong>，
-            选择<strong>服务类目</strong>。名称 1 年可改 2 次（个人主体改名次数少，想好再填）。
+            <strong>完善基本信息</strong
+            >：设置小程序<strong>名称、头像、简介</strong>，
+            选择<strong>服务类目</strong>。名称 1 年可改 2
+            次（个人主体改名次数少，想好再填）。
           </li>
           <li>
-            <strong>拿到 AppID</strong>：登录后台 → 左侧「开发」→「开发管理」→「开发设置」，
-            页面顶部就是 <strong>AppID</strong>（AppSecret 也在这一页，但那是后端调接口用的，务必保密）。
+            <strong>拿到 AppID</strong>：登录后台 →
+            左侧「开发」→「开发管理」→「开发设置」， 页面顶部就是
+            <strong>AppID</strong>（AppSecret
+            也在这一页，但那是后端调接口用的，务必保密）。
           </li>
         </ol>
 
         <div class="callout tip">
           <div class="callout-title">💡 AppID 是什么</div>
           AppID 是小程序的<strong>唯一身份证</strong>（形如
-          <code>wx1234567890abcdef</code>）。创建项目、真机预览、上传代码、调用微信接口全靠它。
+          <code>wx1234567890abcdef</code
+          >）。创建项目、真机预览、上传代码、调用微信接口全靠它。
           注册完第一件事：把它复制保存好。
         </div>
 
@@ -821,14 +845,19 @@
         </p>
         <ul>
           <li><strong>个人主体选「工具」类最稳妥</strong>，基本不踩红线。</li>
-          <li>类目要和<strong>实际功能一致</strong>：简介说查快递，实际是游戏，必然驳回。</li>
-          <li>涉及医疗、金融、教育、社交等特殊行业，需要<strong>前置资质</strong>（许可证），没有就别碰。</li>
+          <li>
+            类目要和<strong>实际功能一致</strong>：简介说查快递，实际是游戏，必然驳回。
+          </li>
+          <li>
+            涉及医疗、金融、教育、社交等特殊行业，需要<strong>前置资质</strong>（许可证），没有就别碰。
+          </li>
         </ul>
 
         <div class="callout warn">
           <div class="callout-title">⚠️ 名称三条红线</div>
-          ① 不得含「国家级、最高级」等广告违禁词；② 不得与已有小程序 / 公众号重名或混淆；
-          ③ 个人主体名称不要出现「公司、商城、金融」等字眼。想好名字先去后台搜一下是否被占用。
+          ① 不得含「国家级、最高级」等广告违禁词；② 不得与已有小程序 /
+          公众号重名或混淆； ③
+          个人主体名称不要出现「公司、商城、金融」等字眼。想好名字先去后台搜一下是否被占用。
         </div>
 
         <h3>本章常见问题</h3>
@@ -865,12 +894,17 @@
               <tr>
                 <td>AppSecret 忘了 / 泄露了</td>
                 <td>Secret 只在生成时完整显示一次</td>
-                <td>在开发设置页点「重置」，旧 Secret 立即失效；泄露务必马上重置并加 IP 白名单</td>
+                <td>
+                  在开发设置页点「重置」，旧 Secret
+                  立即失效；泄露务必马上重置并加 IP 白名单
+                </td>
               </tr>
               <tr>
                 <td>想改服务类目改不了</td>
                 <td>部分类目一经选择不可变更（如游戏）</td>
-                <td>普通类目可在「设置」→「基本设置」→「服务类目」修改；游戏类目不可改</td>
+                <td>
+                  普通类目可在「设置」→「基本设置」→「服务类目」修改；游戏类目不可改
+                </td>
               </tr>
             </tbody>
           </table>
@@ -883,7 +917,9 @@
         <h3>安装微信开发者工具</h3>
         <ol class="steps">
           <li>
-            下载地址：<code>developers.weixin.qq.com/miniprogram/dev/devtools/download.html</code>
+            下载地址：<code
+              >developers.weixin.qq.com/miniprogram/dev/devtools/download.html</code
+            >
             ，选<strong>稳定版 Stable</strong>（别选 RC 预发布版，图稳定）。
           </li>
           <li>
@@ -894,8 +930,10 @@
 
         <div class="callout tip">
           <div class="callout-title">💡 工具界面四块区域</div>
-          顶部工具栏（编译 / 预览 / 上传 / 清缓存）｜ 左侧<strong>模拟器</strong>（手机预览效果）｜
-          中间<strong>编辑器</strong>（写代码）｜ 底部<strong>调试器</strong>（Console / Network /
+          顶部工具栏（编译 / 预览 / 上传 / 清缓存）｜
+          左侧<strong>模拟器</strong>（手机预览效果）｜
+          中间<strong>编辑器</strong>（写代码）｜
+          底部<strong>调试器</strong>（Console / Network /
           Storage，排查问题全靠它）。
         </div>
 
@@ -930,8 +968,8 @@
           </table>
         </div>
         <p>
-          选「小程序」模板 + 自己的 AppID，语言选 JavaScript（原生）即可。
-          若用 uni-app / Taro，用对应 CLI 创建项目后，在本工具里「导入项目」。
+          选「小程序」模板 + 自己的 AppID，语言选 JavaScript（原生）即可。 若用
+          uni-app / Taro，用对应 CLI 创建项目后，在本工具里「导入项目」。
         </p>
 
         <h3>项目目录结构（原生小程序）</h3>
@@ -955,16 +993,21 @@ miniprogram-app/
 </code></pre>
         </div>
         <div class="callout warn">
-          <div class="callout-title">⚠️ app.json 里「pages 数组第一项 = 首页」</div>
-          新增页面必须同步登记到 <code>app.json</code> 的 <code>pages</code> 数组里，
-          否则编译报「page not found」。新建页面推荐直接在编辑器里右键
-          「新建 Page」，会自动注册，别手写。
+          <div class="callout-title">
+            ⚠️ app.json 里「pages 数组第一项 = 首页」
+          </div>
+          新增页面必须同步登记到 <code>app.json</code> 的
+          <code>pages</code> 数组里， 否则编译报「page not
+          found」。新建页面推荐直接在编辑器里右键 「新建
+          Page」，会自动注册，别手写。
         </div>
 
         <h3>导入已有项目 / 别人给的项目</h3>
         <p>
-          选「导入项目」，目录指向含 <code>project.config.json</code> 的文件夹。导入后第一时间检查：
-          右下角或详情面板里的 <strong>AppID 是否是你自己的</strong>。别人项目里写死的旧 AppID
+          选「导入项目」，目录指向含
+          <code>project.config.json</code> 的文件夹。导入后第一时间检查：
+          右下角或详情面板里的
+          <strong>AppID 是否是你自己的</strong>。别人项目里写死的旧 AppID
           会导致预览、上传全部报错。
         </p>
 
@@ -982,32 +1025,48 @@ miniprogram-app/
               <tr>
                 <td>工具启动白屏 / 打不开</td>
                 <td>显卡兼容问题或安装损坏</td>
-                <td>「设置」→「通用设置」→ 关闭「GPU 加速」（或勾选启用）后重启；还不行就重装稳定版</td>
+                <td>
+                  「设置」→「通用设置」→ 关闭「GPU
+                  加速」（或勾选启用）后重启；还不行就重装稳定版
+                </td>
               </tr>
               <tr>
                 <td>扫码登录后没有项目列表</td>
                 <td>该微信不是此小程序的开发者 / 管理员</td>
-                <td>用管理员微信登录；或在小程序后台「管理」→「成员管理」把你加为项目成员（体验者/开发者）</td>
+                <td>
+                  用管理员微信登录；或在小程序后台「管理」→「成员管理」把你加为项目成员（体验者/开发者）
+                </td>
               </tr>
               <tr>
                 <td>提示 AppID 无效 / 不匹配</td>
                 <td>project.config.json 里的 appid 与登录账号不一致</td>
-                <td>详情面板重新填自己的 AppID，或改 project.config.json 的 appid 字段后重新编译</td>
+                <td>
+                  详情面板重新填自己的 AppID，或改 project.config.json 的 appid
+                  字段后重新编译
+                </td>
               </tr>
               <tr>
                 <td>编译报「app.json: not found」</td>
                 <td>导入时目录选错了层级</td>
-                <td>目录必须指向含 app.json 的那一层（很多框架是 miniprogram 子目录，选它而不是仓库根目录）</td>
+                <td>
+                  目录必须指向含 app.json 的那一层（很多框架是 miniprogram
+                  子目录，选它而不是仓库根目录）
+                </td>
               </tr>
               <tr>
                 <td>页面报「xxx is not defined」</td>
                 <td>js 里用了未注册的函数 / 变量</td>
-                <td>检查 Page() 里 methods 拼写；改动 app.json 后工具会重启编译，稍等即可</td>
+                <td>
+                  检查 Page() 里 methods 拼写；改动 app.json
+                  后工具会重启编译，稍等即可
+                </td>
               </tr>
               <tr>
                 <td>改代码后界面没变化</td>
                 <td>编译缓存</td>
-                <td>点工具栏「编译」按钮，或「清缓存」→「清除全部缓存」后重新编译</td>
+                <td>
+                  点工具栏「编译」按钮，或「清缓存」→「清除全部缓存」后重新编译
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1021,16 +1080,20 @@ miniprogram-app/
         <h3>先在模拟器跑通</h3>
         <p>
           写完代码点「编译」，模拟器会渲染出手机效果。模拟器≠真机，但它能快速暴露
-          JS 报错、样式错位。养成习惯：<strong>Console 有红点先看 Console</strong>，大部分问题
-          都在这里给了明确提示。
+          JS 报错、样式错位。养成习惯：<strong
+            >Console 有红点先看 Console</strong
+          >，大部分问题 都在这里给了明确提示。
         </p>
 
         <h3>真机预览（手机上跑起来）</h3>
         <ol class="steps">
           <li>工具栏点「预览」，会生成一个<strong>二维码</strong>。</li>
-          <li>用<strong>管理员或已绑定开发者的微信</strong>扫码，手机上即可打开小程序（开发版）。</li>
           <li>
-            二维码<strong>约 2 分钟失效</strong>，过期后点工具里的「刷新」重新生成即可，不用重编译。
+            用<strong>管理员或已绑定开发者的微信</strong>扫码，手机上即可打开小程序（开发版）。
+          </li>
+          <li>
+            二维码<strong>约 2 分钟失效</strong
+            >，过期后点工具里的「刷新」重新生成即可，不用重编译。
           </li>
           <li>
             手机上看的是<strong>开发版</strong>，右上角「···」→「开发调试」可打开调试开关——
@@ -1040,23 +1103,29 @@ miniprogram-app/
 
         <h3>本地后端怎么联调（最容易卡的一步）</h3>
         <p>
-          你的后端跑在电脑 <code>localhost:8000</code>，小程序直接请求它必然失败，因为：
+          你的后端跑在电脑
+          <code>localhost:8000</code>，小程序直接请求它必然失败，因为：
         </p>
         <ul>
           <li>
-            <strong>开发工具里</strong>：默认校验域名，<code>localhost</code> 不在白名单 →
-            在「详情」→「本地设置」勾选
-            <strong>「不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书」</strong>。
+            <strong>开发工具里</strong>：默认校验域名，<code>localhost</code>
+            不在白名单 → 在「详情」→「本地设置」勾选
+            <strong
+              >「不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS
+              证书」</strong
+            >。
           </li>
           <li>
-            <strong>真机上</strong>：手机里的「localhost」是手机自己，不是你的电脑 →
+            <strong>真机上</strong
+            >：手机里的「localhost」是手机自己，不是你的电脑 →
             把代码里的地址改成<strong>电脑的局域网 IP</strong>（如
-            <code>http://192.168.1.8:8000</code>），手机和电脑连<strong>同一个 Wi-Fi</strong>，
-            并确保后端监听 <code>0.0.0.0</code> 而不是只监听 127.0.0.1。
+            <code>http://192.168.1.8:8000</code>），手机和电脑连<strong
+              >同一个 Wi-Fi</strong
+            >， 并确保后端监听 <code>0.0.0.0</code> 而不是只监听 127.0.0.1。
           </li>
           <li>
-            基础库 2.4.0 起允许请求局域网 IP，但<strong>不能请求本机 IP</strong>；
-            手机开启「开发调试」后同样跳过域名校验。
+            基础库 2.4.0 起允许请求局域网 IP，但<strong>不能请求本机 IP</strong
+            >； 手机开启「开发调试」后同样跳过域名校验。
           </li>
         </ul>
 
@@ -1074,9 +1143,11 @@ miniprogram-app/
 
         <div class="callout danger">
           <div class="callout-title">🚫 开发版能通 ≠ 上线能通</div>
-          勾选「不校验域名」只是<strong>开发期临时手段</strong>。正式版（审核版 + 线上版）
-          <strong>永远强制校验</strong>：域名必须 HTTPS + ICP 备案 + 在后台白名单里。
-          很多人开发版调通了，一上线全挂，就是没搞懂这条。第 5~6 章专门解决它。
+          勾选「不校验域名」只是<strong>开发期临时手段</strong>。正式版（审核版
+          + 线上版）
+          <strong>永远强制校验</strong>：域名必须 HTTPS + ICP 备案 +
+          在后台白名单里。 很多人开发版调通了，一上线全挂，就是没搞懂这条。第
+          5~6 章专门解决它。
         </div>
 
         <h3>真机调试（看手机上的 Console）</h3>
@@ -1100,22 +1171,33 @@ miniprogram-app/
               <tr>
                 <td>预览二维码扫了没反应</td>
                 <td>二维码过期 / 微信非项目成员</td>
-                <td>点「刷新」重新生成；确认扫码微信是管理员或已添加的体验成员</td>
+                <td>
+                  点「刷新」重新生成；确认扫码微信是管理员或已添加的体验成员
+                </td>
               </tr>
               <tr>
                 <td>真机上请求报 fail（开发版）</td>
                 <td>域名校验或地址写错</td>
-                <td>手机端打开「开发调试」再试；确认用局域网 IP 且手机电脑同 Wi-Fi、后端监听 0.0.0.0</td>
+                <td>
+                  手机端打开「开发调试」再试；确认用局域网 IP 且手机电脑同
+                  Wi-Fi、后端监听 0.0.0.0
+                </td>
               </tr>
               <tr>
                 <td>请求报 url not in domain list</td>
                 <td>域名没配白名单 / 没跳过校验</td>
-                <td>开发期勾选「不校验合法域名」；正式环境去后台配置合法域名（见第 6 章）</td>
+                <td>
+                  开发期勾选「不校验合法域名」；正式环境去后台配置合法域名（见第
+                  6 章）
+                </td>
               </tr>
               <tr>
                 <td>模拟器正常、真机白屏或按钮无效</td>
                 <td>用了真机不兼容 API / 权限弹窗被拒</td>
-                <td>「真机调试」看真机 Console 报错；重点查 getUserProfile、getLocation 等授权流程</td>
+                <td>
+                  「真机调试」看真机 Console 报错；重点查
+                  getUserProfile、getLocation 等授权流程
+                </td>
               </tr>
               <tr>
                 <td>手机打开是旧页面</td>
@@ -1150,7 +1232,9 @@ miniprogram-app/
               </tr>
               <tr>
                 <td><strong>是否需要备案域名</strong></td>
-                <td><strong>需要</strong>（服务器在国内必须备案，域名加白名单）</td>
+                <td>
+                  <strong>需要</strong>（服务器在国内必须备案，域名加白名单）
+                </td>
                 <td><strong>不需要</strong>，用 wx.cloud 私有协议调用</td>
                 <td>不需要额外配置合法域名</td>
               </tr>
@@ -1185,17 +1269,21 @@ miniprogram-app/
         <h3>域名硬规则（背下来，能省 90% 的线上问题）</h3>
         <div class="callout danger">
           <div class="callout-title">🚫 六条铁律，违反一条线上请求就失败</div>
-          ① <strong>必须 HTTPS</strong>（socket 用 wss），证书须被系统信任、证书链完整、TLS 1.2 以上；
-          ② 域名<strong>必须 ICP 备案</strong>（服务器在境外也无法豁免——小程序侧强制校验）；
-          ③ <strong>不能用 IP 地址</strong>（局域网 IP 联调除外）、不能用 localhost；
-          ④ 后台配置的域名<strong>不能带端口</strong>，配置后请求 URL 也不能带任何端口（443 也不行）；
-          ⑤ 不支持<strong>泛域名 / 父域名</strong>，用哪个子域配哪个；
-          ⑥ 每类域名最多 200 个，业务域名（web-view）要单独配置并上传校验文件。
+          ① <strong>必须 HTTPS</strong>（socket 用
+          wss），证书须被系统信任、证书链完整、TLS 1.2 以上； ② 域名<strong
+            >必须 ICP 备案</strong
+          >（服务器在境外也无法豁免——小程序侧强制校验）； ③
+          <strong>不能用 IP 地址</strong>（局域网 IP 联调除外）、不能用
+          localhost； ④ 后台配置的域名<strong>不能带端口</strong>，配置后请求
+          URL 也不能带任何端口（443 也不行）； ⑤ 不支持<strong
+            >泛域名 / 父域名</strong
+          >，用哪个子域配哪个； ⑥ 每类域名最多 200
+          个，业务域名（web-view）要单独配置并上传校验文件。
         </div>
         <p>
           配置位置统一在小程序后台：「开发」→「开发管理」→「开发设置」→「服务器域名」，
-          四类各配各的：request（wx.request 接口）、uploadFile（wx.uploadFile 上传）、
-          downloadFile（下载）、socket（wss 长连接）。
+          四类各配各的：request（wx.request 接口）、uploadFile（wx.uploadFile
+          上传）、 downloadFile（下载）、socket（wss 长连接）。
         </p>
         <div class="callout tip">
           <div class="callout-title">💡 记忆口诀</div>
@@ -1208,16 +1296,19 @@ miniprogram-app/
       <section class="section" id="ch06">
         <h2><span class="num">06</span> 自建后端：从域名到小程序可调用</h2>
         <p>
-          本章目标：让小程序 <code>wx.request</code> 能稳定请求到你服务器上的接口。
-          假设你已有一台云服务器（Ubuntu）且后端已在 <code>localhost:8000</code> 跑通
+          本章目标：让小程序
+          <code>wx.request</code> 能稳定请求到你服务器上的接口。
+          假设你已有一台云服务器（Ubuntu）且后端已在
+          <code>localhost:8000</code> 跑通
           （本地怎么把项目部署到服务器，参考本系列
           <a href="learningServerEnv.html">云服务器环境配置实战</a>）。
         </p>
 
         <h3>第 1 步：域名解析到服务器</h3>
         <p>
-          在域名服务商控制台加一条 A 记录：主机记录 <code>api</code> → 记录值填服务器公网 IP。
-          等 10 分钟左右，用下面命令验证解析是否生效（<code>xxx</code> 是你的域名）：
+          在域名服务商控制台加一条 A 记录：主机记录 <code>api</code> →
+          记录值填服务器公网 IP。 等 10
+          分钟左右，用下面命令验证解析是否生效（<code>xxx</code> 是你的域名）：
         </p>
         <div class="code-wrap">
           <button class="copy-btn" onclick="copyCode(this)">复制</button>
@@ -1230,13 +1321,18 @@ miniprogram-app/
 
         <div class="callout warn">
           <div class="callout-title">⚠️ 域名备案别忘</div>
-          域名指向的服务器<strong>在中国大陆</strong>，就必须先完成<strong>域名 ICP 备案</strong>
+          域名指向的服务器<strong>在中国大陆</strong>，就必须先完成<strong
+            >域名 ICP 备案</strong
+          >
           （服务器商控制台提交，约 1~3 周），否则 80/443 端口访问会被拦截。
           小程序本身还要做「小程序备案」（第 8 章），两者是独立的，都要做。
         </div>
 
         <h3>第 2 步：申请免费 SSL 证书</h3>
-        <p>推荐用云厂商的免费证书（一年期，可续），或 Let's Encrypt（90 天自动续）。</p>
+        <p>
+          推荐用云厂商的免费证书（一年期，可续），或 Let's Encrypt（90
+          天自动续）。
+        </p>
         <div class="code-wrap">
           <button class="copy-btn" onclick="copyCode(this)">复制</button>
           <pre><code><span class="comment"># 以 Certbot (Let's Encrypt) 为例，Nginx 插件一条命令签发并自动配好</span>
@@ -1248,7 +1344,8 @@ miniprogram-app/
         </div>
         <p>
           企业/个人都可用云厂商（阿里云、腾讯云等）的「免费证书」：控制台申请 →
-          按提示做 DNS 验证 → 下载 Nginx 格式证书 → 手动上传服务器配置（见下一步）。
+          按提示做 DNS 验证 → 下载 Nginx 格式证书 →
+          手动上传服务器配置（见下一步）。
         </p>
 
         <h3>第 3 步：Nginx 配置 HTTPS 反向代理</h3>
@@ -1291,7 +1388,8 @@ miniprogram-app/
 
         <div class="callout warn">
           <div class="callout-title">⚠️ 别忘了安全组放行 443</div>
-          云厂商安全组（防火墙）要放行 <strong>443 入方向</strong>，否则外面根本连不上。
+          云厂商安全组（防火墙）要放行
+          <strong>443 入方向</strong>，否则外面根本连不上。
           这是「证书配好了还是连不上」的头号原因。
         </div>
 
@@ -1308,8 +1406,8 @@ miniprogram-app/
 
         <h3>第 5 步：后台配置 request 合法域名</h3>
         <p>
-          小程序后台 →「开发」→「开发管理」→「开发设置」→「服务器域名」→
-          request 合法域名，填入 <code>https://api.yourdomain.com</code>，保存。
+          小程序后台 →「开发」→「开发管理」→「开发设置」→「服务器域名」→ request
+          合法域名，填入 <code>https://api.yourdomain.com</code>，保存。
           保存后<strong>约 5~10 分钟生效</strong>，改完别急着测，先等一会儿。
         </p>
 
@@ -1334,7 +1432,9 @@ miniprogram-app/
         <h3>第 7 步：关掉跳过校验，完整回归</h3>
         <p>
           回到开发者工具「详情」→「本地设置」，<strong>取消勾选「不校验合法域名…」</strong>，
-          重新编译。此时请求仍成功，说明配置链路完整。再用<strong>真机关闭调试模式</strong>
+          重新编译。此时请求仍成功，说明配置链路完整。再用<strong
+            >真机关闭调试模式</strong
+          >
           验证一遍，这是最接近线上环境的测试。
         </p>
 
@@ -1352,32 +1452,48 @@ miniprogram-app/
               <tr>
                 <td>报 url not in domain list</td>
                 <td>域名没配白名单 / 配错子域 / 刚配未生效</td>
-                <td>确认配的是 request 合法域名且子域完全一致；等 10 分钟；确认没勾跳过校验时测试</td>
+                <td>
+                  确认配的是 request 合法域名且子域完全一致；等 10
+                  分钟；确认没勾跳过校验时测试
+                </td>
               </tr>
               <tr>
                 <td>请求带 443 端口失败</td>
                 <td>配置域名不带端口时，请求 URL 也不能带端口</td>
-                <td>把 <code>https://api.xxx.com:443</code> 改成 <code>https://api.xxx.com</code></td>
+                <td>
+                  把 <code>https://api.xxx.com:443</code> 改成
+                  <code>https://api.xxx.com</code>
+                </td>
               </tr>
               <tr>
                 <td>报 errno 600001 / 证书无效</td>
                 <td>证书链不完整或证书与域名不匹配</td>
-                <td>nginx 配置 fullchain.pem；用 openssl 验证证书域名；iOS 不支持自签名证书</td>
+                <td>
+                  nginx 配置 fullchain.pem；用 openssl 验证证书域名；iOS
+                  不支持自签名证书
+                </td>
               </tr>
               <tr>
                 <td>curl 通、小程序不通</td>
                 <td>curl 没走小程序的安全校验</td>
-                <td>重点查：域名是否备案、证书链、TLS 版本、是否带端口、白名单子域是否一致</td>
+                <td>
+                  重点查：域名是否备案、证书链、TLS
+                  版本、是否带端口、白名单子域是否一致
+                </td>
               </tr>
               <tr>
                 <td>服务器在国内却一直连不上</td>
                 <td>域名没备案被拦截 / 安全组没放行</td>
-                <td>确认域名 ICP 备案完成；安全组放行 443；curl -v 看卡在哪一步</td>
+                <td>
+                  确认域名 ICP 备案完成；安全组放行 443；curl -v 看卡在哪一步
+                </td>
               </tr>
               <tr>
                 <td>真机开调试能通、关掉不通</td>
                 <td>正式环境强制域名校验，你的配置仍有问题</td>
-                <td>按六条铁律逐条核对（HTTPS/备案/无IP/无端口/子域精确/TLS1.2+）</td>
+                <td>
+                  按六条铁律逐条核对（HTTPS/备案/无IP/无端口/子域精确/TLS1.2+）
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1388,7 +1504,8 @@ miniprogram-app/
         <h2><span class="num">07</span> 云开发部署实战</h2>
         <p>
           云开发是<strong>个人开发者上线最快</strong>的方案：不用买服务器、不用配域名、
-          不用管 HTTPS——它在微信私有协议里跑，天然合法。数据量不大时成本几乎可以忽略。
+          不用管
+          HTTPS——它在微信私有协议里跑，天然合法。数据量不大时成本几乎可以忽略。
         </p>
 
         <h3>第 1 步：开通并创建环境</h3>
@@ -1398,13 +1515,18 @@ miniprogram-app/
             新环境通常有免费额度，具体以控制台显示为准）。
           </li>
           <li>
-            创建<strong>环境</strong>，得到一个环境 ID（形如 <code>cloud1-xxxxxx</code>），
-            复制保存。<strong>环境 ID 写错是云开发第一坑</strong>。
+            创建<strong>环境</strong>，得到一个环境 ID（形如
+            <code>cloud1-xxxxxx</code>）， 复制保存。<strong
+              >环境 ID 写错是云开发第一坑</strong
+            >。
           </li>
         </ol>
 
         <h3>第 2 步：前端初始化云能力</h3>
-        <p>在 <code>app.js</code> 的 <code>App()</code> 里初始化（onLaunch 中执行一次）：</p>
+        <p>
+          在 <code>app.js</code> 的 <code>App()</code> 里初始化（onLaunch
+          中执行一次）：
+        </p>
         <div class="code-wrap">
           <button class="copy-btn" onclick="copyCode(this)">复制</button>
           <pre><code><span class="comment">// app.js</span>
@@ -1425,17 +1547,23 @@ miniprogram-app/
 
         <h3>第 3 步：创建并部署云函数</h3>
         <ol class="steps">
-          <li>项目根目录建 <code>cloudfunctions/login</code> 目录（工具模板可右键直接生成）。</li>
+          <li>
+            项目根目录建
+            <code>cloudfunctions/login</code> 目录（工具模板可右键直接生成）。
+          </li>
           <li>
             云函数里写逻辑：<code>index.js</code> 导出 <code>main</code>，用
             <code>cloud.getWXContext()</code> 拿用户 openid。
           </li>
           <li>
-            在 <code>login</code> 目录上<strong>右键 →「上传并部署：云端安装依赖」</strong>
+            在 <code>login</code> 目录上<strong
+              >右键 →「上传并部署：云端安装依赖」</strong
+            >
             （选这个而不是「上传所有文件」，避免缺 node_modules）。
           </li>
           <li>
-            控制台「云函数」里找到 login →「云端测试」，传 <code>{}</code> 应返回带 openid 的结果。
+            控制台「云函数」里找到 login →「云端测试」，传
+            <code>{}</code> 应返回带 openid 的结果。
           </li>
         </ol>
         <div class="code-wrap">
@@ -1468,7 +1596,8 @@ wx.cloud.callFunction({
         <h3>第 4 步：云数据库与云存储</h3>
         <p>
           控制台「数据库」创建集合（如 <code>todos</code>），权限按需设置——
-          <strong>「仅创建者可读写」</strong>最常用，千万别图省事设成「所有用户可读」泄露别人数据：
+          <strong>「仅创建者可读写」</strong
+          >最常用，千万别图省事设成「所有用户可读」泄露别人数据：
         </p>
         <div class="code-wrap">
           <button class="copy-btn" onclick="copyCode(this)">复制</button>
@@ -1488,8 +1617,9 @@ wx.cloud.uploadFile({
 
         <div class="callout tip">
           <div class="callout-title">💡 云开发免域名原理</div>
-          云函数调用走微信私有协议，不走 wx.request，所以<strong>不需要配 request 合法域名</strong>，
-          也不需要自己的备案域名。这是它「最快上线」的根本原因。
+          云函数调用走微信私有协议，不走 wx.request，所以<strong
+            >不需要配 request 合法域名</strong
+          >， 也不需要自己的备案域名。这是它「最快上线」的根本原因。
         </div>
 
         <h3>本章常见问题</h3>
@@ -1511,27 +1641,38 @@ wx.cloud.uploadFile({
               <tr>
                 <td>报 FunctionName 参数错误 / cloud function not found</td>
                 <td>云函数没部署成功，或名字拼错</td>
-                <td>确认控制台「云函数」列表里有该函数；右键「上传并部署」重新部署；检查 callFunction 的 name</td>
+                <td>
+                  确认控制台「云函数」列表里有该函数；右键「上传并部署」重新部署；检查
+                  callFunction 的 name
+                </td>
               </tr>
               <tr>
                 <td>调用云函数报超时 / timeout</td>
                 <td>默认超时短或函数里逻辑慢</td>
-                <td>控制台调大该函数超时时间（如 20s）；代码里避免同步等待长任务</td>
+                <td>
+                  控制台调大该函数超时时间（如 20s）；代码里避免同步等待长任务
+                </td>
               </tr>
               <tr>
                 <td>数据库读写报权限错误（-502005）</td>
                 <td>集合权限太严或没建集合</td>
-                <td>控制台确认集合存在并已设置权限；创建者写、所有用户读等按需选</td>
+                <td>
+                  控制台确认集合存在并已设置权限；创建者写、所有用户读等按需选
+                </td>
               </tr>
               <tr>
                 <td>云开发控制台打不开 / 白屏</td>
                 <td>工具与云开发控制台兼容问题</td>
-                <td>换 Chrome 浏览器访问控制台 URL；或更新开发者工具到最新稳定版</td>
+                <td>
+                  换 Chrome 浏览器访问控制台 URL；或更新开发者工具到最新稳定版
+                </td>
               </tr>
               <tr>
                 <td>免费额度用尽后接口报错</td>
                 <td>资源超限</td>
-                <td>控制台看用量与账单；可升级套餐，或优化云函数调用频次、数据库读写量</td>
+                <td>
+                  控制台看用量与账单；可升级套餐，或优化云函数调用频次、数据库读写量
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1540,32 +1681,40 @@ wx.cloud.uploadFile({
 
       <!-- ===== Chapter 8 ===== -->
       <section class="section" id="ch08">
-        <h2><span class="num">08</span> 上架前四件套：备案 / 隐私 / 类目 / 体验版</h2>
+        <h2>
+          <span class="num">08</span> 上架前四件套：备案 / 隐私 / 类目 / 体验版
+        </h2>
         <p>
           代码写完别急着上传——先把下面四件事办完，否则审核必被驳回，白等好几天。
         </p>
 
         <h3>① ICP 小程序备案（不备案无法发布）</h3>
         <p>
-          2023 年 9 月起，<strong>所有小程序（含个人）上架前必须完成小程序备案</strong>。
-          全程在微信后台操作、免费。个人备案材料只需身份证 + 手机号 + 应急联系人。
+          2023 年 9
+          月起，<strong>所有小程序（含个人）上架前必须完成小程序备案</strong>。
+          全程在微信后台操作、免费。个人备案材料只需身份证 + 手机号 +
+          应急联系人。
         </p>
         <ol class="steps">
           <li>
-            登录 <code>mp.weixin.qq.com</code> → 顶部「<strong>去备案</strong>」横幅，
-            或「设置」→「基本设置」→ 备案信息 →「去备案」。
+            登录 <code>mp.weixin.qq.com</code> →
+            顶部「<strong>去备案</strong>」横幅， 或「设置」→「基本设置」→
+            备案信息 →「去备案」。
           </li>
           <li>
-            填写主体信息（个人：姓名 / 身份证 / 手机号 / 应急联系人，应急联系人手机号不能与本人重复）
-            → 填写小程序信息（名称自动带出，服务内容描述写清楚干什么，50~200 字）。
+            填写主体信息（个人：姓名 / 身份证 / 手机号 /
+            应急联系人，应急联系人手机号不能与本人重复） →
+            填写小程序信息（名称自动带出，服务内容描述写清楚干什么，50~200
+            字）。
           </li>
           <li>
             提交后<strong>人脸核验</strong>：用手机微信扫页面二维码，按提示完成人脸识别。
           </li>
           <li>
-            等待审核：平台初审（1~2 个工作日）→ 收到 <strong>12381</strong> 短信后，
-            <strong>24 小时内</strong>登录 <code>beian.miit.gov.cn</code> 点短信核验
-            （超时自动驳回！）→ 管局审核（1~20 个工作日，通常 1~2 周）。
+            等待审核：平台初审（1~2 个工作日）→ 收到
+            <strong>12381</strong> 短信后， <strong>24 小时内</strong>登录
+            <code>beian.miit.gov.cn</code> 点短信核验 （超时自动驳回！）→
+            管局审核（1~20 个工作日，通常 1~2 周）。
           </li>
         </ol>
         <div class="table-wrap">
@@ -1610,7 +1759,8 @@ wx.cloud.uploadFile({
         <h3>② 用户隐私保护指引</h3>
         <p>
           小程序只要涉及收集用户信息（头像昵称、手机号、位置、相册、麦克风等），就必须在后台声明
-          <strong>《小程序用户隐私保护指引》</strong>，否则隐私接口调用会失败，审核也会被驳回。
+          <strong>《小程序用户隐私保护指引》</strong
+          >，否则隐私接口调用会失败，审核也会被驳回。
         </p>
         <ul>
           <li>
@@ -1621,8 +1771,11 @@ wx.cloud.uploadFile({
             声明要<strong>与你代码里实际调用的隐私接口一致</strong>：勾少了接口被禁，勾多了审核质疑。
           </li>
           <li>
-            2023 年 9 月 15 日后，隐私接口调用前需先弹<strong>隐私授权弹窗</strong>
-            （wx.requirePrivacyAuthorize / 组件触发），首次启动建议先引导用户同意再进主流程。
+            2023 年 9 月 15 日后，隐私接口调用前需先弹<strong
+              >隐私授权弹窗</strong
+            >
+            （wx.requirePrivacyAuthorize /
+            组件触发），首次启动建议先引导用户同意再进主流程。
           </li>
         </ul>
 
@@ -1662,14 +1815,19 @@ wx.cloud.uploadFile({
 
         <h3>④ 体验版真机回归</h3>
         <p>
-          开发者工具点「<strong>上传</strong>」（填版本号如 1.0.0 + 项目备注）→ 后台
-          「管理」→「版本管理」→ 开发版本里点「<strong>设为体验版</strong>」→
-          生成体验二维码 → 发给自己和体验成员扫码测试。
+          开发者工具点「<strong>上传</strong>」（填版本号如 1.0.0 + 项目备注）→
+          后台 「管理」→「版本管理」→
+          开发版本里点「<strong>设为体验版</strong>」→ 生成体验二维码 →
+          发给自己和体验成员扫码测试。
         </p>
         <div class="callout danger">
-          <div class="callout-title">🚫 提交审核前，务必用体验版做一次「无调试模式」回归</div>
-          ① 手机<strong>关闭「开发调试」</strong>；② 把首页到核心功能完整走一遍；
-          ③ 重点验证网络请求、登录授权、支付（如有）。线上 90% 的「白屏 / 请求失败」，
+          <div class="callout-title">
+            🚫 提交审核前，务必用体验版做一次「无调试模式」回归
+          </div>
+          ① 手机<strong>关闭「开发调试」</strong>；②
+          把首页到核心功能完整走一遍； ③
+          重点验证网络请求、登录授权、支付（如有）。线上 90% 的「白屏 /
+          请求失败」，
           都是因为只测了开发版（跳过了域名校验），体验版一测就现形。
         </div>
       </section>
@@ -1679,33 +1837,36 @@ wx.cloud.uploadFile({
 
         <h3>上传代码（开发者工具 → 微信服务器）</h3>
         <ol class="steps">
-          <li>
-            确认 AppID 是你自己的、右上角头像是你（管理员/开发者身份）。
-          </li>
+          <li>确认 AppID 是你自己的、右上角头像是你（管理员/开发者身份）。</li>
           <li>
             工具栏点「<strong>上传</strong>」→ 填<strong>版本号</strong>
-            （建议语义化：首次 1.0.0，小改 1.0.1，新功能 1.1.0）和<strong>项目备注</strong>
+            （建议语义化：首次 1.0.0，小改 1.0.1，新功能 1.1.0）和<strong
+              >项目备注</strong
+            >
             （本次改了什么，方便以后回溯）。
           </li>
           <li>
-            上传成功后，登录小程序后台 →「管理」→「版本管理」，在<strong>开发版本</strong>
+            上传成功后，登录小程序后台 →「管理」→「版本管理」，在<strong
+              >开发版本</strong
+            >
             列表能看到刚上传的版本。
           </li>
         </ol>
         <div class="callout tip">
           <div class="callout-title">💡 版本号规范建议</div>
-          主版本.次版本.修订号：<code>1.0.0</code> 首次发布；<code>1.0.x</code> 修 bug；
-          <code>1.x.0</code> 加功能。<strong>版本号只增不减</strong>，后台不能重复用已存在的版本号。
+          主版本.次版本.修订号：<code>1.0.0</code> 首次发布；<code>1.0.x</code>
+          修 bug；
+          <code>1.x.0</code>
+          加功能。<strong>版本号只增不减</strong>，后台不能重复用已存在的版本号。
         </div>
 
         <h3>提交审核</h3>
         <ol class="steps">
-          <li>
-            版本管理页，开发版本右侧点「<strong>提交审核</strong>」。
-          </li>
+          <li>版本管理页，开发版本右侧点「<strong>提交审核</strong>」。</li>
           <li>
             填写审核信息：<strong>功能页面</strong>（勾选需要审核的核心页面）、
-            <strong>测试账号</strong>（如果小程序需要登录，务必提供可用的测试账号密码并写清使用步骤，
+            <strong>测试账号</strong
+            >（如果小程序需要登录，务必提供可用的测试账号密码并写清使用步骤，
             否则审核员进不去，直接驳回）、阅读并同意《小程序用户隐私保护指引》。
           </li>
           <li>
@@ -1733,12 +1894,16 @@ wx.cloud.uploadFile({
               <tr>
                 <td>「类目与页面功能不符」</td>
                 <td>实际功能超出所选类目 / 主体</td>
-                <td>换与功能匹配且主体支持的类目；功能超主体权限的只能砍功能或换主体</td>
+                <td>
+                  换与功能匹配且主体支持的类目；功能超主体权限的只能砍功能或换主体
+                </td>
               </tr>
               <tr>
                 <td>「无法完整体验」/「需登录才能使用」</td>
                 <td>没提供测试账号，或功能流程走不通</td>
-                <td>提交审核时填测试账号 + 操作指引；保证核心流程无付费墙也能体验</td>
+                <td>
+                  提交审核时填测试账号 + 操作指引；保证核心流程无付费墙也能体验
+                </td>
               </tr>
               <tr>
                 <td>「涉及诱导分享」</td>
@@ -1768,14 +1933,17 @@ wx.cloud.uploadFile({
               <tr>
                 <td>「无法打开 / 白屏」</td>
                 <td>正式环境请求失败（域名/证书），或 JS 报错</td>
-                <td>体验版关闭调试模式回归；查 Console 与 Network；按第 6 章核对域名</td>
+                <td>
+                  体验版关闭调试模式回归；查 Console 与 Network；按第 6
+                  章核对域名
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
         <p>
-          被驳回不用慌：驳回通知里会写明原因和修改建议，改完重新上传 → 再提交审核即可。
-          同一版本反复驳回不影响账号。
+          被驳回不用慌：驳回通知里会写明原因和修改建议，改完重新上传 →
+          再提交审核即可。 同一版本反复驳回不影响账号。
         </p>
       </section>
 
@@ -1785,8 +1953,8 @@ wx.cloud.uploadFile({
 
         <h3>审核通过后发布</h3>
         <p>
-          审核通过状态为「审核通过」，此时<strong>还没上线</strong>。去版本管理 →
-          「审核版本」→ 点「<strong>发布</strong>」，选择发布方式：
+          审核通过状态为「审核通过」，此时<strong>还没上线</strong>。去版本管理
+          → 「审核版本」→ 点「<strong>发布</strong>」，选择发布方式：
         </p>
         <div class="table-wrap">
           <table>
@@ -1826,22 +1994,25 @@ wx.cloud.uploadFile({
         </div>
 
         <h3>线上出 bug 了：回滚优先于修 bug</h3>
-        <p>发布后发现严重问题，第一反应不是改代码，而是<strong>先止血</strong>：</p>
+        <p>
+          发布后发现严重问题，第一反应不是改代码，而是<strong>先止血</strong>：
+        </p>
         <ol class="steps">
           <li>
             版本管理 →「线上版本」→ 当前版本右侧「<strong>回退</strong>」，
             可一键回到<strong>上一个线上版本</strong>（回退需谨慎确认，会立即全量生效）。
           </li>
           <li>
-            止血后，在本地修 bug → 上传新版本（版本号递增）→ 提交审核 → 通过后重新发布。
-            修复期间旧版本（回退后的版本）始终在服务用户。
+            止血后，在本地修 bug → 上传新版本（版本号递增）→ 提交审核 →
+            通过后重新发布。 修复期间旧版本（回退后的版本）始终在服务用户。
           </li>
         </ol>
         <div class="callout danger">
           <div class="callout-title">🚫 三个发布禁忌</div>
-          ① 不要在<strong>深夜 / 节假日</strong>发布大版本（出问题没人及时响应）；
-          ② 不要用<strong>同一个版本号</strong>重复上传（后台不允许且易混淆）；
-          ③ 不要跳过体验版直接全量——至少自己扫码把主流程走一遍。
+          ① 不要在<strong>深夜 / 节假日</strong
+          >发布大版本（出问题没人及时响应）； ②
+          不要用<strong>同一个版本号</strong>重复上传（后台不允许且易混淆）； ③
+          不要跳过体验版直接全量——至少自己扫码把主流程走一遍。
         </div>
 
         <h3>暂停服务 / 下架</h3>
@@ -1864,7 +2035,9 @@ wx.cloud.uploadFile({
               <tr>
                 <td>审核通过但找不到「发布」按钮</td>
                 <td>入口在版本管理的「审核版本」页</td>
-                <td>「管理」→「版本管理」→ 上方切到「审核版本」标签 → 点发布</td>
+                <td>
+                  「管理」→「版本管理」→ 上方切到「审核版本」标签 → 点发布
+                </td>
               </tr>
               <tr>
                 <td>上传时提示版本号已存在</td>
@@ -1879,12 +2052,16 @@ wx.cloud.uploadFile({
               <tr>
                 <td>回退后用户还是旧版本</td>
                 <td>微信客户端有本地缓存</td>
-                <td>回退是服务端生效，客户端会自动拉新；个别用户可让其在「···」里手动刷新版本</td>
+                <td>
+                  回退是服务端生效，客户端会自动拉新；个别用户可让其在「···」里手动刷新版本
+                </td>
               </tr>
               <tr>
                 <td>新版本审核期间老版本挂了</td>
                 <td>老版本本身有 bug，与新版本无关</td>
-                <td>回退到更早的稳定线上版本；新版本走加急审核（企业认证可用）</td>
+                <td>
+                  回退到更早的稳定线上版本；新版本走加急审核（企业认证可用）
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1908,7 +2085,9 @@ wx.cloud.uploadFile({
               <tr>
                 <td><strong>小程序后台数据</strong></td>
                 <td>后台左侧「统计」</td>
-                <td>访问人数、打开次数、来源渠道、页面停留——判断功能受不受欢迎</td>
+                <td>
+                  访问人数、打开次数、来源渠道、页面停留——判断功能受不受欢迎
+                </td>
               </tr>
               <tr>
                 <td><strong>错误监控</strong></td>
@@ -1918,7 +2097,9 @@ wx.cloud.uploadFile({
               <tr>
                 <td><strong>告警推送</strong></td>
                 <td>关注「微信小程序助手」公众号并绑定账号</td>
-                <td>版本发布、违规提醒、接口异常会推送到微信，不用天天盯后台</td>
+                <td>
+                  版本发布、违规提醒、接口异常会推送到微信，不用天天盯后台
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1927,16 +2108,18 @@ wx.cloud.uploadFile({
         <h3>自己代码里的监控三板斧</h3>
         <ul>
           <li>
-            <strong>全局捕获 JS 错误</strong>：在 app.js 里监听 <code>wx.onError</code>，
+            <strong>全局捕获 JS 错误</strong>：在 app.js 里监听
+            <code>wx.onError</code>，
             把错误上报到自己的后端或云函数，形成错误日志库。
           </li>
           <li>
-            <strong>接口耗时埋点</strong>：封装 wx.request 时统一记录 url / statusCode / 耗时，
-            慢接口会在数据里自己浮出来。
+            <strong>接口耗时埋点</strong>：封装 wx.request 时统一记录 url /
+            statusCode / 耗时， 慢接口会在数据里自己浮出来。
           </li>
           <li>
-            <strong>后端日志 + 告警</strong>：自建后端看 Nginx access/error 日志与业务日志；
-            云开发在控制台「云函数」→ 日志里查调用链。云开发还支持配置
+            <strong>后端日志 + 告警</strong>：自建后端看 Nginx access/error
+            日志与业务日志； 云开发在控制台「云函数」→
+            日志里查调用链。云开发还支持配置
             <strong>告警策略</strong>（如调用失败率超阈值触发）。
           </li>
         </ul>
@@ -1957,17 +2140,34 @@ wx.cloud.uploadFile({
         <h3>迭代发布 SOP（每周发版不慌）</h3>
         <ol class="steps">
           <li><strong>改代码</strong>：本地跑通，Console 无报错。</li>
-          <li><strong>体验版自测</strong>：上传 → 设体验版 → 关闭调试模式真机回归主流程。</li>
-          <li><strong>提交审核</strong>：填好功能页面与测试账号；大版本走灰度发布。</li>
-          <li><strong>通过后择时发布</strong>：避开高峰与深夜，灰度先放 5%~10% 观察半小时。</li>
-          <li><strong>盯数据</strong>：发布后 1 小时内看错误率与用户反馈，异常立即回滚。</li>
-          <li><strong>记录版本</strong>：版本号 + 备注写清楚改动，方便回溯（同第 9 章规范）。</li>
+          <li>
+            <strong>体验版自测</strong>：上传 → 设体验版 →
+            关闭调试模式真机回归主流程。
+          </li>
+          <li>
+            <strong>提交审核</strong
+            >：填好功能页面与测试账号；大版本走灰度发布。
+          </li>
+          <li>
+            <strong>通过后择时发布</strong>：避开高峰与深夜，灰度先放 5%~10%
+            观察半小时。
+          </li>
+          <li>
+            <strong>盯数据</strong>：发布后 1
+            小时内看错误率与用户反馈，异常立即回滚。
+          </li>
+          <li>
+            <strong>记录版本</strong>：版本号 + 备注写清楚改动，方便回溯（同第 9
+            章规范）。
+          </li>
         </ol>
         <div class="callout tip">
           <div class="callout-title">💡 别忘了小程序账号的安全</div>
-          ① AppSecret 只能存在<strong>你自己的服务器</strong>里，绝不能写进前端代码或仓库；
-          ② 后台「开发设置」可为 access_token 接口配 <strong>IP 白名单</strong>；
-          ③ 团队成员离职及时在「成员管理」里移除；④ 定期重置 Secret。
+          ① AppSecret
+          只能存在<strong>你自己的服务器</strong>里，绝不能写进前端代码或仓库；
+          ② 后台「开发设置」可为 access_token 接口配
+          <strong>IP 白名单</strong>； ③ 团队成员离职及时在「成员管理」里移除；④
+          定期重置 Secret。
         </div>
       </section>
 
@@ -2029,7 +2229,9 @@ wx.cloud.uploadFile({
               <tr>
                 <td>getUserProfile / getLocation 调用失败</td>
                 <td>隐私指引未声明或未弹窗授权</td>
-                <td>后台配《用户隐私保护指引》；先 wx.requirePrivacyAuthorize</td>
+                <td>
+                  后台配《用户隐私保护指引》；先 wx.requirePrivacyAuthorize
+                </td>
               </tr>
               <tr>
                 <td>真机扫码打开白屏</td>
@@ -2062,36 +2264,55 @@ wx.cloud.uploadFile({
 
         <h3>首次上线：8 步最终验证清单</h3>
         <ol class="steps">
-          <li><strong>备案完成</strong>：后台备案状态「已备案」，展示备案号。</li>
-          <li><strong>后端可达</strong>：curl 通 https，小程序正式域名在白名单。</li>
+          <li>
+            <strong>备案完成</strong>：后台备案状态「已备案」，展示备案号。
+          </li>
+          <li>
+            <strong>后端可达</strong>：curl 通 https，小程序正式域名在白名单。
+          </li>
           <li><strong>隐私指引已配置</strong>，首次启动弹窗授权正常。</li>
-          <li><strong>体验版关调试模式</strong>：首页打开、接口返回正常、无红屏报错。</li>
-          <li><strong>核心链路完整</strong>：登录/注册、列表、下单（如有支付）、分享逐项走通。</li>
+          <li>
+            <strong>体验版关调试模式</strong
+            >：首页打开、接口返回正常、无红屏报错。
+          </li>
+          <li>
+            <strong>核心链路完整</strong
+            >：登录/注册、列表、下单（如有支付）、分享逐项走通。
+          </li>
           <li><strong>提审信息齐全</strong>：功能页面已勾选，测试账号已填。</li>
-          <li><strong>发布后 1 小时盯数据</strong>：错误率无异常、核心接口失败率为 0。</li>
-          <li><strong>告警通道就绪</strong>：已关注「微信小程序助手」，后端/云开发告警已配。</li>
+          <li>
+            <strong>发布后 1 小时盯数据</strong>：错误率无异常、核心接口失败率为
+            0。
+          </li>
+          <li>
+            <strong>告警通道就绪</strong
+            >：已关注「微信小程序助手」，后端/云开发告警已配。
+          </li>
         </ol>
 
         <h3>十句口诀总结</h3>
         <div class="callout tip">
           <div class="callout-title">📝 部署全流程口诀</div>
-          <p>① 先注册后备案，备案最久别偷懒；<br />
-          ② AppID 是身份证，复制保存记心间；<br />
-          ③ 模拟器只是参考，真机回归才算数；<br />
-          ④ 跳过校验是开发，正式环境必校验；<br />
-          ⑤ HTTPS 加备案，IP 端口泛域名都不沾；<br />
-          ⑥ 没服务器走云开发，免域名免运维最快上线；<br />
-          ⑦ 隐私指引先声明，弹窗授权要先行；<br />
-          ⑧ 测试账号给审核员，功能走通才过审；<br />
-          ⑨ 版本号只增不减，线上出 bug 先回滚；<br />
-          ⑩ 发布之后盯数据，告警在手心不慌。</p>
+          <p>
+            ① 先注册后备案，备案最久别偷懒；<br />
+            ② AppID 是身份证，复制保存记心间；<br />
+            ③ 模拟器只是参考，真机回归才算数；<br />
+            ④ 跳过校验是开发，正式环境必校验；<br />
+            ⑤ HTTPS 加备案，IP 端口泛域名都不沾；<br />
+            ⑥ 没服务器走云开发，免域名免运维最快上线；<br />
+            ⑦ 隐私指引先声明，弹窗授权要先行；<br />
+            ⑧ 测试账号给审核员，功能走通才过审；<br />
+            ⑨ 版本号只增不减，线上出 bug 先回滚；<br />
+            ⑩ 发布之后盯数据，告警在手心不慌。
+          </p>
         </div>
 
         <h3>相关阅读</h3>
         <ul>
           <li>
             后端跑在云服务器上？先看
-            <a href="learningServerEnv.html">云服务器环境配置实战</a>（Python / Node / Java / Go 环境搭建）
+            <a href="learningServerEnv.html">云服务器环境配置实战</a>（Python /
+            Node / Java / Go 环境搭建）
           </li>
           <li>
             用 Docker 部署后端？看

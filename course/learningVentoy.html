@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/jpeg" href="../images/avatar.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redis 实战指南 · Zinx的技术手记</title>
+    <title>Redis 实战指南 · Zinx的博客</title>
     <style>
       :root {
         --bg: #08111f;
@@ -575,7 +575,6 @@
     <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
     <div class="overlay" id="overlay"></div>
 
-
     <nav class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <h2><span class="logo-icon">💽</span> Ventoy 重装系统实战</h2>
@@ -608,8 +607,9 @@
         <h1>Ventoy 重装系统实战指南</h1>
         <p>
           一份 Ventoy 从 0 到 1 的完整操作手册：认识原理、安装部署、镜像管理、
-          BIOS/UEFI 启动、Windows 与 Linux 重装全流程，再到 Secure Boot、插件配置、
-          多系统维护盘等高阶玩法。一步一步跟着做，就能用 Ventoy 重装任何系统。
+          BIOS/UEFI 启动、Windows 与 Linux 重装全流程，再到 Secure
+          Boot、插件配置、 多系统维护盘等高阶玩法。一步一步跟着做，就能用 Ventoy
+          重装任何系统。
         </p>
         <div class="hero-meta">
           <span><span class="dot"></span>12 个章节</span>
@@ -618,15 +618,22 @@
           <span><span class="dot"></span>支持 Secure Boot</span>
         </div>
       </header>
-<section class="section" id="ch01">
+      <section class="section" id="ch01">
         <h2>1. Ventoy 是什么 & 为什么选它</h2>
         <p>
-          Ventoy 是国内开发者 longpanda 开源的免费启动 U 盘制作工具。它的核心理念只有一句话：<strong>一次安装，反复使用</strong>。
-          装 Ventoy 到 U 盘之后，你只需要把 ISO/WIM/IMG/VHD 等镜像文件直接 <code>复制粘贴</code> 进 U 盘，开机时就能在 Ventoy 菜单里选要启动哪个。
+          Ventoy 是国内开发者 longpanda 开源的免费启动 U
+          盘制作工具。它的核心理念只有一句话：<strong>一次安装，反复使用</strong>。
+          装 Ventoy 到 U 盘之后，你只需要把 ISO/WIM/IMG/VHD 等镜像文件直接
+          <code>复制粘贴</code> 进 U 盘，开机时就能在 Ventoy
+          菜单里选要启动哪个。
         </p>
         <div class="callout tip">
           <div class="callout-title">🟢 一句话理解 Ventoy</div>
-          <p>把 Ventoy 想象成 <strong>U 盘版的「启动菜单管理器」</strong>：U 盘装一次 Ventoy，以后想换系统镜像就像换电影一样简单——拷进去就能用，删掉就消失。</p>
+          <p>
+            把 Ventoy 想象成 <strong>U 盘版的「启动菜单管理器」</strong>：U
+            盘装一次
+            Ventoy，以后想换系统镜像就像换电影一样简单——拷进去就能用，删掉就消失。
+          </p>
         </div>
         <h3>1.1 Ventoy 的三大优势</h3>
         <div class="feature-grid">
@@ -648,7 +655,9 @@
             <span class="feature-icon">🌐</span>
             <div>
               <strong>支持 1300+ 镜像</strong>
-              <p>Windows 全系、Linux 各发行版、WinPE、PE 救援盘、ChromeOS 等。</p>
+              <p>
+                Windows 全系、Linux 各发行版、WinPE、PE 救援盘、ChromeOS 等。
+              </p>
             </div>
           </div>
         </div>
@@ -656,35 +665,91 @@
         <h3>1.2 适用场景速查</h3>
         <table>
           <thead>
-            <tr><th>场景</th><th>Ventoy 优势</th></tr>
+            <tr>
+              <th>场景</th>
+              <th>Ventoy 优势</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>个人电脑重装 Win10/Win11</td><td>免工具，拷 ISO 进去就能装</td></tr>
-            <tr><td>电脑坏了进 PE 救数据</td><td>PE 镜像拷进去就是救援盘</td></tr>
-            <tr><td>多版本 Linux 装机</td><td>一个 U 盘放 Ubuntu/CentOS/Debian</td></tr>
-            <tr><td>运维批量装机</td><td>同一 U 盘 + 自动安装配置文件，可重复刷机</td></tr>
-            <tr><td>开发测试多系统</td><td>随时切换系统镜像，不破坏 U 盘数据</td></tr>
+            <tr>
+              <td>个人电脑重装 Win10/Win11</td>
+              <td>免工具，拷 ISO 进去就能装</td>
+            </tr>
+            <tr>
+              <td>电脑坏了进 PE 救数据</td>
+              <td>PE 镜像拷进去就是救援盘</td>
+            </tr>
+            <tr>
+              <td>多版本 Linux 装机</td>
+              <td>一个 U 盘放 Ubuntu/CentOS/Debian</td>
+            </tr>
+            <tr>
+              <td>运维批量装机</td>
+              <td>同一 U 盘 + 自动安装配置文件，可重复刷机</td>
+            </tr>
+            <tr>
+              <td>开发测试多系统</td>
+              <td>随时切换系统镜像，不破坏 U 盘数据</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout warn">
           <div class="callout-title">⚠️ 什么时候 Ventoy 不合适</div>
-          <p>如果你要装的是<strong>只有单一镜像的小作坊设备</strong>（比如某些品牌机的隐藏恢复分区），或者需要<strong>写进 UEFI 隐藏分区</strong>的特殊场景，Ventoy 不一定适合，仍推荐用官方工具。</p>
+          <p>
+            如果你要装的是<strong>只有单一镜像的小作坊设备</strong>（比如某些品牌机的隐藏恢复分区），或者需要<strong
+              >写进 UEFI 隐藏分区</strong
+            >的特殊场景，Ventoy 不一定适合，仍推荐用官方工具。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch02">
         <h2>2. 与传统 U 盘工具对比</h2>
-        <p>在 Ventoy 出现之前，做启动盘的工具可以分成「烧录型」和「PE 工具型」两类。Ventoy 属于<strong>新一代「引导器型」</strong>，思路完全不同。</p>
+        <p>
+          在 Ventoy 出现之前，做启动盘的工具可以分成「烧录型」和「PE
+          工具型」两类。Ventoy
+          属于<strong>新一代「引导器型」</strong>，思路完全不同。
+        </p>
         <table>
           <thead>
-            <tr><th>工具</th><th>类型</th><th>使用方式</th><th>主要缺点</th></tr>
+            <tr>
+              <th>工具</th>
+              <th>类型</th>
+              <th>使用方式</th>
+              <th>主要缺点</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Rufus</td><td>烧录型</td><td>每次都要选镜像 → 烧录 → 格式化</td><td>一盘只能装一个镜像，换镜像就得重来</td></tr>
-            <tr><td>UltraISO</td><td>烧录型</td><td>打开 ISO → 写入 U 盘</td><td>同上，且对 UEFI 支持差</td></tr>
-            <tr><td>老毛桃 / 大白菜</td><td>PE 工具型</td><td>一次性写好 PE，镜像拷进去</td><td>大量捆绑推广，主要面向 WinPE</td></tr>
-            <tr><td>微 PE 工具箱</td><td>PE 工具型</td><td>同上，但相对干净</td><td>只能做 WinPE，多系统支持弱</td></tr>
-            <tr><td><strong>Ventoy</strong></td><td><strong>引导器型</strong></td><td><strong>装一次引导器，镜像像文件一样管理</strong></td><td><strong>几乎无缺点，开源免费</strong></td></tr>
+            <tr>
+              <td>Rufus</td>
+              <td>烧录型</td>
+              <td>每次都要选镜像 → 烧录 → 格式化</td>
+              <td>一盘只能装一个镜像，换镜像就得重来</td>
+            </tr>
+            <tr>
+              <td>UltraISO</td>
+              <td>烧录型</td>
+              <td>打开 ISO → 写入 U 盘</td>
+              <td>同上，且对 UEFI 支持差</td>
+            </tr>
+            <tr>
+              <td>老毛桃 / 大白菜</td>
+              <td>PE 工具型</td>
+              <td>一次性写好 PE，镜像拷进去</td>
+              <td>大量捆绑推广，主要面向 WinPE</td>
+            </tr>
+            <tr>
+              <td>微 PE 工具箱</td>
+              <td>PE 工具型</td>
+              <td>同上，但相对干净</td>
+              <td>只能做 WinPE，多系统支持弱</td>
+            </tr>
+            <tr>
+              <td><strong>Ventoy</strong></td>
+              <td><strong>引导器型</strong></td>
+              <td><strong>装一次引导器，镜像像文件一样管理</strong></td>
+              <td><strong>几乎无缺点，开源免费</strong></td>
+            </tr>
           </tbody>
         </table>
         <h3>2.1 Ventoy 装完 U 盘长什么样</h3>
@@ -697,90 +762,216 @@
 └───────────────────────────────┴──────────────────────┘</code></pre>
         <div class="callout tip">
           <div class="callout-title">🟢 重要认知</div>
-          <p>Ventoy 安装到 U 盘后，<strong>U 盘里看到的那个分区就是数据分区</strong>，ISO 文件都放这里面；引导分区是隐藏的，<strong>不要动它、不要格式化它、不要用 Diskpart 删它</strong>。</p>
+          <p>
+            Ventoy 安装到 U 盘后，<strong
+              >U 盘里看到的那个分区就是数据分区</strong
+            >，ISO 文件都放这里面；引导分区是隐藏的，<strong
+              >不要动它、不要格式化它、不要用 Diskpart 删它</strong
+            >。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch03">
         <h2>3. 准备工作 & 选对 U 盘</h2>
-        <p>这一步做错，后面所有步骤都白搭。Ventoy 安装过程会<strong>格式化整个 U 盘</strong>，所以先确认硬件和数据都准备好了。</p>
+        <p>
+          这一步做错，后面所有步骤都白搭。Ventoy 安装过程会<strong
+            >格式化整个 U 盘</strong
+          >，所以先确认硬件和数据都准备好了。
+        </p>
         <h3>3.1 必备清单</h3>
         <ol class="steps">
-          <li><strong>一台正常工作的电脑</strong>（Win10/Win11/Linux/macOS 都行）。</li>
-          <li><strong>一个空 U 盘</strong>，建议 <strong>USB 3.0 接口 + 16GB 以上</strong>，质量靠谱的品牌 U 盘（金士顿/闪迪/三星/海康威视等）。</li>
-          <li><strong>下载 Ventoy 安装包</strong>：去 <strong>ventoy.net</strong> 或 GitHub Releases 下载对应系统的最新版本（2026-09 最新为 <strong>Ventoy 1.1.17</strong>，2026-07-24 发布）。</li>
-          <li><strong>下载系统镜像</strong>：Win10/Win11 ISO、Ubuntu ISO 或 WinPE 镜像（第六章会讲）。</li>
+          <li>
+            <strong>一台正常工作的电脑</strong>（Win10/Win11/Linux/macOS
+            都行）。
+          </li>
+          <li>
+            <strong>一个空 U 盘</strong>，建议
+            <strong>USB 3.0 接口 + 16GB 以上</strong>，质量靠谱的品牌 U
+            盘（金士顿/闪迪/三星/海康威视等）。
+          </li>
+          <li>
+            <strong>下载 Ventoy 安装包</strong>：去
+            <strong>ventoy.net</strong> 或 GitHub Releases
+            下载对应系统的最新版本（2026-09 最新为
+            <strong>Ventoy 1.1.17</strong>，2026-07-24 发布）。
+          </li>
+          <li>
+            <strong>下载系统镜像</strong>：Win10/Win11 ISO、Ubuntu ISO 或 WinPE
+            镜像（第六章会讲）。
+          </li>
         </ol>
         <div class="callout danger">
           <div class="callout-title">🔴 备份！备份！备份！</div>
-          <p>Ventoy 安装会<strong>清空 U 盘上的全部数据</strong>，格式化后数据基本无法恢复。<strong>U 盘里如果有重要文件，必须先备份到电脑或另一块硬盘</strong>，这一步不能省。</p>
+          <p>
+            Ventoy 安装会<strong>清空 U 盘上的全部数据</strong
+            >，格式化后数据基本无法恢复。<strong
+              >U 盘里如果有重要文件，必须先备份到电脑或另一块硬盘</strong
+            >，这一步不能省。
+          </p>
         </div>
         <h3>3.2 U 盘选择建议</h3>
         <table>
           <thead>
-            <tr><th>使用场景</th><th>推荐容量</th><th>说明</th></tr>
+            <tr>
+              <th>使用场景</th>
+              <th>推荐容量</th>
+              <th>说明</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>只装 Win11 一个镜像</td><td>8GB 起</td><td>Win11 ISO 约 6GB，留点富余</td></tr>
-            <tr><td>Win10 + Win11 + 一个 Linux</td><td>32GB</td><td>三个镜像加起来 15GB 左右</td></tr>
-            <tr><td>多系统维护盘（Win + Linux + PE + 工具）</td><td>64GB+</td><td>装机 + 救援两用</td></tr>
-            <tr><td>USB 2.0 U 盘</td><td>不建议</td><td>启动慢、读盘卡顿，会拉低 Ventoy 体验</td></tr>
-            <tr><td>杂牌扩容盘</td><td>不建议</td><td>质量不稳，启动容易翻车</td></tr>
+            <tr>
+              <td>只装 Win11 一个镜像</td>
+              <td>8GB 起</td>
+              <td>Win11 ISO 约 6GB，留点富余</td>
+            </tr>
+            <tr>
+              <td>Win10 + Win11 + 一个 Linux</td>
+              <td>32GB</td>
+              <td>三个镜像加起来 15GB 左右</td>
+            </tr>
+            <tr>
+              <td>多系统维护盘（Win + Linux + PE + 工具）</td>
+              <td>64GB+</td>
+              <td>装机 + 救援两用</td>
+            </tr>
+            <tr>
+              <td>USB 2.0 U 盘</td>
+              <td>不建议</td>
+              <td>启动慢、读盘卡顿，会拉低 Ventoy 体验</td>
+            </tr>
+            <tr>
+              <td>杂牌扩容盘</td>
+              <td>不建议</td>
+              <td>质量不稳，启动容易翻车</td>
+            </tr>
           </tbody>
         </table>
         <h3>3.3 Ventoy 下载渠道</h3>
         <ol class="steps">
-          <li>打开浏览器，访问 <strong>ventoy.net</strong>（官网，已自动跳转 GitHub Releases）。</li>
-          <li>选择最新版本，下载对应系统的安装包：
+          <li>
+            打开浏览器，访问 <strong>ventoy.net</strong>（官网，已自动跳转
+            GitHub Releases）。
+          </li>
+          <li>
+            选择最新版本，下载对应系统的安装包：
             <ul>
               <li>Windows 用户：<code>ventoy-1.1.17-windows.zip</code></li>
               <li>Linux 用户：<code>ventoy-1.1.17-linux.tar.gz</code></li>
               <li>macOS 用户：<code>ventoy-1.1.17-mac.tar.gz</code></li>
             </ul>
           </li>
-          <li>解压到任意目录（如 <code>D:\Tools\Ventoy</code>），解压后看到 <code>Ventoy2Disk.exe</code>（Windows）或 <code>ventoy_install.sh</code>（Linux）就算成功。</li>
+          <li>
+            解压到任意目录（如 <code>D:\Tools\Ventoy</code>），解压后看到
+            <code>Ventoy2Disk.exe</code>（Windows）或
+            <code>ventoy_install.sh</code>（Linux）就算成功。
+          </li>
         </ol>
         <div class="callout tip">
           <div class="callout-title">🟢 下载避坑</div>
-          <p>网络上搜索 Ventoy 经常会出现各种「绿色版」「破解版」捆绑软件。<strong>务必只从 ventoy.net 或 github.com/ventoy/Ventoy 下载官方原版</strong>，不要下第三方修改版。</p>
+          <p>
+            网络上搜索 Ventoy
+            经常会出现各种「绿色版」「破解版」捆绑软件。<strong
+              >务必只从 ventoy.net 或 github.com/ventoy/Ventoy
+              下载官方原版</strong
+            >，不要下第三方修改版。
+          </p>
         </div>
-      </section><section class="section" id="ch04">
+      </section>
+      <section class="section" id="ch04">
         <h2>4. 安装 Ventoy 到 U 盘</h2>
-        <p>这是整个流程的<strong>核心一步</strong>。本章以 Windows 为例详细讲解，Linux 和 macOS 操作几乎相同。</p>
+        <p>
+          这是整个流程的<strong>核心一步</strong>。本章以 Windows
+          为例详细讲解，Linux 和 macOS 操作几乎相同。
+        </p>
         <h3>4.1 Windows 安装步骤</h3>
         <ol class="steps">
           <li>插入 U 盘，等待系统识别。</li>
-          <li>打开解压后的 Ventoy 文件夹，<strong>右键</strong> <code>Ventoy2Disk.exe</code> → <strong>以管理员身份运行</strong>。</li>
-          <li>在 Ventoy2Disk 主界面，<strong>设备下拉框</strong>里选中你的 U 盘（看容量、盘符确认）。</li>
-          <li>点击左下角 <strong>「选项」</strong>，确认几个关键设置（4.2 节会展开）：
+          <li>
+            打开解压后的 Ventoy 文件夹，<strong>右键</strong>
+            <code>Ventoy2Disk.exe</code> → <strong>以管理员身份运行</strong>。
+          </li>
+          <li>
+            在 Ventoy2Disk 主界面，<strong>设备下拉框</strong>里选中你的 U
+            盘（看容量、盘符确认）。
+          </li>
+          <li>
+            点击左下角 <strong>「选项」</strong>，确认几个关键设置（4.2
+            节会展开）：
             <ul>
-              <li>分区表类型：<strong>MBR</strong>（兼容老电脑） / <strong>GPT</strong>（新 UEFI）</li>
+              <li>
+                分区表类型：<strong>MBR</strong>（兼容老电脑） /
+                <strong>GPT</strong>（新 UEFI）
+              </li>
               <li>数据分区文件系统：<strong>exFAT</strong>（默认，推荐）</li>
               <li>Secure Boot Support：<strong>勾选</strong>（默认）</li>
             </ul>
           </li>
-          <li>点击 <strong>「安装」</strong> 按钮，弹出确认窗口（会明确告知「设备将被格式化，数据会丢失」），<strong>再次确认盘符正确后点确定</strong>。</li>
-          <li>等待进度条跑完，出现「安装成功」提示后关闭窗口，整个过程通常只要 1-2 分钟。</li>
+          <li>
+            点击
+            <strong>「安装」</strong>
+            按钮，弹出确认窗口（会明确告知「设备将被格式化，数据会丢失」），<strong>再次确认盘符正确后点确定</strong>。
+          </li>
+          <li>
+            等待进度条跑完，出现「安装成功」提示后关闭窗口，整个过程通常只要 1-2
+            分钟。
+          </li>
         </ol>
         <div class="callout danger">
           <div class="callout-title">🔴 选盘红线和救命口诀</div>
-          <p>这是整个 Ventoy 流程<strong>最危险的环节</strong>：选错盘符点安装，会把电脑硬盘的分区表和数据全毁了。必须遵守三条铁律：</p>
+          <p>
+            这是整个 Ventoy
+            流程<strong>最危险的环节</strong>：选错盘符点安装，会把电脑硬盘的分区表和数据全毁了。必须遵守三条铁律：
+          </p>
           <ul>
-            <li>❌ 不要勾选「<strong>Show All Devices</strong>」（会暴露电脑内置硬盘）</li>
+            <li>
+              ❌ 不要勾选「<strong>Show All Devices</strong
+              >」（会暴露电脑内置硬盘）
+            </li>
             <li>✅ <strong>只插一个 U 盘再操作</strong>，避免误选</li>
-            <li>✅ 按「<strong>容量 + 型号 + 拔出再看</strong>」三步确认：选中后看容量是不是 U 盘大小、拔出 U 盘看下拉框是不是空了</li>
+            <li>
+              ✅ 按「<strong>容量 + 型号 + 拔出再看</strong
+              >」三步确认：选中后看容量是不是 U 盘大小、拔出 U
+              盘看下拉框是不是空了
+            </li>
           </ul>
         </div>
         <h3>4.2 关键选项详解</h3>
         <table>
           <thead>
-            <tr><th>选项</th><th>推荐值</th><th>说明</th></tr>
+            <tr>
+              <th>选项</th>
+              <th>推荐值</th>
+              <th>说明</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>分区表 MBR / GPT</td><td><strong>MBR</strong>（兼容性强）</td><td>MBR 同时支持 Legacy BIOS 和 UEFI 老电脑；GPT 只支持纯 UEFI 装机机（2012 年后电脑基本都是 UEFI）</td></tr>
-            <tr><td>数据分区文件系统</td><td><strong>exFAT</strong></td><td>支持超过 4GB 的单文件（Win11 ISO 就 6GB），跨平台支持好。FAT32 有 4GB 限制不推荐；NTFS 在某些 Linux 启动会出问题</td></tr>
-            <tr><td>Secure Boot Support</td><td><strong>勾选</strong></td><td>开启后支持 Win11 默认的 Secure Boot，第五章详细讲</td></tr>
-            <tr><td>分区对齐（对齐到 4KB）</td><td>默认</td><td>提升 SSD/U 盘性能，保留</td></tr>
+            <tr>
+              <td>分区表 MBR / GPT</td>
+              <td><strong>MBR</strong>（兼容性强）</td>
+              <td>
+                MBR 同时支持 Legacy BIOS 和 UEFI 老电脑；GPT 只支持纯 UEFI
+                装机机（2012 年后电脑基本都是 UEFI）
+              </td>
+            </tr>
+            <tr>
+              <td>数据分区文件系统</td>
+              <td><strong>exFAT</strong></td>
+              <td>
+                支持超过 4GB 的单文件（Win11 ISO 就 6GB），跨平台支持好。FAT32
+                有 4GB 限制不推荐；NTFS 在某些 Linux 启动会出问题
+              </td>
+            </tr>
+            <tr>
+              <td>Secure Boot Support</td>
+              <td><strong>勾选</strong></td>
+              <td>开启后支持 Win11 默认的 Secure Boot，第五章详细讲</td>
+            </tr>
+            <tr>
+              <td>分区对齐（对齐到 4KB）</td>
+              <td>默认</td>
+              <td>提升 SSD/U 盘性能，保留</td>
+            </tr>
           </tbody>
         </table>
         <h3>4.3 Linux 安装（Ubuntu/Debian 为例）</h3>
@@ -803,120 +994,276 @@ sudo ./Ventoy2Disk.sh -i -g /dev/sdb
           <li>打开文件资源管理器，能看到 U 盘分区（容量与原始 U 盘一致）。</li>
           <li>右键 U 盘 → 属性，确认文件系统是 <strong>exFAT</strong>。</li>
           <li>尝试拖一个普通文件进去，能正常读写就 OK。</li>
-          <li>（可选）打开磁盘管理（<code>diskmgmt.msc</code>），应该看到 U 盘有两个分区：一个未分配的小分区（隐藏引导），一个大分区（数据区）。</li>
+          <li>
+            （可选）打开磁盘管理（<code>diskmgmt.msc</code>），应该看到 U
+            盘有两个分区：一个未分配的小分区（隐藏引导），一个大分区（数据区）。
+          </li>
         </ol>
         <div class="callout warn">
           <div class="callout-title">⚠️ 看不到引导分区是正常的</div>
-          <p>Ventoy 引导分区被故意做成隐藏的，资源管理器看不到。<strong>千万不要用 Diskpart 的 clean 命令去「清理」这个隐藏分区</strong>，否则 Ventoy 就废了。</p>
+          <p>
+            Ventoy 引导分区被故意做成隐藏的，资源管理器看不到。<strong
+              >千万不要用 Diskpart 的 clean 命令去「清理」这个隐藏分区</strong
+            >，否则 Ventoy 就废了。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch05">
         <h2>5. Secure Boot 安全启动配置</h2>
-        <p>Win11 默认开启 Secure Boot（安全启动），Win10 现代模式也常开。如果 Ventoy 没启用 Secure Boot 支持，进系统时会卡在蓝屏报错 <code>Security Boot Violation</code>。</p>
+        <p>
+          Win11 默认开启 Secure Boot（安全启动），Win10 现代模式也常开。如果
+          Ventoy 没启用 Secure Boot 支持，进系统时会卡在蓝屏报错
+          <code>Security Boot Violation</code>。
+        </p>
         <h3>5.1 Ventoy 端：开启 Secure Boot 支持</h3>
-        <p>Ventoy 安装时默认已勾选 <code>Secure Boot Support</code>。如果你已经安装但没勾选，<strong>无需重装</strong>，可以用「升级」功能重新写引导：</p>
+        <p>
+          Ventoy 安装时默认已勾选
+          <code>Secure Boot Support</code
+          >。如果你已经安装但没勾选，<strong>无需重装</strong>，可以用「升级」功能重新写引导：
+        </p>
         <ol class="steps">
           <li>再次以管理员身份运行 Ventoy2Disk.exe，选中你的 U 盘。</li>
-          <li>此时界面会显示 <strong>「升级」</strong> 按钮（不是「安装」），点升级即可。</li>
-          <li>升级只更新引导区，<strong>U 盘里的镜像文件全部保留</strong>，不会丢数据。</li>
+          <li>
+            此时界面会显示
+            <strong>「升级」</strong> 按钮（不是「安装」），点升级即可。
+          </li>
+          <li>
+            升级只更新引导区，<strong>U 盘里的镜像文件全部保留</strong
+            >，不会丢数据。
+          </li>
         </ol>
         <h3>5.2 首次启动：注册 Ventoy 密钥</h3>
-        <p>第一次从 Ventoy U 盘启动并开启 Secure Boot 时，会进入一个蓝色 MOK 管理界面：</p>
+        <p>
+          第一次从 Ventoy U 盘启动并开启 Secure Boot 时，会进入一个蓝色 MOK
+          管理界面：
+        </p>
         <ol class="steps">
-          <li>开机进入 Ventoy 菜单前，弹出 <strong>MOK Management</strong> 蓝屏。</li>
-          <li>选择 <strong>「Enroll Key from Disk」</strong>（从磁盘注册密钥）。</li>
-          <li>选择 <strong>ENROLL_THIS_KEY_IN_MOKMANAGER.cer</strong> 文件（Ventoy 自带）。</li>
-          <li>按提示继续，选择 <strong>「Continue」</strong> → <strong>「Yes」</strong>，可能要求输入临时密码（按屏幕提示操作）。</li>
-          <li>完成后重启，Secure Boot 就能识别 Ventoy 了。<strong>这个步骤只需做一次</strong>，之后启动会自动跳过。</li>
+          <li>
+            开机进入 Ventoy 菜单前，弹出 <strong>MOK Management</strong> 蓝屏。
+          </li>
+          <li>
+            选择 <strong>「Enroll Key from Disk」</strong>（从磁盘注册密钥）。
+          </li>
+          <li>
+            选择 <strong>ENROLL_THIS_KEY_IN_MOKMANAGER.cer</strong> 文件（Ventoy
+            自带）。
+          </li>
+          <li>
+            按提示继续，选择 <strong>「Continue」</strong> →
+            <strong>「Yes」</strong>，可能要求输入临时密码（按屏幕提示操作）。
+          </li>
+          <li>
+            完成后重启，Secure Boot 就能识别 Ventoy
+            了。<strong>这个步骤只需做一次</strong>，之后启动会自动跳过。
+          </li>
         </ol>
         <div class="callout tip">
           <div class="callout-title">🟢 MOK 密钥文件在哪</div>
-          <p>Ventoy 的 MOK 密钥文件 <code>ENROLL_THIS_KEY_IN_MOKMANAGER.cer</code> 放在 Ventoy 隐藏引导分区里。MOK 管理界面会自动列出，直接选即可，<strong>不需要你自己去 U 盘找</strong>。</p>
+          <p>
+            Ventoy 的 MOK 密钥文件
+            <code>ENROLL_THIS_KEY_IN_MOKMANAGER.cer</code> 放在 Ventoy
+            隐藏引导分区里。MOK 管理界面会自动列出，直接选即可，<strong
+              >不需要你自己去 U 盘找</strong
+            >。
+          </p>
         </div>
         <h3>5.3 BIOS/UEFI 端：确认开启 Secure Boot</h3>
         <p>如果上面步骤都做了还是进不去，需要进 BIOS/UEFI 检查：</p>
         <ol class="steps">
           <li>开机按对应键进 BIOS（第八章有详细按键表）。</li>
-          <li>找到 <strong>Secure Boot</strong> 选项（一般在 Security / Boot / Authentication 菜单下）。</li>
+          <li>
+            找到 <strong>Secure Boot</strong> 选项（一般在 Security / Boot /
+            Authentication 菜单下）。
+          </li>
           <li>确认状态是 <strong>Enabled</strong>（开启）。</li>
           <li>保存退出（一般按 F10 → Yes）。</li>
         </ol>
         <div class="callout warn">
           <div class="callout-title">⚠️ Secure Boot 装完系统后怎么办</div>
-          <p>有些用户嫌 Secure Boot 麻烦会直接关掉，<strong>不建议这样做</strong>：Secure Boot 能防止恶意引导程序，是 Win11 的安全屏障之一。除非你明确知道自己在做什么，否则保持开启。</p>
+          <p>
+            有些用户嫌 Secure Boot
+            麻烦会直接关掉，<strong>不建议这样做</strong>：Secure Boot
+            能防止恶意引导程序，是 Win11
+            的安全屏障之一。除非你明确知道自己在做什么，否则保持开启。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch06">
         <h2>6. 准备系统镜像（Win/Linux/PE）</h2>
-        <p>Ventoy 只负责启动，<strong>不管镜像对不对</strong>。镜像必须自己去下载，而且<strong>下载来源和版本必须靠谱</strong>，否则装出来的系统会带一堆广告或根本用不了。</p>
+        <p>
+          Ventoy
+          只负责启动，<strong>不管镜像对不对</strong>。镜像必须自己去下载，而且<strong>下载来源和版本必须靠谱</strong>，否则装出来的系统会带一堆广告或根本用不了。
+        </p>
         <h3>6.1 Windows 镜像下载</h3>
         <table>
           <thead>
-            <tr><th>系统</th><th>推荐下载源</th><th>说明</th></tr>
+            <tr>
+              <th>系统</th>
+              <th>推荐下载源</th>
+              <th>说明</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Windows 11 官方原版</td><td>微软官网 microsoft.com/software-download/windows11</td><td>使用「媒体创建工具」下载，或直接下 ISO</td></tr>
-            <tr><td>Windows 10 官方原版</td><td>微软官网 microsoft.com/software-download/windows10</td><td>同上</td></tr>
-            <tr><td>Windows Server</td><td>microsoft.com/evalcenter</td><td>评估版可用于学习，180 天试用</td></tr>
-            <tr><td>❌ 第三方修改版（GHOST/ghostxp/总裁版）</td><td>不要用</td><td>带全家桶广告 + 后门 + 篡改系统，强烈不推荐</td></tr>
+            <tr>
+              <td>Windows 11 官方原版</td>
+              <td>微软官网 microsoft.com/software-download/windows11</td>
+              <td>使用「媒体创建工具」下载，或直接下 ISO</td>
+            </tr>
+            <tr>
+              <td>Windows 10 官方原版</td>
+              <td>微软官网 microsoft.com/software-download/windows10</td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>Windows Server</td>
+              <td>microsoft.com/evalcenter</td>
+              <td>评估版可用于学习，180 天试用</td>
+            </tr>
+            <tr>
+              <td>❌ 第三方修改版（GHOST/ghostxp/总裁版）</td>
+              <td>不要用</td>
+              <td>带全家桶广告 + 后门 + 篡改系统，强烈不推荐</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout tip">
           <div class="callout-title">🟢 推荐下载工具</div>
-          <p>微软提供官方「媒体创建工具」（MediaCreationTool），会自动选最新稳定版 ISO。<strong>优先用官方工具</strong>，下载链接会跟随最新版走，不会下到旧版。</p>
+          <p>
+            微软提供官方「媒体创建工具」（MediaCreationTool），会自动选最新稳定版
+            ISO。<strong>优先用官方工具</strong>，下载链接会跟随最新版走，不会下到旧版。
+          </p>
         </div>
         <h3>6.2 Linux 镜像下载</h3>
         <table>
           <thead>
-            <tr><th>发行版</th><th>推荐下载源</th><th>适用场景</th></tr>
+            <tr>
+              <th>发行版</th>
+              <th>推荐下载源</th>
+              <th>适用场景</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Ubuntu Desktop / Server</td><td>ubuntu.com/download</td><td>最流行的桌面/服务器发行版</td></tr>
-            <tr><td>Debian</td><td>debian.org/distrib</td><td>稳定性优先</td></tr>
-            <tr><td>CentOS Stream / Rocky / Alma</td><td>各官网</td><td>服务器首选 RHEL 系</td></tr>
-            <tr><td>Fedora</td><td>getfedora.org</td><td>新特性尝鲜</td></tr>
-            <tr><td>Arch Linux</td><td>archlinux.org/download</td><td>深度玩家</td></tr>
-            <tr><td>Kali</td><td>kali.org/get-kali</td><td>安全测试专用</td></tr>
+            <tr>
+              <td>Ubuntu Desktop / Server</td>
+              <td>ubuntu.com/download</td>
+              <td>最流行的桌面/服务器发行版</td>
+            </tr>
+            <tr>
+              <td>Debian</td>
+              <td>debian.org/distrib</td>
+              <td>稳定性优先</td>
+            </tr>
+            <tr>
+              <td>CentOS Stream / Rocky / Alma</td>
+              <td>各官网</td>
+              <td>服务器首选 RHEL 系</td>
+            </tr>
+            <tr>
+              <td>Fedora</td>
+              <td>getfedora.org</td>
+              <td>新特性尝鲜</td>
+            </tr>
+            <tr>
+              <td>Arch Linux</td>
+              <td>archlinux.org/download</td>
+              <td>深度玩家</td>
+            </tr>
+            <tr>
+              <td>Kali</td>
+              <td>kali.org/get-kali</td>
+              <td>安全测试专用</td>
+            </tr>
           </tbody>
         </table>
         <h3>6.3 WinPE 镜像（救援盘）</h3>
-        <p>WinPE 是一个<strong>极简版 Windows</strong>，从 U 盘启动后只有桌面 + 文件管理器，适合<strong>救数据 / 备份 / 改密码 / 修引导</strong>等维护操作。推荐两个干净的：</p>
+        <p>
+          WinPE 是一个<strong>极简版 Windows</strong>，从 U 盘启动后只有桌面 +
+          文件管理器，适合<strong>救数据 / 备份 / 改密码 / 修引导</strong
+          >等维护操作。推荐两个干净的：
+        </p>
         <table>
           <thead>
-            <tr><th>PE 工具</th><th>特点</th><th>下载</th></tr>
+            <tr>
+              <th>PE 工具</th>
+              <th>特点</th>
+              <th>下载</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><strong>微 PE 工具箱 2.x</strong></td><td>国内主流，干净无捆绑</td><td>wepe.com.cn</td></tr>
-            <tr><td>Edgeless</td><td>插件化，可加载常用工具</td><td>edgeless.top</td></tr>
-            <tr><td>Hiren's BootCD PE</td><td>国外老牌，集成大量工具</td><td>hirtstudio.com</td></tr>
-            <tr><td>❌ 老毛桃 / 大白菜 / 电脑店</td><td>大量捆绑 + 篡改主页</td><td>不要用</td></tr>
+            <tr>
+              <td><strong>微 PE 工具箱 2.x</strong></td>
+              <td>国内主流，干净无捆绑</td>
+              <td>wepe.com.cn</td>
+            </tr>
+            <tr>
+              <td>Edgeless</td>
+              <td>插件化，可加载常用工具</td>
+              <td>edgeless.top</td>
+            </tr>
+            <tr>
+              <td>Hiren's BootCD PE</td>
+              <td>国外老牌，集成大量工具</td>
+              <td>hirtstudio.com</td>
+            </tr>
+            <tr>
+              <td>❌ 老毛桃 / 大白菜 / 电脑店</td>
+              <td>大量捆绑 + 篡改主页</td>
+              <td>不要用</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout danger">
           <div class="callout-title">🔴 PE 选择红线</div>
-          <p>网络上 90% 的「PE 工具」都会捆绑流氓软件、篡改浏览器主页。<strong>只用上面表格里列出的「干净 PE」</strong>，其他 PE 一律不要碰。这条线比镜像本身还重要。</p>
+          <p>
+            网络上 90% 的「PE 工具」都会捆绑流氓软件、篡改浏览器主页。<strong
+              >只用上面表格里列出的「干净 PE」</strong
+            >，其他 PE 一律不要碰。这条线比镜像本身还重要。
+          </p>
         </div>
         <h3>6.4 镜像文件命名建议</h3>
-        <p>Ventoy 会按文件名排序显示镜像，建议<strong>按版本号+日期命名</strong>，方便日后区分：</p>
+        <p>
+          Ventoy
+          会按文件名排序显示镜像，建议<strong>按版本号+日期命名</strong>，方便日后区分：
+        </p>
         <pre><code>Win11_23H2_zh-cn_2026-08.iso
 Win10_22H2_zh-cn_2026-07.iso
 Ubuntu_24.04_desktop_amd64.iso
 WePE_2.3.iso
 Hirens_BootCD_PE.iso</code></pre>
-      </section><section class="section" id="ch07">
+      </section>
+      <section class="section" id="ch07">
         <h2>7. 拷镜像到 U 盘 & 验证</h2>
-        <p>Ventoy 安装完成后，U 盘就像普通 U 盘一样用。这一步就一句话：<strong>把镜像文件复制粘贴进去</strong>。</p>
+        <p>
+          Ventoy 安装完成后，U 盘就像普通 U
+          盘一样用。这一步就一句话：<strong>把镜像文件复制粘贴进去</strong>。
+        </p>
         <h3>7.1 拷镜像的三种方式</h3>
         <table>
           <thead>
-            <tr><th>方式</th><th>操作</th><th>适用</th></tr>
+            <tr>
+              <th>方式</th>
+              <th>操作</th>
+              <th>适用</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>文件资源管理器拖拽</td><td>打开 U 盘，把 ISO 文件拖进去</td><td>最简单，推荐</td></tr>
-            <tr><td>命令行复制</td><td><code>copy D:\Downloads\Win11.iso E:\</code></td><td>批量或写脚本</td></tr>
-            <tr><td>rsync / cp</td><td>Linux 下命令行复制</td><td>Linux 服务器</td></tr>
+            <tr>
+              <td>文件资源管理器拖拽</td>
+              <td>打开 U 盘，把 ISO 文件拖进去</td>
+              <td>最简单，推荐</td>
+            </tr>
+            <tr>
+              <td>命令行复制</td>
+              <td><code>copy D:\Downloads\Win11.iso E:\</code></td>
+              <td>批量或写脚本</td>
+            </tr>
+            <tr>
+              <td>rsync / cp</td>
+              <td>Linux 下命令行复制</td>
+              <td>Linux 服务器</td>
+            </tr>
           </tbody>
         </table>
         <h3>7.2 文件夹组织（可选）</h3>
@@ -930,80 +1277,210 @@ Hirens_BootCD_PE.iso</code></pre>
 │   └── Debian_12.iso
 └── PE/
     └── WePE_2.3.iso</code></pre>
-        <p>启动时按 <strong>F1</strong> 键可在「List Mode」和「TreeView Mode」之间切换，TreeView 能看到完整目录树。</p>
+        <p>
+          启动时按 <strong>F1</strong> 键可在「List Mode」和「TreeView
+          Mode」之间切换，TreeView 能看到完整目录树。
+        </p>
         <h3>7.3 验证 U 盘就绪</h3>
         <ol class="steps">
-          <li>打开 U 盘，确认 ISO 文件已经拷贝完成（看文件大小是否等于原文件大小）。</li>
-          <li>（推荐）右键 ISO → 属性 → 看「大小」是不是 5GB 以上的整数倍（确保没拷贝中途失败）。</li>
+          <li>
+            打开 U 盘，确认 ISO
+            文件已经拷贝完成（看文件大小是否等于原文件大小）。
+          </li>
+          <li>
+            （推荐）右键 ISO → 属性 → 看「大小」是不是 5GB
+            以上的整数倍（确保没拷贝中途失败）。
+          </li>
           <li>弹出 U 盘，安全拔除。</li>
         </ol>
         <div class="callout warn">
           <div class="callout-title">⚠️ 文件拷进去但 Ventoy 不识别？</div>
-          <p>99% 的情况是文件后缀不对。Ventoy 通过文件后缀识别镜像格式，<strong>必须是 .iso / .wim / .img / .vhd / .vhd.x / .efi 之一</strong>。如果你下的是 .img.gz / .iso.zip，得先解压。</p>
+          <p>
+            99% 的情况是文件后缀不对。Ventoy 通过文件后缀识别镜像格式，<strong
+              >必须是 .iso / .wim / .img / .vhd / .vhd.x / .efi 之一</strong
+            >。如果你下的是 .img.gz / .iso.zip，得先解压。
+          </p>
         </div>
         <h3>7.4 Ventoy 支持的镜像格式</h3>
         <table>
           <thead>
-            <tr><th>格式</th><th>用途</th></tr>
+            <tr>
+              <th>格式</th>
+              <th>用途</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>.iso</td><td>最常见，Windows / Linux / PE 都是</td></tr>
-            <tr><td>.wim</td><td>Windows 映像格式（WinPE 通常）</td></tr>
-            <tr><td>.img</td><td>类 Unix 系统镜像，部分 Linux</td></tr>
-            <tr><td>.vhd / .vhdx</td><td>虚拟机磁盘，部分 Windows To Go</td></tr>
-            <tr><td>.efi</td><td>纯 UEFI 启动镜像</td></tr>
-            <tr><td>.iso.gz / .iso.xz</td><td>压缩镜像，部分 Linux（小镜像常用）</td></tr>
+            <tr>
+              <td>.iso</td>
+              <td>最常见，Windows / Linux / PE 都是</td>
+            </tr>
+            <tr>
+              <td>.wim</td>
+              <td>Windows 映像格式（WinPE 通常）</td>
+            </tr>
+            <tr>
+              <td>.img</td>
+              <td>类 Unix 系统镜像，部分 Linux</td>
+            </tr>
+            <tr>
+              <td>.vhd / .vhdx</td>
+              <td>虚拟机磁盘，部分 Windows To Go</td>
+            </tr>
+            <tr>
+              <td>.efi</td>
+              <td>纯 UEFI 启动镜像</td>
+            </tr>
+            <tr>
+              <td>.iso.gz / .iso.xz</td>
+              <td>压缩镜像，部分 Linux（小镜像常用）</td>
+            </tr>
           </tbody>
         </table>
       </section>
 
       <section class="section" id="ch08">
         <h2>8. 进 BIOS/UEFI & 选择 U 盘启动</h2>
-        <p>Ventoy U 盘准备好了，下一步就是从 U 盘启动。但很多人卡在第一步——<strong>不知道按哪个键进启动菜单</strong>。</p>
+        <p>
+          Ventoy U 盘准备好了，下一步就是从 U
+          盘启动。但很多人卡在第一步——<strong>不知道按哪个键进启动菜单</strong>。
+        </p>
         <h3>8.1 两个概念：BIOS vs UEFI</h3>
         <table>
           <thead>
-            <tr><th>概念</th><th>BIOS（Legacy）</th><th>UEFI</th></tr>
+            <tr>
+              <th>概念</th>
+              <th>BIOS（Legacy）</th>
+              <th>UEFI</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>界面</td><td>蓝底白字，传统菜单</td><td>图形化 + 鼠标，新式</td></tr>
-            <tr><td>分区表</td><td>MBR</td><td>GPT</td></tr>
-            <tr><td>硬盘大小</td><td>最大 2TB</td><td>支持无限</td></tr>
-            <tr><td>启动速度</td><td>慢</td><td>快</td></tr>
-            <tr><td>Secure Boot</td><td>不支持</td><td>支持</td></tr>
-            <tr><th>2012 年后</th><th>几乎都是 UEFI</th><th>主流</th></tr>
+            <tr>
+              <td>界面</td>
+              <td>蓝底白字，传统菜单</td>
+              <td>图形化 + 鼠标，新式</td>
+            </tr>
+            <tr>
+              <td>分区表</td>
+              <td>MBR</td>
+              <td>GPT</td>
+            </tr>
+            <tr>
+              <td>硬盘大小</td>
+              <td>最大 2TB</td>
+              <td>支持无限</td>
+            </tr>
+            <tr>
+              <td>启动速度</td>
+              <td>慢</td>
+              <td>快</td>
+            </tr>
+            <tr>
+              <td>Secure Boot</td>
+              <td>不支持</td>
+              <td>支持</td>
+            </tr>
+            <tr>
+              <th>2012 年后</th>
+              <th>几乎都是 UEFI</th>
+              <th>主流</th>
+            </tr>
           </tbody>
         </table>
         <h3>8.2 各品牌启动菜单快捷键速查</h3>
         <table>
           <thead>
-            <tr><th>品牌</th><th>启动菜单键</th><th>BIOS 进入键</th></tr>
+            <tr>
+              <th>品牌</th>
+              <th>启动菜单键</th>
+              <th>BIOS 进入键</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>华硕 ASUS</td><td>F8</td><td>DEL / F2</td></tr>
-            <tr><td>技微 Gigabyte</td><td>F12</td><td>DEL</td></tr>
-            <tr><td>微星 MSI</td><td>F11</td><td>DEL</td></tr>
-            <tr><td>联想 Lenovo（台式）</td><td>F12</td><td>F1 / F2</td></tr>
-            <tr><td>联想 Lenovo（笔记本）</td><td>F12 / Fn+F12</td><td>F2 / Novo 按钮</td></tr>
-            <tr><td>戴尔 Dell</td><td>F12</td><td>F2</td></tr>
-            <tr><td>惠普 HP</td><td>F9</td><td>F10 / ESC</td></tr>
-            <tr><td>宏碁 Acer</td><td>F12</td><td>DEL / F2</td></tr>
-            <tr><td>华为 / 荣耀</td><td>F12</td><td>F2 / DEL</td></tr>
-            <tr><td>小米 / Redmi</td><td>F12</td><td>DEL / F2</td></tr>
-            <tr><td>ThinkPad</td><td>F12 / Enter 后 F1</td><td>F1</td></tr>
-            <tr><td>苹果 Mac</td><td>Option (⌥)</td><td>开机长按</td></tr>
+            <tr>
+              <td>华硕 ASUS</td>
+              <td>F8</td>
+              <td>DEL / F2</td>
+            </tr>
+            <tr>
+              <td>技微 Gigabyte</td>
+              <td>F12</td>
+              <td>DEL</td>
+            </tr>
+            <tr>
+              <td>微星 MSI</td>
+              <td>F11</td>
+              <td>DEL</td>
+            </tr>
+            <tr>
+              <td>联想 Lenovo（台式）</td>
+              <td>F12</td>
+              <td>F1 / F2</td>
+            </tr>
+            <tr>
+              <td>联想 Lenovo（笔记本）</td>
+              <td>F12 / Fn+F12</td>
+              <td>F2 / Novo 按钮</td>
+            </tr>
+            <tr>
+              <td>戴尔 Dell</td>
+              <td>F12</td>
+              <td>F2</td>
+            </tr>
+            <tr>
+              <td>惠普 HP</td>
+              <td>F9</td>
+              <td>F10 / ESC</td>
+            </tr>
+            <tr>
+              <td>宏碁 Acer</td>
+              <td>F12</td>
+              <td>DEL / F2</td>
+            </tr>
+            <tr>
+              <td>华为 / 荣耀</td>
+              <td>F12</td>
+              <td>F2 / DEL</td>
+            </tr>
+            <tr>
+              <td>小米 / Redmi</td>
+              <td>F12</td>
+              <td>DEL / F2</td>
+            </tr>
+            <tr>
+              <td>ThinkPad</td>
+              <td>F12 / Enter 后 F1</td>
+              <td>F1</td>
+            </tr>
+            <tr>
+              <td>苹果 Mac</td>
+              <td>Option (⌥)</td>
+              <td>开机长按</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout tip">
           <div class="callout-title">🟢 找启动键的 3 个技巧</div>
           <ul>
-            <li>开机<strong>狂按</strong>对应键（不是按一下，要连续按），屏幕第一帧闪过品牌 logo 时就开始按</li>
-            <li>实在不知道，<strong>全部都试</strong>：F2/F12/F8/DEL/ESC 挨个按，BIOS/启动菜单一定会进一个</li>
-            <li>看屏幕<strong>第一行小字</strong>：主板厂商会把「Press F12 to enter Boot Menu」写在开机画面最底下</li>
+            <li>
+              开机<strong>狂按</strong>对应键（不是按一下，要连续按），屏幕第一帧闪过品牌
+              logo 时就开始按
+            </li>
+            <li>
+              实在不知道，<strong>全部都试</strong>：F2/F12/F8/DEL/ESC
+              挨个按，BIOS/启动菜单一定会进一个
+            </li>
+            <li>
+              看屏幕<strong>第一行小字</strong>：主板厂商会把「Press F12 to
+              enter Boot Menu」写在开机画面最底下
+            </li>
           </ul>
         </div>
         <h3>8.3 在启动菜单里选对 U 盘</h3>
-        <p>进入启动菜单后，通常会列出多个 USB 设备，<strong>选带「UEFI:」前缀的那个</strong>（UEFI 模式），如果你的 Ventoy 用了 MBR 分区表，也可以选不带 UEFI 前缀的 USB 设备：</p>
+        <p>
+          进入启动菜单后，通常会列出多个 USB
+          设备，<strong>选带「UEFI:」前缀的那个</strong>（UEFI 模式），如果你的
+          Ventoy 用了 MBR 分区表，也可以选不带 UEFI 前缀的 USB 设备：
+        </p>
         <pre><code>启动菜单示例：
 
 UEFI: SanDisk Ultra Fit 1.00
@@ -1015,9 +1492,18 @@ Network Boot (PXE)
         <h3>8.4 开机直接跳过 U 盘的解决方法</h3>
         <p>如果插了 Ventoy U 盘但启动菜单里看不到：</p>
         <ol class="steps">
-          <li>先进 BIOS，确认 <strong>USB Boot</strong> 或 <strong>USB Storage</strong> 选项是 Enabled。</li>
-          <li>确认 <strong>Boot Mode</strong> 是 UEFI（不要选 Legacy Only，否则可能不识别 Ventoy 的 UEFI 引导）。</li>
-          <li>如果电脑有 <strong>Fast Boot / 快速启动</strong>，临时关掉，避免跳过 USB 设备检测。</li>
+          <li>
+            先进 BIOS，确认 <strong>USB Boot</strong> 或
+            <strong>USB Storage</strong> 选项是 Enabled。
+          </li>
+          <li>
+            确认 <strong>Boot Mode</strong> 是 UEFI（不要选 Legacy
+            Only，否则可能不识别 Ventoy 的 UEFI 引导）。
+          </li>
+          <li>
+            如果电脑有 <strong>Fast Boot / 快速启动</strong>，临时关掉，避免跳过
+            USB 设备检测。
+          </li>
           <li>换 USB 口试试（优先用后置 USB 3.0 口）。</li>
           <li>换一根 USB 数据线/换另一个 U 盘，排除接触不良。</li>
         </ol>
@@ -1025,20 +1511,40 @@ Network Boot (PXE)
 
       <section class="section" id="ch09">
         <h2>9. Windows 重装实战</h2>
-        <p>从 Ventoy 菜单选好 ISO 回车后，正式进入系统安装流程。本章以 <strong>Windows 11</strong> 为例，Win10 几乎相同。</p>
+        <p>
+          从 Ventoy 菜单选好 ISO 回车后，正式进入系统安装流程。本章以
+          <strong>Windows 11</strong> 为例，Win10 几乎相同。
+        </p>
         <h3>9.1 Windows 重装的标准流程</h3>
         <ol class="steps">
-          <li><strong>选好语言和输入法</strong>：简体中文 / 中国（简体）键盘。</li>
+          <li>
+            <strong>选好语言和输入法</strong>：简体中文 / 中国（简体）键盘。
+          </li>
           <li><strong>点「现在安装」</strong>。</li>
-          <li><strong>输入产品密钥</strong>：没有就点「我没有产品密钥」继续。<strong>Win11 重装会自动读取主板 OEM 密钥</strong>，联网后自动激活。</li>
+          <li>
+            <strong>输入产品密钥</strong
+            >：没有就点「我没有产品密钥」继续。<strong
+              >Win11 重装会自动读取主板 OEM 密钥</strong
+            >，联网后自动激活。
+          </li>
           <li><strong>选版本</strong>：家庭版 / 专业版（一般选专业版）。</li>
           <li><strong>勾选许可条款</strong>。</li>
-          <li><strong>选安装类型</strong>：选「<strong>自定义：仅安装 Windows（高级）</strong>」，这是全新安装。</li>
-          <li><strong>磁盘分区（重点）</strong>：
+          <li>
+            <strong>选安装类型</strong>：选「<strong
+              >自定义：仅安装 Windows（高级）</strong
+            >」，这是全新安装。
+          </li>
+          <li>
+            <strong>磁盘分区（重点）</strong>：
             <ul>
               <li>看到磁盘列表，每个盘会显示「驱动器 0 分区 1」之类。</li>
-              <li>如果电脑已有系统，<strong>把系统盘的所有分区全删掉</strong>（选中 → 删除），让它变成「未分配的空间」。</li>
-              <li>如果装双系统，选未分配空间点「下一步」即可，<strong>别动其他系统盘</strong>。</li>
+              <li>
+                如果电脑已有系统，<strong>把系统盘的所有分区全删掉</strong>（选中
+                → 删除），让它变成「未分配的空间」。
+              </li>
+              <li>
+                如果装双系统，选未分配空间点「下一步」即可，<strong>别动其他系统盘</strong>。
+              </li>
               <li>点「下一步」开始安装。</li>
             </ul>
           </li>
@@ -1047,21 +1553,40 @@ Network Boot (PXE)
         <div class="callout danger">
           <div class="callout-title">🔴 分区操作红线</div>
           <ul>
-            <li>如果是要<strong>重装同一个磁盘上的系统</strong>，才能全删该磁盘分区</li>
-            <li>如果电脑里有<strong>另一块硬盘存数据</strong>，千万别动那块硬盘的分区</li>
-            <li><strong>没看清楚盘符之前不要乱点</strong>，删错分区=数据全毁</li>
+            <li>
+              如果是要<strong>重装同一个磁盘上的系统</strong>，才能全删该磁盘分区
+            </li>
+            <li>
+              如果电脑里有<strong>另一块硬盘存数据</strong>，千万别动那块硬盘的分区
+            </li>
+            <li>
+              <strong>没看清楚盘符之前不要乱点</strong>，删错分区=数据全毁
+            </li>
           </ul>
         </div>
         <h3>9.2 Ventoy 下的快捷安装小技巧</h3>
         <ul>
-          <li>Ventoy 启动后按 <strong>F5 键</strong>（部分版本是 F2）可以进入<strong>二级菜单</strong>，针对特定 ISO 选择不同启动模式（Normal / WIMBOOT / GRUB2 等）。</li>
-          <li>装 Win11 出现「这台电脑不满足 Win11 最低要求」时，可以在 Ventoy 菜单选 ISO 时按 <strong>F5</strong>，启用 <strong>WIMBOOT</strong> 模式（绕过 TPM 2.0 检查，老电脑也能装）。</li>
-          <li>用 <strong>Ctrl+W</strong> 切换 WIMBOOT 模式（仅 Windows 标准安装镜像有效）。</li>
+          <li>
+            Ventoy 启动后按 <strong>F5 键</strong>（部分版本是
+            F2）可以进入<strong>二级菜单</strong>，针对特定 ISO
+            选择不同启动模式（Normal / WIMBOOT / GRUB2 等）。
+          </li>
+          <li>
+            装 Win11 出现「这台电脑不满足 Win11 最低要求」时，可以在 Ventoy
+            菜单选 ISO 时按 <strong>F5</strong>，启用
+            <strong>WIMBOOT</strong> 模式（绕过 TPM 2.0 检查，老电脑也能装）。
+          </li>
+          <li>
+            用 <strong>Ctrl+W</strong> 切换 WIMBOOT 模式（仅 Windows
+            标准安装镜像有效）。
+          </li>
         </ul>
         <h3>9.3 安装完后的必做事项</h3>
         <ol class="steps">
           <li>联网让 Windows 自动激活。</li>
-          <li>装驱动：建议用「驱动人生网卡版」或「鲁大师」先识别网卡，再补齐其他驱动。</li>
+          <li>
+            装驱动：建议用「驱动人生网卡版」或「鲁大师」先识别网卡，再补齐其他驱动。
+          </li>
           <li>Windows Update 把所有更新打完。</li>
           <li>装常用软件（7-Zip / Chrome / VS Code / WPS 等）。</li>
           <li>备份一份 Ventoy U 盘（11.4 节会讲 Ventoy 升级与备份）。</li>
@@ -1070,17 +1595,33 @@ Network Boot (PXE)
 
       <section class="section" id="ch10">
         <h2>10. Linux 重装实战</h2>
-        <p>Linux 用 Ventoy 安装比 Windows 更简单，但分区方案不一样。本章以 <strong>Ubuntu 24.04 Desktop</strong> 为例。</p>
+        <p>
+          Linux 用 Ventoy 安装比 Windows 更简单，但分区方案不一样。本章以
+          <strong>Ubuntu 24.04 Desktop</strong> 为例。
+        </p>
         <h3>10.1 Linux 安装流程</h3>
         <ol class="steps">
-          <li>从 Ventoy 菜单选 Ubuntu ISO 回车，<strong>默认选第一项「Try or Install Ubuntu」</strong>。</li>
+          <li>
+            从 Ventoy 菜单选 Ubuntu ISO 回车，<strong
+              >默认选第一项「Try or Install Ubuntu」</strong
+            >。
+          </li>
           <li>进入 Live 系统（可以先体验，不点 Install 不会动硬盘）。</li>
           <li>双击桌面 <strong>「Install Ubuntu」</strong> 图标开始安装。</li>
-          <li>选语言 → 选键盘布局 → 选安装类型（<strong>「正常安装」+「安装时下载更新」+「安装第三方软件」</strong>三个都勾选最省心）。</li>
-          <li><strong>关键一步：磁盘分区</strong>：
+          <li>
+            选语言 → 选键盘布局 →
+            选安装类型（<strong>「正常安装」+「安装时下载更新」+「安装第三方软件」</strong>三个都勾选最省心）。
+          </li>
+          <li>
+            <strong>关键一步：磁盘分区</strong>：
             <ul>
-              <li>新手选 <strong>「清除整个磁盘并安装 Ubuntu」</strong>（最简单）。</li>
-              <li>老手选 <strong>「其他选项」</strong>手动分区（10.2 节展开）。</li>
+              <li>
+                新手选
+                <strong>「清除整个磁盘并安装 Ubuntu」</strong>（最简单）。
+              </li>
+              <li>
+                老手选 <strong>「其他选项」</strong>手动分区（10.2 节展开）。
+              </li>
             </ul>
           </li>
           <li>设置时区（默认上海就行）、用户名、密码。</li>
@@ -1091,14 +1632,44 @@ Network Boot (PXE)
         <p>如果选择「其他选项」手动分区，建议的最小分区方案：</p>
         <table>
           <thead>
-            <tr><th>挂载点</th><th>大小</th><th>文件系统</th><th>说明</th></tr>
+            <tr>
+              <th>挂载点</th>
+              <th>大小</th>
+              <th>文件系统</th>
+              <th>说明</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>/boot（UEFI 系统用）</td><td>512MB - 1GB</td><td>ext4</td><td>启动分区</td></tr>
-            <tr><td>EFI 系统分区（已有则跳过）</td><td>100-500MB</td><td>FAT32</td><td>UEFI 启动文件</td></tr>
-            <tr><td>swap 交换分区</td><td>内存等大或 2-4GB</td><td>swap</td><td>内存不足时备用</td></tr>
-            <tr><td>/（根分区）</td><td>剩余空间</td><td>ext4</td><td>系统 + 软件</td></tr>
-            <tr><td>/home（可选）</td><td>独立分区</td><td>ext4</td><td>个人文件，重装不丢</td></tr>
+            <tr>
+              <td>/boot（UEFI 系统用）</td>
+              <td>512MB - 1GB</td>
+              <td>ext4</td>
+              <td>启动分区</td>
+            </tr>
+            <tr>
+              <td>EFI 系统分区（已有则跳过）</td>
+              <td>100-500MB</td>
+              <td>FAT32</td>
+              <td>UEFI 启动文件</td>
+            </tr>
+            <tr>
+              <td>swap 交换分区</td>
+              <td>内存等大或 2-4GB</td>
+              <td>swap</td>
+              <td>内存不足时备用</td>
+            </tr>
+            <tr>
+              <td>/（根分区）</td>
+              <td>剩余空间</td>
+              <td>ext4</td>
+              <td>系统 + 软件</td>
+            </tr>
+            <tr>
+              <td>/home（可选）</td>
+              <td>独立分区</td>
+              <td>ext4</td>
+              <td>个人文件，重装不丢</td>
+            </tr>
           </tbody>
         </table>
         <h3>10.3 与 Windows 双系统</h3>
@@ -1106,12 +1677,22 @@ Network Boot (PXE)
         <ol class="steps">
           <li>先正常装好 Windows，确认能进系统。</li>
           <li>插 Ventoy U 盘重启，从 Ventoy 启动 Linux ISO。</li>
-          <li>安装 Linux 时选择「其他选项」手动分区，<strong>不要动 Windows 所在的 NTFS 分区</strong>，把空闲空间分给 Linux。</li>
-          <li>Linux 安装器的引导加载器（GRUB）会自动识别 Windows，<strong>重启后会看到双系统选择菜单</strong>。</li>
+          <li>
+            安装 Linux 时选择「其他选项」手动分区，<strong
+              >不要动 Windows 所在的 NTFS 分区</strong
+            >，把空闲空间分给 Linux。
+          </li>
+          <li>
+            Linux 安装器的引导加载器（GRUB）会自动识别
+            Windows，<strong>重启后会看到双系统选择菜单</strong>。
+          </li>
         </ol>
         <div class="callout warn">
           <div class="callout-title">⚠️ 双系统引导修复</div>
-          <p>如果装完 Linux 后 Windows 引导丢了，开机直接进 Linux，可以从 Linux 终端运行：</p>
+          <p>
+            如果装完 Linux 后 Windows 引导丢了，开机直接进 Linux，可以从 Linux
+            终端运行：
+          </p>
           <pre><code>sudo update-grub
 # 或手动修复
 sudo os-prober  # 扫描其他系统
@@ -1119,32 +1700,78 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
         </div>
         <h3>10.4 Ventoy 的 Linux 进阶用法</h3>
         <ul>
-          <li>选 Linux ISO 时按 <strong>Tab</strong> 键（UEFI 模式）或 <strong>e</strong> 键（Legacy 模式）可<strong>编辑启动参数</strong>，比如 <code>nomodeset</code>（显卡驱动翻车时禁用）。</li>
+          <li>
+            选 Linux ISO 时按 <strong>Tab</strong> 键（UEFI 模式）或
+            <strong>e</strong> 键（Legacy
+            模式）可<strong>编辑启动参数</strong>，比如
+            <code>nomodeset</code>（显卡驱动翻车时禁用）。
+          </li>
           <li>Linux ISO 放在子目录也支持，Ventoy 会自动扫描整个数据分区。</li>
-          <li>部分 Linux 启动需要 <strong>GRUB2 模式</strong>：选 ISO 后按 F5 → 选 GRUB2 Mode。</li>
+          <li>
+            部分 Linux 启动需要 <strong>GRUB2 模式</strong>：选 ISO 后按 F5 → 选
+            GRUB2 Mode。
+          </li>
         </ul>
-      </section><section class="section" id="ch11">
+      </section>
+      <section class="section" id="ch11">
         <h2>11. 进阶玩法：插件、密码、自动安装</h2>
-        <p>Ventoy 不只是一个启动器，它还有一整套<strong>插件体系</strong>，让你对启动行为做精细控制。</p>
+        <p>
+          Ventoy
+          不只是一个启动器，它还有一整套<strong>插件体系</strong>，让你对启动行为做精细控制。
+        </p>
         <h3>11.1 Ventoy 插件体系简介</h3>
-        <p>Ventoy 插件通过 <code>ventoy.json</code> 配置文件控制，文件放在 U 盘<strong>数据分区根目录</strong>。最常用的几个插件：</p>
+        <p>
+          Ventoy 插件通过 <code>ventoy.json</code> 配置文件控制，文件放在 U
+          盘<strong>数据分区根目录</strong>。最常用的几个插件：
+        </p>
         <table>
           <thead>
-            <tr><th>插件</th><th>功能</th><th>典型用途</th></tr>
+            <tr>
+              <th>插件</th>
+              <th>功能</th>
+              <th>典型用途</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>theme</td><td>自定义启动菜单主题</td><td>换皮肤、加 LOGO</td></tr>
-            <tr><td>auto_install</td><td>全自动应答式安装</td><td>批量无人值守装机</td></tr>
-            <tr><td>persistence</td><td>Linux 持久化存储</td><td>Live USB 启动后修改的数据保留</td></tr>
-            <tr><td>password</td><td>Ventoy 菜单加密码</td><td>防止别人拿你的 U 盘乱装系统</td></tr>
-            <tr><td>image_blacklist</td><td>黑名单隐藏某些镜像</td><td>隐藏私密镜像</td></tr>
-            <tr><td>file_injection</td><td>启动时注入文件</td><td>提前塞入驱动、配置文件</td></tr>
+            <tr>
+              <td>theme</td>
+              <td>自定义启动菜单主题</td>
+              <td>换皮肤、加 LOGO</td>
+            </tr>
+            <tr>
+              <td>auto_install</td>
+              <td>全自动应答式安装</td>
+              <td>批量无人值守装机</td>
+            </tr>
+            <tr>
+              <td>persistence</td>
+              <td>Linux 持久化存储</td>
+              <td>Live USB 启动后修改的数据保留</td>
+            </tr>
+            <tr>
+              <td>password</td>
+              <td>Ventoy 菜单加密码</td>
+              <td>防止别人拿你的 U 盘乱装系统</td>
+            </tr>
+            <tr>
+              <td>image_blacklist</td>
+              <td>黑名单隐藏某些镜像</td>
+              <td>隐藏私密镜像</td>
+            </tr>
+            <tr>
+              <td>file_injection</td>
+              <td>启动时注入文件</td>
+              <td>提前塞入驱动、配置文件</td>
+            </tr>
           </tbody>
         </table>
         <h3>11.2 启动密码配置</h3>
         <p>担心别人拿走 U 盘乱装系统？给 Ventoy 菜单加个密码：</p>
         <ol class="steps">
-          <li>在 U 盘数据分区根目录创建 <code>ventoy/ventoy.json</code> 文件（没有 ventoy 文件夹就新建）。</li>
+          <li>
+            在 U 盘数据分区根目录创建 <code>ventoy/ventoy.json</code> 文件（没有
+            ventoy 文件夹就新建）。
+          </li>
           <li>写入以下配置：</li>
         </ol>
         <pre><code>{
@@ -1164,10 +1791,20 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
         <p>启动时 Ventoy 会要求输入密码，输错不让进菜单。</p>
         <div class="callout warn">
           <div class="callout-title">⚠️ 密码忘了怎么办</div>
-          <p>密码配置错了或忘了，<strong>可以用 Ventoy2Disk 升级功能重新生成 ventoy 目录</strong>，会清掉所有 ventoy.json 自定义配置。所以密码别设太复杂，写在小本子上。</p>
+          <p>
+            密码配置错了或忘了，<strong
+              >可以用 Ventoy2Disk 升级功能重新生成 ventoy 目录</strong
+            >，会清掉所有 ventoy.json
+            自定义配置。所以密码别设太复杂，写在小本子上。
+          </p>
         </div>
         <h3>11.3 自动安装（Auto Install）</h3>
-        <p>批量装机的神器：把 Ventoy U 盘插上，开机后<strong>完全无人值守</strong>自动装完系统。需要给 Windows 准备 <code>autounattend.xml</code> 应答文件，给 Linux 用 Kickstart / Preseed 文件。</p>
+        <p>
+          批量装机的神器：把 Ventoy U
+          盘插上，开机后<strong>完全无人值守</strong>自动装完系统。需要给
+          Windows 准备 <code>autounattend.xml</code> 应答文件，给 Linux 用
+          Kickstart / Preseed 文件。
+        </p>
         <p>Ventoy 自动安装配置示例：</p>
         <pre><code>{
   "auto_install": [
@@ -1177,14 +1814,30 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
     }
   ]
 }</code></pre>
-        <p>把对应的应答文件路径填到 <code>template</code> 字段，启动时 Ventoy 会自动注入到安装流程里。<strong>autounattend.xml 的生成可以用微软的「Windows 映像和配置设计器 (Windows ICD)」</strong>，或者从网上找现成的修改。</p>
+        <p>
+          把对应的应答文件路径填到 <code>template</code> 字段，启动时 Ventoy
+          会自动注入到安装流程里。<strong
+            >autounattend.xml 的生成可以用微软的「Windows 映像和配置设计器
+            (Windows ICD)」</strong
+          >，或者从网上找现成的修改。
+        </p>
         <h3>11.4 VentoyPlugson 图形配置器</h3>
-        <p>手写 JSON 太累？Ventoy 官方提供了 <strong>VentoyPlugson</strong> 图形化插件配置器：</p>
+        <p>
+          手写 JSON 太累？Ventoy 官方提供了
+          <strong>VentoyPlugson</strong> 图形化插件配置器：
+        </p>
         <ol class="steps">
-          <li>从 ventoy.net 下载 <code>VentoyPlugson</code>（与主程序同版本号）。</li>
+          <li>
+            从 ventoy.net 下载 <code>VentoyPlugson</code>（与主程序同版本号）。
+          </li>
           <li>解压，运行 <code>VentoyPlugson.exe</code>。</li>
-          <li>它会启动一个本地 Web 服务（默认端口 <code>8881</code>），浏览器打开 <strong>localhost:8881</strong>。</li>
-          <li>通过网页表单勾选配置，导出 <code>ventoy.json</code> 文件到 U 盘。</li>
+          <li>
+            它会启动一个本地 Web 服务（默认端口 <code>8881</code>），浏览器打开
+            <strong>localhost:8881</strong>。
+          </li>
+          <li>
+            通过网页表单勾选配置，导出 <code>ventoy.json</code> 文件到 U 盘。
+          </li>
         </ol>
         <div class="callout tip">
           <div class="callout-title">🟢 升级 Ventoy 不丢数据</div>
@@ -1193,9 +1846,13 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
             <li>下载新版本 Ventoy。</li>
             <li>运行 Ventoy2Disk，选中 U 盘。</li>
             <li>点 <strong>「升级」</strong>（不是「安装」）。</li>
-            <li>升级只更新引导区，<strong>U 盘里的镜像和数据全部保留</strong>。</li>
+            <li>
+              升级只更新引导区，<strong>U 盘里的镜像和数据全部保留</strong>。
+            </li>
           </ol>
-          <p>所以建议每 3-6 个月升级一次，跟上最新版（最新版修复的 bug 很多）。</p>
+          <p>
+            所以建议每 3-6 个月升级一次，跟上最新版（最新版修复的 bug 很多）。
+          </p>
         </div>
         <h3>11.5 多系统维护盘最佳实践</h3>
         <p>把 Ventoy 打造成<strong>装机 + 救援两用 U 盘</strong>：</p>
@@ -1219,12 +1876,18 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
 
       <section class="section" id="ch12">
         <h2>12. 报错速查 & 验证清单</h2>
-        <p>最后这一章是给你<strong>卡住时救命</strong>用的。把报错现象对号入座，找到对应原因和解决办法。</p>
+        <p>
+          最后这一章是给你<strong>卡住时救命</strong>用的。把报错现象对号入座，找到对应原因和解决办法。
+        </p>
 
         <h3>12.1 安装阶段报错</h3>
         <table>
           <thead>
-            <tr><th>现象</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>现象</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -1258,7 +1921,11 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
         <h3>12.2 启动阶段报错</h3>
         <table>
           <thead>
-            <tr><th>现象</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>现象</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -1302,7 +1969,11 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
         <h3>12.3 安装阶段报错</h3>
         <table>
           <thead>
-            <tr><th>现象</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>现象</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -1341,7 +2012,9 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
           <li>✅ 用任意一台电脑从 U 盘启动，能看到 Ventoy 菜单</li>
           <li>✅ Ventoy 菜单能列出 U 盘里的镜像文件</li>
           <li>✅ 选中 ISO 回车能正常进入系统安装界面</li>
-          <li>✅ Secure Boot 环境下不报 Security Boot Violation（首次需注册密钥）</li>
+          <li>
+            ✅ Secure Boot 环境下不报 Security Boot Violation（首次需注册密钥）
+          </li>
           <li>✅ 装完系统能正常进入新系统（拔 U 盘后）</li>
         </ol>
 
@@ -1349,22 +2022,45 @@ sudo grub-install /dev/sda  # 重装 GRUB 到主硬盘</code></pre>
         <div class="callout tip">
           <div class="callout-title">📌 十二句口诀</div>
           <ol>
-            <li><strong>官方下载</strong>：Ventoy 只从 ventoy.net 或 github 拿，其他都是流氓版</li>
+            <li>
+              <strong>官方下载</strong>：Ventoy 只从 ventoy.net 或 github
+              拿，其他都是流氓版
+            </li>
             <li><strong>备份先行</strong>：安装会清盘，重要数据先存出去</li>
             <li><strong>只插一盘</strong>：操作时只插目标 U 盘，防误选硬盘</li>
-            <li><strong>三看选盘</strong>：看容量、看型号、拔出确认下拉框空了</li>
+            <li>
+              <strong>三看选盘</strong>：看容量、看型号、拔出确认下拉框空了
+            </li>
             <li><strong>exFAT 默认</strong>：别用 FAT32，超 4GB 文件装不下</li>
-            <li><strong>Secure Boot 开启</strong>：首次启动进 MOK 注册密钥，只做一次</li>
-            <li><strong>只认 ISO 等格式</strong>：.iso/.wim/.img/.vhd/.efi，其他后缀不识别</li>
+            <li>
+              <strong>Secure Boot 开启</strong>：首次启动进 MOK
+              注册密钥，只做一次
+            </li>
+            <li>
+              <strong>只认 ISO 等格式</strong
+              >：.iso/.wim/.img/.vhd/.efi，其他后缀不识别
+            </li>
             <li><strong>狂按启动键</strong>：F2/F12/F8/DEL 不知道就挨个试</li>
-            <li><strong>选 UEFI: 前缀</strong>：UEFI 启动菜单里找带 UEFI 的 U 盘项</li>
-            <li><strong>分区别乱删</strong>：重装系统只删系统盘分区，数据盘别动</li>
-            <li><strong>升级无损</strong>：新版 Ventoy 用「升级」按钮，镜像数据全保留</li>
-            <li><strong>VentoyPlugson</strong>：插件配置用图形工具，别手写 JSON</li>
+            <li>
+              <strong>选 UEFI: 前缀</strong>：UEFI 启动菜单里找带 UEFI 的 U 盘项
+            </li>
+            <li>
+              <strong>分区别乱删</strong>：重装系统只删系统盘分区，数据盘别动
+            </li>
+            <li>
+              <strong>升级无损</strong>：新版 Ventoy
+              用「升级」按钮，镜像数据全保留
+            </li>
+            <li>
+              <strong>VentoyPlugson</strong>：插件配置用图形工具，别手写 JSON
+            </li>
           </ol>
         </div>
 
-        <p>按这十二句口诀对照检查，Ventoy 重装系统这件事就能稳稳拿下。指南到这里就结束了，<strong>祝你装机愉快</strong>。</p>
+        <p>
+          按这十二句口诀对照检查，Ventoy
+          重装系统这件事就能稳稳拿下。指南到这里就结束了，<strong>祝你装机愉快</strong>。
+        </p>
       </section>
     </main>
     <script>

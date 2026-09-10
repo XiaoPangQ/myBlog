@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/jpeg" href="../images/avatar.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redis 实战指南 · Zinx的技术手记</title>
+    <title>Redis 实战指南 · Zinx的博客</title>
     <style>
       :root {
         --bg: #08111f;
@@ -575,8 +575,7 @@
     <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
     <div class="overlay" id="overlay"></div>
 
-
-      <nav class="sidebar" id="sidebar">
+    <nav class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <h2><span class="logo-icon">🚀</span> Node.js 后端实战</h2>
         <p>零基础到上手项目</p>
@@ -607,8 +606,9 @@
         <span class="hero-badge">🚀 后端实战 · 零基础到上手项目</span>
         <h1>Node.js 后端开发实战指南</h1>
         <p>
-          一份 Node.js 后端从 0 到 1 的完整实战手册：核心概念、环境搭建、异步编程、
-          Express 5 实战 RESTful API、数据库集成、JWT 认证、安全防护，再到日志测试部署与性能调优。
+          一份 Node.js 后端从 0 到 1
+          的完整实战手册：核心概念、环境搭建、异步编程、 Express 5 实战 RESTful
+          API、数据库集成、JWT 认证、安全防护，再到日志测试部署与性能调优。
           一步一步跟着做，就能用 Node.js 写出一个能上线的后端服务。
         </p>
         <div class="hero-meta">
@@ -618,15 +618,22 @@
           <span><span class="dot"></span>覆盖 MySQL / Redis / JWT</span>
         </div>
       </header>
-<section class="section" id="ch01">
+      <section class="section" id="ch01">
         <h2>1. Node.js 是什么 & 为什么选它</h2>
         <p>
-          Node.js 不是编程语言，而是<strong>让 JavaScript 运行在服务端的运行时环境</strong>。它基于 Chrome V8 引擎，让前端工程师也能写后端，
-          同时又天然适合做<strong>高并发 I/O 密集型</strong>服务（API、网关、爬虫、实时通信等）。
+          Node.js 不是编程语言，而是<strong
+            >让 JavaScript 运行在服务端的运行时环境</strong
+          >。它基于 Chrome V8 引擎，让前端工程师也能写后端，
+          同时又天然适合做<strong>高并发 I/O 密集型</strong
+          >服务（API、网关、爬虫、实时通信等）。
         </p>
         <div class="callout tip">
           <div class="callout-title">🟢 一句话理解 Node.js</div>
-          <p>把 Node.js 想象成 <strong>「浏览器之外的 JS 运行环境」</strong>：你在前端能用的 JS 语法、异步 API 基本都能用，只是宿主从浏览器换成了操作系统。</p>
+          <p>
+            把 Node.js 想象成
+            <strong>「浏览器之外的 JS 运行环境」</strong>：你在前端能用的 JS
+            语法、异步 API 基本都能用，只是宿主从浏览器换成了操作系统。
+          </p>
         </div>
         <h3>1.1 Node.js 的四大核心特性</h3>
         <div class="feature-grid">
@@ -641,7 +648,9 @@
             <span class="feature-icon">📦</span>
             <div>
               <strong>npm 生态最丰富</strong>
-              <p>全球最大包管理仓库，300 万+ 现成轮子，几乎任何功能都有人写过。</p>
+              <p>
+                全球最大包管理仓库，300 万+ 现成轮子，几乎任何功能都有人写过。
+              </p>
             </div>
           </div>
           <div class="feature">
@@ -655,7 +664,10 @@
             <span class="feature-icon">🚀</span>
             <div>
               <strong>启动极快</strong>
-              <p>V8 引擎 + JIT 编译，毫秒级启动，适合 Serverless 与微服务冷启动场景。</p>
+              <p>
+                V8 引擎 + JIT 编译，毫秒级启动，适合 Serverless
+                与微服务冷启动场景。
+              </p>
             </div>
           </div>
         </div>
@@ -663,71 +675,229 @@
         <h3>1.2 Node.js 最适合的场景</h3>
         <table>
           <thead>
-            <tr><th>场景</th><th>为什么适合</th></tr>
+            <tr>
+              <th>场景</th>
+              <th>为什么适合</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>RESTful API / BFF 层</td><td>非阻塞 I/O 处理高并发请求，资源占用低</td></tr>
-            <tr><td>实时应用（WebSocket）</td><td>事件驱动天然适配长连接</td></tr>
-            <tr><td>爬虫 / 批量网络请求</td><td>异步并发能力强，写代理最顺手</td></tr>
-            <tr><td>CLI 工具 / 脚本</td><td>语法简单、跨平台、生态成熟</td></tr>
-            <tr><td>网关 / 反向代理</td><td>可作为 Nginx 之外的轻量网关层</td></tr>
-            <tr><td>Serverless 函数</td><td>冷启动 < 100ms，比 JVM 系语言快 10 倍</td></tr>
+            <tr>
+              <td>RESTful API / BFF 层</td>
+              <td>非阻塞 I/O 处理高并发请求，资源占用低</td>
+            </tr>
+            <tr>
+              <td>实时应用（WebSocket）</td>
+              <td>事件驱动天然适配长连接</td>
+            </tr>
+            <tr>
+              <td>爬虫 / 批量网络请求</td>
+              <td>异步并发能力强，写代理最顺手</td>
+            </tr>
+            <tr>
+              <td>CLI 工具 / 脚本</td>
+              <td>语法简单、跨平台、生态成熟</td>
+            </tr>
+            <tr>
+              <td>网关 / 反向代理</td>
+              <td>可作为 Nginx 之外的轻量网关层</td>
+            </tr>
+            <tr>
+              <td>Serverless 函数</td>
+              <td>冷启动 < 100ms，比 JVM 系语言快 10 倍</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout warn">
           <div class="callout-title">⚠️ Node.js 不适合的场景</div>
-          <p>Node.js 是<strong>单线程</strong>，CPU 密集型任务会被卡死。需要跑大量计算（图像处理、AI 推理、视频转码、密码哈希大量计算）时，应交给其他语言/线程（Worker Threads / 子进程）。</p>
+          <p>
+            Node.js 是<strong>单线程</strong>，CPU
+            密集型任务会被卡死。需要跑大量计算（图像处理、AI
+            推理、视频转码、密码哈希大量计算）时，应交给其他语言/线程（Worker
+            Threads / 子进程）。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch02">
         <h2>2. 与其他后端技术对比</h2>
-        <p>Node.js 不是「最好」的语言，而是<strong>「最适合某种场景」</strong>的工具。下面这张表把主流后端技术摆在一起对比，帮你快速定位该不该选。</p>
+        <p>
+          Node.js
+          不是「最好」的语言，而是<strong>「最适合某种场景」</strong>的工具。下面这张表把主流后端技术摆在一起对比，帮你快速定位该不该选。
+        </p>
         <table>
           <thead>
-            <tr><th>维度</th><th>Node.js</th><th>Java</th><th>Python</th><th>Go</th><th>PHP</th></tr>
+            <tr>
+              <th>维度</th>
+              <th>Node.js</th>
+              <th>Java</th>
+              <th>Python</th>
+              <th>Go</th>
+              <th>PHP</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>类型</td><td>JS 运行时</td><td>JVM 语言</td><td>解释型</td><td>编译型</td><td>解释型</td></tr>
-            <tr><td>并发模型</td><td>单线程事件循环</td><td>线程池</td><td>多线程 / 异步</td><td>goroutine</td><td>进程 / FPM</td></tr>
-            <tr><td>性能（I/O）</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
-            <tr><td>性能（CPU）</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td></tr>
-            <tr><td>学习曲线</td><td>前端友好</td><td>较陡</td><td>最平缓</td><td>中等</td><td>平缓</td></tr>
-            <tr><td>包管理</td><td>npm（最大）</td><td>Maven / Gradle</td><td>pip</td><td>go mod</td><td>Composer</td></tr>
-            <tr><td>部署复杂度</td><td>低</td><td>高（JVM）</td><td>中</td><td>低（单文件）</td><td>低</td></tr>
-            <tr><td>主要生态</td><td>Web 全栈、爬虫</td><td>企业级、金融</td><td>AI、数据科学</td><td>云原生、基础设施</td><td>Web 传统</td></tr>
-            <tr><td>典型应用</td><td>API 网关、实时通信</td><td>大型业务系统</td><td>ML 脚本、Web</td><td>Docker、K8s</td><td>CMS、博客</td></tr>
+            <tr>
+              <td>类型</td>
+              <td>JS 运行时</td>
+              <td>JVM 语言</td>
+              <td>解释型</td>
+              <td>编译型</td>
+              <td>解释型</td>
+            </tr>
+            <tr>
+              <td>并发模型</td>
+              <td>单线程事件循环</td>
+              <td>线程池</td>
+              <td>多线程 / 异步</td>
+              <td>goroutine</td>
+              <td>进程 / FPM</td>
+            </tr>
+            <tr>
+              <td>性能（I/O）</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>⭐⭐⭐</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td>性能（CPU）</td>
+              <td>⭐⭐</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>⭐⭐</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>⭐⭐</td>
+            </tr>
+            <tr>
+              <td>学习曲线</td>
+              <td>前端友好</td>
+              <td>较陡</td>
+              <td>最平缓</td>
+              <td>中等</td>
+              <td>平缓</td>
+            </tr>
+            <tr>
+              <td>包管理</td>
+              <td>npm（最大）</td>
+              <td>Maven / Gradle</td>
+              <td>pip</td>
+              <td>go mod</td>
+              <td>Composer</td>
+            </tr>
+            <tr>
+              <td>部署复杂度</td>
+              <td>低</td>
+              <td>高（JVM）</td>
+              <td>中</td>
+              <td>低（单文件）</td>
+              <td>低</td>
+            </tr>
+            <tr>
+              <td>主要生态</td>
+              <td>Web 全栈、爬虫</td>
+              <td>企业级、金融</td>
+              <td>AI、数据科学</td>
+              <td>云原生、基础设施</td>
+              <td>Web 传统</td>
+            </tr>
+            <tr>
+              <td>典型应用</td>
+              <td>API 网关、实时通信</td>
+              <td>大型业务系统</td>
+              <td>ML 脚本、Web</td>
+              <td>Docker、K8s</td>
+              <td>CMS、博客</td>
+            </tr>
           </tbody>
         </table>
         <div class="callout tip">
           <div class="callout-title">🟢 选型口诀</div>
-          <p><strong>短平快 + I/O 多 → Node.js；CPU 重 + 稳定 → Java；ML/科学计算 → Python；云原生 + 极致性能 → Go；老项目维护 → PHP</strong>。没有银弹，看场景选。</p>
+          <p>
+            <strong
+              >短平快 + I/O 多 → Node.js；CPU 重 + 稳定 → Java；ML/科学计算 →
+              Python；云原生 + 极致性能 → Go；老项目维护 → PHP</strong
+            >。没有银弹，看场景选。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch03">
         <h2>3. 学习路径 & 技术栈选型</h2>
-        <p>Node.js 生态比 Java 散得多，<strong>不预先选型容易走弯路</strong>。本章给出一份 2026 年主流的「事实标准」技术栈。</p>
+        <p>
+          Node.js 生态比 Java
+          散得多，<strong>不预先选型容易走弯路</strong>。本章给出一份 2026
+          年主流的「事实标准」技术栈。
+        </p>
         <h3>3.1 推荐学习路径</h3>
         <ol class="steps">
-          <li><strong>基础必学</strong>：JS 语法 → Node.js 内置模块（fs / path / http）→ npm 包管理。</li>
-          <li><strong>Web 框架</strong>：Express 入门 → Koa 进阶 → NestJS 工程化（大型项目）。</li>
-          <li><strong>数据持久化</strong>：MySQL（关系型主流）→ Redis（缓存）→ MongoDB（文档型）。</li>
-          <li><strong>工程化</strong>：TypeScript → ESLint/Prettier → 测试（Vitest）→ Docker 部署。</li>
-          <li><strong>进阶</strong>：性能优化、集群、监控、消息队列（RabbitMQ/Kafka）、微服务。</li>
+          <li>
+            <strong>基础必学</strong>：JS 语法 → Node.js 内置模块（fs / path /
+            http）→ npm 包管理。
+          </li>
+          <li>
+            <strong>Web 框架</strong>：Express 入门 → Koa 进阶 → NestJS
+            工程化（大型项目）。
+          </li>
+          <li>
+            <strong>数据持久化</strong>：MySQL（关系型主流）→ Redis（缓存）→
+            MongoDB（文档型）。
+          </li>
+          <li>
+            <strong>工程化</strong>：TypeScript → ESLint/Prettier →
+            测试（Vitest）→ Docker 部署。
+          </li>
+          <li>
+            <strong>进阶</strong
+            >：性能优化、集群、监控、消息队列（RabbitMQ/Kafka）、微服务。
+          </li>
         </ol>
         <h3>3.2 框架选型速查表</h3>
         <table>
           <thead>
-            <tr><th>框架</th><th>定位</th><th>适合</th><th>学习曲线</th></tr>
+            <tr>
+              <th>框架</th>
+              <th>定位</th>
+              <th>适合</th>
+              <th>学习曲线</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Express 5</strong></td><td>极简灵活</td><td>中小型 API、个人项目</td><td>⭐ 最平缓</td></tr>
-            <tr><td><strong>Koa 2</strong></td><td>极简 + 洋葱模型</td><td>需要精细控制中间件顺序</td><td>⭐⭐</td></tr>
-            <tr><td><strong>Fastify</strong></td><td>性能优先</td><td>高并发、对性能敏感</td><td>⭐⭐</td></tr>
-            <tr><td><strong>NestJS</strong></td><td>Angular 风格企业级</td><td>大型团队、长期维护项目</td><td>⭐⭐⭐⭐</td></tr>
-            <tr><td><strong>Hono</strong></td><td>超轻量 + 跨运行时</td><td>Edge / Serverless</td><td>⭐⭐</td></tr>
-            <tr><td><strong>Egg.js</strong></td><td>阿里出品，企业级约定</td><td>中后台系统</td><td>⭐⭐⭐</td></tr>
+            <tr>
+              <td><strong>Express 5</strong></td>
+              <td>极简灵活</td>
+              <td>中小型 API、个人项目</td>
+              <td>⭐ 最平缓</td>
+            </tr>
+            <tr>
+              <td><strong>Koa 2</strong></td>
+              <td>极简 + 洋葱模型</td>
+              <td>需要精细控制中间件顺序</td>
+              <td>⭐⭐</td>
+            </tr>
+            <tr>
+              <td><strong>Fastify</strong></td>
+              <td>性能优先</td>
+              <td>高并发、对性能敏感</td>
+              <td>⭐⭐</td>
+            </tr>
+            <tr>
+              <td><strong>NestJS</strong></td>
+              <td>Angular 风格企业级</td>
+              <td>大型团队、长期维护项目</td>
+              <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td><strong>Hono</strong></td>
+              <td>超轻量 + 跨运行时</td>
+              <td>Edge / Serverless</td>
+              <td>⭐⭐</td>
+            </tr>
+            <tr>
+              <td><strong>Egg.js</strong></td>
+              <td>阿里出品，企业级约定</td>
+              <td>中后台系统</td>
+              <td>⭐⭐⭐</td>
+            </tr>
           </tbody>
         </table>
         <h3>3.3 本指南采用的技术栈</h3>
@@ -737,15 +907,21 @@
             <li>运行时：<strong>Node.js 20 LTS</strong>（2026 年推荐主线）</li>
             <li>包管理：<strong>pnpm</strong>（速度快、磁盘省、依赖严格）</li>
             <li>框架：<strong>Express 5</strong>（最易学，覆盖 80% 场景）</li>
-            <li>数据库：<strong>MySQL 8 + Prisma 5</strong>（TS 友好，迁移方便）</li>
+            <li>
+              数据库：<strong>MySQL 8 + Prisma 5</strong>（TS 友好，迁移方便）
+            </li>
             <li>缓存：<strong>Redis 7</strong>（详见《Redis 实战指南》）</li>
             <li>认证：<strong>JWT + bcrypt</strong>（无状态标准方案）</li>
             <li>部署：<strong>PM2 + Docker + Nginx</strong></li>
           </ul>
         </div>
-      </section><section class="section" id="ch04">
+      </section>
+      <section class="section" id="ch04">
         <h2>4. 环境搭建（nvm + pnpm）</h2>
-        <p>装 Node.js 不要去官网下安装包，<strong>用 nvm 管理多版本</strong>。后续切换 LTS / 测试版本、项目锁版本都靠它。</p>
+        <p>
+          装 Node.js 不要去官网下安装包，<strong>用 nvm 管理多版本</strong
+          >。后续切换 LTS / 测试版本、项目锁版本都靠它。
+        </p>
         <h3>4.1 安装 nvm（Node Version Manager）</h3>
         <p>macOS / Linux 用官方安装脚本：</p>
         <pre><code># 一行命令装好 nvm（来自 nvm-sh/nvm 官方仓库）
@@ -755,8 +931,15 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 nvm --version  # 应输出 0.40.1 或更新版本</code></pre>
         <p>Windows 用 nvm-windows：</p>
         <ol class="steps">
-          <li>去 <strong>github.com/coreybutler/nvm-windows/releases</strong> 下载 <code>nvm-setup.exe</code>。</li>
-          <li>双击安装（默认路径即可），<strong>安装前先卸载已存在的 Node.js</strong>。</li>
+          <li>
+            去 <strong>github.com/coreybutler/nvm-windows/releases</strong> 下载
+            <code>nvm-setup.exe</code>。
+          </li>
+          <li>
+            双击安装（默认路径即可），<strong
+              >安装前先卸载已存在的 Node.js</strong
+            >。
+          </li>
           <li>装完新开一个 PowerShell，运行 <code>nvm version</code> 验证。</li>
         </ol>
         <h3>4.2 安装 Node.js LTS</h3>
@@ -775,7 +958,11 @@ node -v   # v20.x.x
 npm -v    # 10.x.x</code></pre>
         <div class="callout tip">
           <div class="callout-title">🟢 为什么用 LTS</div>
-          <p>LTS（Long Term Support）是官方长期维护版本，生产环境<strong>永远选 LTS</strong>。Current 版本尝鲜用，<strong>别上生产</strong>，半年就停止支持。</p>
+          <p>
+            LTS（Long Term Support）是官方长期维护版本，生产环境<strong
+              >永远选 LTS</strong
+            >。Current 版本尝鲜用，<strong>别上生产</strong>，半年就停止支持。
+          </p>
         </div>
         <h3>4.3 项目级 Node 版本锁定</h3>
         <p>在项目根目录创建 <code>.nvmrc</code> 文件，写入版本号：</p>
@@ -788,15 +975,50 @@ nvm install # 如果本机没装，自动装上</code></pre>
         <p>npm / yarn / pnpm 三大主流包管理器的核心对比：</p>
         <table>
           <thead>
-            <tr><th>特性</th><th>npm</th><th>yarn</th><th>pnpm</th></tr>
+            <tr>
+              <th>特性</th>
+              <th>npm</th>
+              <th>yarn</th>
+              <th>pnpm</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>速度</td><td>中</td><td>快</td><td><strong>最快</strong></td></tr>
-            <tr><td>磁盘占用</td><td>大（每个项目独立）</td><td>大</td><td><strong>全局共享 store</strong></td></tr>
-            <tr><td>幽灵依赖</td><td>允许（不严格）</td><td>允许</td><td><strong>严格隔离</strong></td></tr>
-            <tr><td>Monorepo</td><td>workspaces</td><td>workspaces</td><td><strong>原生支持最好</strong></td></tr>
-            <tr><td>锁文件</td><td>package-lock.json</td><td>yarn.lock</td><td>pnpm-lock.yaml</td></tr>
-            <tr><th>本指南推荐</th><td>—</td><td>—</td><td><strong>✅ 默认使用</strong></td></tr>
+            <tr>
+              <td>速度</td>
+              <td>中</td>
+              <td>快</td>
+              <td><strong>最快</strong></td>
+            </tr>
+            <tr>
+              <td>磁盘占用</td>
+              <td>大（每个项目独立）</td>
+              <td>大</td>
+              <td><strong>全局共享 store</strong></td>
+            </tr>
+            <tr>
+              <td>幽灵依赖</td>
+              <td>允许（不严格）</td>
+              <td>允许</td>
+              <td><strong>严格隔离</strong></td>
+            </tr>
+            <tr>
+              <td>Monorepo</td>
+              <td>workspaces</td>
+              <td>workspaces</td>
+              <td><strong>原生支持最好</strong></td>
+            </tr>
+            <tr>
+              <td>锁文件</td>
+              <td>package-lock.json</td>
+              <td>yarn.lock</td>
+              <td>pnpm-lock.yaml</td>
+            </tr>
+            <tr>
+              <th>本指南推荐</th>
+              <td>—</td>
+              <td>—</td>
+              <td><strong>✅ 默认使用</strong></td>
+            </tr>
           </tbody>
         </table>
         <pre><code># 装 pnpm
@@ -830,25 +1052,62 @@ EOF
 node index.js</code></pre>
         <div class="callout tip">
           <div class="callout-title">🟢 三个核心命令</div>
-          <p>记住这三个命令能跑遍 80% 场景：<code>pnpm init</code>（初始化项目）、<code>pnpm add 包名</code>（装运行时依赖）、<code>pnpm add -D 包名</code>（装开发依赖）。</p>
+          <p>
+            记住这三个命令能跑遍 80% 场景：<code>pnpm init</code
+            >（初始化项目）、<code>pnpm add 包名</code>（装运行时依赖）、<code
+              >pnpm add -D 包名</code
+            >（装开发依赖）。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch05">
         <h2>5. 模块系统 CommonJS vs ESM</h2>
-        <p>Node.js 有<strong>两套</strong>模块系统，新老项目混用很常见。<strong>2026 年新项目应默认使用 ESM</strong>。</p>
+        <p>
+          Node.js 有<strong>两套</strong>模块系统，新老项目混用很常见。<strong
+            >2026 年新项目应默认使用 ESM</strong
+          >。
+        </p>
         <h3>5.1 两套模块系统对比</h3>
         <table>
           <thead>
-            <tr><th>特性</th><th>CommonJS（CJS）</th><th>ES Modules（ESM）</th></tr>
+            <tr>
+              <th>特性</th>
+              <th>CommonJS（CJS）</th>
+              <th>ES Modules（ESM）</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>语法</td><td><code>require()</code> / <code>module.exports</code></td><td><code>import</code> / <code>export</code></td></tr>
-            <tr><td>加载方式</td><td>同步（运行时）</td><td>异步（编译时）</td></tr>
-            <tr><td>文件后缀</td><td><code>.js</code> 默认</td><td><code>.mjs</code> 或 <code>"type": "module"</code></td></tr>
-            <tr><td>浏览器兼容</td><td>需打包</td><td>原生支持</td></tr>
-            <tr><td>Tree Shaking</td><td>弱</td><td>强</td></tr>
-            <tr><td>典型场景</td><td>老项目、Node 内置模块</td><td>新项目、TypeScript</td></tr>
+            <tr>
+              <td>语法</td>
+              <td><code>require()</code> / <code>module.exports</code></td>
+              <td><code>import</code> / <code>export</code></td>
+            </tr>
+            <tr>
+              <td>加载方式</td>
+              <td>同步（运行时）</td>
+              <td>异步（编译时）</td>
+            </tr>
+            <tr>
+              <td>文件后缀</td>
+              <td><code>.js</code> 默认</td>
+              <td><code>.mjs</code> 或 <code>"type": "module"</code></td>
+            </tr>
+            <tr>
+              <td>浏览器兼容</td>
+              <td>需打包</td>
+              <td>原生支持</td>
+            </tr>
+            <tr>
+              <td>Tree Shaking</td>
+              <td>弱</td>
+              <td>强</td>
+            </tr>
+            <tr>
+              <td>典型场景</td>
+              <td>老项目、Node 内置模块</td>
+              <td>新项目、TypeScript</td>
+            </tr>
           </tbody>
         </table>
         <h3>5.2 CommonJS 用法（老项目主流）</h3>
@@ -888,9 +1147,22 @@ import greet from './utils.js'</code></pre>
         <div class="callout warn">
           <div class="callout-title">⚠️ CommonJS 与 ESM 混用的三大坑</div>
           <ol>
-            <li><strong>不能 <code>require()</code> ESM</strong>：CommonJS 文件里 <code>require()</code> 一个 ESM 模块会失败，必须用 <code>import()</code> 动态导入。</li>
-            <li><strong><code>__dirname</code> 在 ESM 不存在</strong>：要用 <code>import.meta.url</code> 配合 <code>fileURLToPath</code> 模拟。</li>
-            <li><strong>JSON 导入不同</strong>：CJS <code>require('./data.json')</code>，ESM 必须 <code>import data from './data.json' with { type: 'json' }</code>（Node 20+）。</li>
+            <li>
+              <strong>不能 <code>require()</code> ESM</strong>：CommonJS 文件里
+              <code>require()</code> 一个 ESM 模块会失败，必须用
+              <code>import()</code> 动态导入。
+            </li>
+            <li>
+              <strong><code>__dirname</code> 在 ESM 不存在</strong>：要用
+              <code>import.meta.url</code> 配合
+              <code>fileURLToPath</code> 模拟。
+            </li>
+            <li>
+              <strong>JSON 导入不同</strong>：CJS
+              <code>require('./data.json')</code>，ESM 必须
+              <code>import data from './data.json' with { type: 'json' }</code
+              >（Node 20+）。
+            </li>
           </ol>
         </div>
         <h3>5.4 ESM 中获取 __dirname 兼容写法</h3>
@@ -903,13 +1175,22 @@ console.log(__dirname)</code></pre>
         <h3>5.5 命名导入 vs 默认导入的选择</h3>
         <div class="callout tip">
           <div class="callout-title">🟢 命名导入优于默认导入</div>
-          <p>命名导入（<code>import { add }</code>）在重构时<strong>编辑器能自动同步改名</strong>，默认导入（<code>import utils from</code>）很容易出错。第三方库除外（默认导出是它们的约定）。</p>
+          <p>
+            命名导入（<code>import { add }</code
+            >）在重构时<strong>编辑器能自动同步改名</strong>，默认导入（<code
+              >import utils from</code
+            >）很容易出错。第三方库除外（默认导出是它们的约定）。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch06">
         <h2>6. 异步编程三板斧</h2>
-        <p>Node.js 的灵魂是<strong>异步</strong>。JavaScript 异步写法经历了三代：<strong>回调 → Promise → async/await</strong>。<strong>新代码统一用 async/await</strong>。</p>
+        <p>
+          Node.js 的灵魂是<strong>异步</strong>。JavaScript
+          异步写法经历了三代：<strong>回调 → Promise → async/await</strong
+          >。<strong>新代码统一用 async/await</strong>。
+        </p>
         <h3>6.1 三种写法对比</h3>
         <pre><code>// 假设有一个异步读取文件的函数 readFile()
 // 老式：回调地狱（不要这么写）
@@ -966,22 +1247,48 @@ results.forEach(r =&gt; {
 })</code></pre>
         <table>
           <thead>
-            <tr><th>场景</th><th>推荐 API</th></tr>
+            <tr>
+              <th>场景</th>
+              <th>推荐 API</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>全部成功才算成功</td><td><code>Promise.all</code></td></tr>
-            <tr><td>任意一个成功即可</td><td><code>Promise.any</code></td></tr>
-            <tr><td>全部完成（不管结果）</td><td><code>Promise.allSettled</code></td></tr>
-            <tr><td>只要第一个完成</td><td><code>Promise.race</code></td></tr>
+            <tr>
+              <td>全部成功才算成功</td>
+              <td><code>Promise.all</code></td>
+            </tr>
+            <tr>
+              <td>任意一个成功即可</td>
+              <td><code>Promise.any</code></td>
+            </tr>
+            <tr>
+              <td>全部完成（不管结果）</td>
+              <td><code>Promise.allSettled</code></td>
+            </tr>
+            <tr>
+              <td>只要第一个完成</td>
+              <td><code>Promise.race</code></td>
+            </tr>
           </tbody>
         </table>
         <h3>6.3 错误处理最佳实践</h3>
         <div class="callout danger">
           <div class="callout-title">🔴 Promise 异常吞掉的坑</div>
-          <p><strong>没被 await / 没被 catch 的 Promise 异常会变成 UnhandledPromiseRejection</strong>，Node 18+ 默认会让进程崩溃。规则：</p>
+          <p>
+            <strong
+              >没被 await / 没被 catch 的 Promise 异常会变成
+              UnhandledPromiseRejection</strong
+            >，Node 18+ 默认会让进程崩溃。规则：
+          </p>
           <ul>
-            <li><strong>永远 catch</strong>：每个 <code>await</code> 都要在 try/catch 里</li>
-            <li><strong>顶层兜底</strong>：在进程入口加 <code>process.on('unhandledRejection')</code> 兜底</li>
+            <li>
+              <strong>永远 catch</strong>：每个 <code>await</code> 都要在
+              try/catch 里
+            </li>
+            <li>
+              <strong>顶层兜底</strong>：在进程入口加
+              <code>process.on('unhandledRejection')</code> 兜底
+            </li>
           </ul>
         </div>
         <pre><code>// 入口兜底（main.js 顶部）
@@ -995,7 +1302,10 @@ process.on('uncaughtException', (err) =&gt; {
   process.exit(1)  // 严重错误，直接退出让 PM2 重启
 })</code></pre>
         <h3>6.4 顶层 await</h3>
-        <p>Node 14+ 支持<strong>顶层 await</strong>（在 ESM 模块顶层直接 await），不再需要包 async IIFE：</p>
+        <p>
+          Node 14+ 支持<strong>顶层 await</strong>（在 ESM 模块顶层直接
+          await），不再需要包 async IIFE：
+        </p>
         <pre><code>// ESM 模块顶层直接 await（Node 14+）
 const config = await fetch('/api/config.json').then(r =&gt; r.json())
 const db = await connectDB(config.dbUrl)
@@ -1005,9 +1315,14 @@ console.log('配置加载完成，可以启动服务')</code></pre>
 
       <section class="section" id="ch07">
         <h2>7. 事件循环 & Buffer/Stream</h2>
-        <p>理解事件循环是 Node.js 进阶的<strong>分水岭</strong>。面试常考、线上 bug 排查必备。</p>
+        <p>
+          理解事件循环是 Node.js 进阶的<strong>分水岭</strong>。面试常考、线上
+          bug 排查必备。
+        </p>
         <h3>7.1 事件循环六个阶段</h3>
-        <p>Node.js 事件循环按顺序循环执行这六个阶段，每个阶段都有自己的任务队列：</p>
+        <p>
+          Node.js 事件循环按顺序循环执行这六个阶段，每个阶段都有自己的任务队列：
+        </p>
         <pre><code>   ┌───────────────────────────┐
 ┌─&gt;│       timers              │ ← setTimeout / setInterval 回调
 │  └─────────────┬─────────────┘
@@ -1029,15 +1344,32 @@ console.log('配置加载完成，可以启动服务')</code></pre>
         <h3>7.2 微任务 vs 宏任务</h3>
         <div class="callout tip">
           <div class="callout-title">🟢 关键认知</div>
-          <p>每执行完一个<strong>宏任务</strong>，就<strong>清空所有微任务队列</strong>再进入下一个阶段。<strong>微任务永远优先于宏任务</strong>。</p>
+          <p>
+            每执行完一个<strong>宏任务</strong>，就<strong>清空所有微任务队列</strong>再进入下一个阶段。<strong>微任务永远优先于宏任务</strong>。
+          </p>
         </div>
         <table>
           <thead>
-            <tr><th>类型</th><th>例子</th></tr>
+            <tr>
+              <th>类型</th>
+              <th>例子</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><strong>微任务（microtask）</strong></td><td><code>Promise.then</code> / <code>queueMicrotask</code> / <code>process.nextTick</code></td></tr>
-            <tr><td><strong>宏任务（macrotask）</strong></td><td><code>setTimeout</code> / <code>setImmediate</code> / <code>I/O</code> / <code>setInterval</code></td></tr>
+            <tr>
+              <td><strong>微任务（microtask）</strong></td>
+              <td>
+                <code>Promise.then</code> / <code>queueMicrotask</code> /
+                <code>process.nextTick</code>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>宏任务（macrotask）</strong></td>
+              <td>
+                <code>setTimeout</code> / <code>setImmediate</code> /
+                <code>I/O</code> / <code>setInterval</code>
+              </td>
+            </tr>
           </tbody>
         </table>
         <h3>7.3 经典面试题：以下代码的输出顺序是？</h3>
@@ -1061,7 +1393,10 @@ console.log('6')
 // timers 阶段：2
 // check 阶段：5</code></pre>
         <h3>7.4 Buffer：处理二进制数据</h3>
-        <p>Buffer 是 Node.js 处理二进制数据的「瑞士军刀」，文件 I/O、网络传输、图片处理都靠它**。</p>
+        <p>
+          Buffer 是 Node.js 处理二进制数据的「瑞士军刀」，文件
+          I/O、网络传输、图片处理都靠它**。
+        </p>
         <pre><code>// 创建 Buffer
 const buf1 = Buffer.from('你好')        // 字符串转 Buffer
 const buf2 = Buffer.alloc(10)         // 创建 10 字节的零填充 Buffer
@@ -1082,7 +1417,10 @@ import { readFile } from 'node:fs/promises'
 const data = await readFile('image.png')
 console.log(data.length)               // 图片字节数</code></pre>
         <h3>7.5 Stream：处理大文件的唯一方式</h3>
-        <p>读 1GB 文件用 <code>readFile</code> 会爆；用 Stream 流式读取就不会。<strong>所有大文件场景必须用 Stream</strong>。</p>
+        <p>
+          读 1GB 文件用 <code>readFile</code> 会爆；用 Stream
+          流式读取就不会。<strong>所有大文件场景必须用 Stream</strong>。
+        </p>
         <pre><code>import { createReadStream, createWriteStream } from 'node:fs'
 
 // 流式复制大文件
@@ -1108,12 +1446,19 @@ createServer(async (req, res) =&gt; {
             <li><strong>Readable</strong>：可读流（读文件、HTTP 请求）</li>
             <li><strong>Writable</strong>：可写流（写文件、HTTP 响应）</li>
             <li><strong>Duplex</strong>：双工流（TCP socket）</li>
-            <li><strong>Transform</strong>：转换流（压缩、加密，<code>zlib.createGzip()</code>）</li>
+            <li>
+              <strong>Transform</strong
+              >：转换流（压缩、加密，<code>zlib.createGzip()</code>）
+            </li>
           </ul>
         </div>
-      </section><section class="section" id="ch08">
+      </section>
+      <section class="section" id="ch08">
         <h2>8. Express 5 实战：RESTful API</h2>
-        <p>Express 是 Node.js 生态<strong>使用最广</strong>的 Web 框架，2025 年发布了 <strong>Express 5 正式版</strong>，本指南按 5.x 写。</p>
+        <p>
+          Express 是 Node.js 生态<strong>使用最广</strong>的 Web 框架，2025
+          年发布了 <strong>Express 5 正式版</strong>，本指南按 5.x 写。
+        </p>
         <h3>8.1 初始化项目</h3>
         <pre><code>mkdir my-api &amp;&amp; cd my-api
 pnpm init
@@ -1291,13 +1636,20 @@ export class AppError extends Error {
 }</code></pre>
         <div class="callout tip">
           <div class="callout-title">🟢 开发期热重载</div>
-          <p><code>tsx</code> 是 ESM 原生的 TS 运行时，<code>nodemon</code> 监听文件变化自动重启。<strong>tsx 比 ts-node 快 5 倍</strong>，本指南推荐这套组合。</p>
+          <p>
+            <code>tsx</code> 是 ESM 原生的 TS 运行时，<code>nodemon</code>
+            监听文件变化自动重启。<strong>tsx 比 ts-node 快 5 倍</strong
+            >，本指南推荐这套组合。
+          </p>
         </div>
       </section>
 
       <section class="section" id="ch09">
         <h2>9. 数据库集成 & ORM</h2>
-        <p>Node.js 后端离不开数据库。<strong>关系型首选 MySQL 8 + Prisma</strong>（TypeScript 时代的 ORM 王者）。</p>
+        <p>
+          Node.js 后端离不开数据库。<strong>关系型首选 MySQL 8 + Prisma</strong
+          >（TypeScript 时代的 ORM 王者）。
+        </p>
         <h3>9.1 Prisma 快速上手</h3>
         <pre><code># 装 Prisma
 pnpm add prisma @prisma/client
@@ -1432,16 +1784,27 @@ async function getUser(id: number) {
         <div class="callout warn">
           <div class="callout-title">⚠️ Prisma 三大坑</div>
           <ul>
-            <li><strong><code>db push</code> 不要用在生产</strong>：生产用 <code>prisma migrate deploy</code></li>
-            <li><strong>连接池爆炸</strong>：开发期热重载记得用 <code>globalThis</code> 单例</li>
-            <li><strong>N+1 查询</strong>：关联数据用 <code>include</code> 一次查完</li>
+            <li>
+              <strong><code>db push</code> 不要用在生产</strong>：生产用
+              <code>prisma migrate deploy</code>
+            </li>
+            <li>
+              <strong>连接池爆炸</strong>：开发期热重载记得用
+              <code>globalThis</code> 单例
+            </li>
+            <li>
+              <strong>N+1 查询</strong>：关联数据用
+              <code>include</code> 一次查完
+            </li>
           </ul>
         </div>
       </section>
 
       <section class="section" id="ch10">
         <h2>10. 认证安全：JWT + 哈希 + 防护</h2>
-        <p>后端项目上线前必须解决四个问题：<strong>身份认证、密码加密、跨域防护、输入校验</strong>。本章给出最小安全配置。</p>
+        <p>
+          后端项目上线前必须解决四个问题：<strong>身份认证、密码加密、跨域防护、输入校验</strong>。本章给出最小安全配置。
+        </p>
         <h3>10.1 JWT 认证（access + refresh 双 token）</h3>
         <pre><code># 装依赖
 pnpm add jsonwebtoken bcryptjs zod
@@ -1588,16 +1951,48 @@ router.post('/login', validate(loginSchema), authController.login)</code></pre>
         <h3>10.6 安全防护一览</h3>
         <table>
           <thead>
-            <tr><th>威胁</th><th>防护方案</th><th>包</th></tr>
+            <tr>
+              <th>威胁</th>
+              <th>防护方案</th>
+              <th>包</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>XSS</td><td>Helmet + 输出转义</td><td><code>helmet</code></td></tr>
-            <tr><td>CSRF</td><td>SameSite Cookie + CSRF Token</td><td><code>csurf</code>（已停维护）</td></tr>
-            <tr><td>SQL 注入</td><td>Prisma 参数化查询（默认安全）</td><td>Prisma 内置</td></tr>
-            <tr><td>暴力破解</td><td>限流</td><td><code>express-rate-limit</code></td></tr>
-            <tr><td>跨域</td><td>CORS 配置</td><td><code>cors</code></td></tr>
-            <tr><td>密码泄露</td><td>bcrypt 哈希 + HTTPS</td><td><code>bcryptjs</code></td></tr>
-            <tr><td>JWT 泄露</td><td>短期 access + 长期 refresh</td><td><code>jsonwebtoken</code></td></tr>
+            <tr>
+              <td>XSS</td>
+              <td>Helmet + 输出转义</td>
+              <td><code>helmet</code></td>
+            </tr>
+            <tr>
+              <td>CSRF</td>
+              <td>SameSite Cookie + CSRF Token</td>
+              <td><code>csurf</code>（已停维护）</td>
+            </tr>
+            <tr>
+              <td>SQL 注入</td>
+              <td>Prisma 参数化查询（默认安全）</td>
+              <td>Prisma 内置</td>
+            </tr>
+            <tr>
+              <td>暴力破解</td>
+              <td>限流</td>
+              <td><code>express-rate-limit</code></td>
+            </tr>
+            <tr>
+              <td>跨域</td>
+              <td>CORS 配置</td>
+              <td><code>cors</code></td>
+            </tr>
+            <tr>
+              <td>密码泄露</td>
+              <td>bcrypt 哈希 + HTTPS</td>
+              <td><code>bcryptjs</code></td>
+            </tr>
+            <tr>
+              <td>JWT 泄露</td>
+              <td>短期 access + 长期 refresh</td>
+              <td><code>jsonwebtoken</code></td>
+            </tr>
           </tbody>
         </table>
         <h3>10.7 限流中间件</h3>
@@ -1620,12 +2015,19 @@ export const loginLimiter = rateLimit({
 // 挂载
 app.use(globalLimiter)
 app.use('/api/auth/login', loginLimiter, authController.login)</code></pre>
-      </section><section class="section" id="ch11">
+      </section>
+      <section class="section" id="ch11">
         <h2>11. 工程化：日志 / 测试 / 部署 / 性能</h2>
-        <p>代码能跑 ≠ 能上线。一个生产级 Node.js 项目需要做好<strong>日志、测试、部署、性能</strong>四件事。</p>
+        <p>
+          代码能跑 ≠ 能上线。一个生产级 Node.js
+          项目需要做好<strong>日志、测试、部署、性能</strong>四件事。
+        </p>
 
         <h3>11.1 结构化日志（pino）</h3>
-        <p>生产环境<strong>不要用 console.log</strong>，用 pino 这种结构化日志库，输出 JSON 方便采集分析。</p>
+        <p>
+          生产环境<strong>不要用 console.log</strong>，用 pino
+          这种结构化日志库，输出 JSON 方便采集分析。
+        </p>
         <pre><code># 装 pino
 pnpm add pino
 pnpm add -D pino-pretty   # 本地开发格式化</code></pre>
@@ -1645,7 +2047,12 @@ logger.info({ userId: 1, action: 'login' }, '用户登录')
 logger.error({ err, userId: 1 }, '登录失败')</code></pre>
         <div class="callout tip">
           <div class="callout-title">🟢 日志分级</div>
-          <p>四级：<code>fatal</code>（崩溃） / <code>error</code>（错误） / <code>warn</code>（警告） / <code>info</code>（业务日志） / <code>debug</code>（调试）。<strong>不要记敏感信息</strong>（密码、token、身份证号）。</p>
+          <p>
+            四级：<code>fatal</code>（崩溃） / <code>error</code>（错误） /
+            <code>warn</code>（警告） / <code>info</code>（业务日志） /
+            <code>debug</code
+            >（调试）。<strong>不要记敏感信息</strong>（密码、token、身份证号）。
+          </p>
         </div>
 
         <h3>11.2 配置管理（dotenv + 校验）</h3>
@@ -1705,7 +2112,10 @@ describe('User API', () =&gt; {
 "test:coverage": "vitest run --coverage"</code></pre>
 
         <h3>11.4 PM2 守护进程（生产部署）</h3>
-        <p>PM2 是 Node.js 最流行的进程管理器，<strong>支持集群、零停机重启、日志管理、开机自启</strong>。</p>
+        <p>
+          PM2 是 Node.js
+          最流行的进程管理器，<strong>支持集群、零停机重启、日志管理、开机自启</strong>。
+        </p>
         <pre><code># 全局装 PM2
 npm install -g pm2
 
@@ -1740,14 +2150,25 @@ pm2 monit                                # 监控面板</code></pre>
         <div class="callout warn">
           <div class="callout-title">⚠️ PM2 集群模式陷阱</div>
           <ul>
-            <li>集群模式是<strong>多进程</strong>，内存里的状态（如内存计数器）不共享，<strong>状态必须放 Redis</strong></li>
-            <li>不要在 PM2 集群里跑 <code>ts-node-dev</code>，必须先编译成 JS 再跑</li>
-            <li><code>instances: 'max'</code> 是最常用值，但要看服务器 CPU 核数</li>
+            <li>
+              集群模式是<strong>多进程</strong>，内存里的状态（如内存计数器）不共享，<strong
+                >状态必须放 Redis</strong
+              >
+            </li>
+            <li>
+              不要在 PM2 集群里跑 <code>ts-node-dev</code>，必须先编译成 JS 再跑
+            </li>
+            <li>
+              <code>instances: 'max'</code> 是最常用值，但要看服务器 CPU 核数
+            </li>
           </ul>
         </div>
 
         <h3>11.5 Docker 部署（参考 Docker 系列指南）</h3>
-        <p>详细 Docker 部署见《Docker 实操》与《Docker 部署 Next.js 全栈实战》两篇。这里给最精简的多阶段 Dockerfile：</p>
+        <p>
+          详细 Docker 部署见《Docker 实操》与《Docker 部署 Next.js
+          全栈实战》两篇。这里给最精简的多阶段 Dockerfile：
+        </p>
         <pre><code># 多阶段构建
 FROM node:20-alpine AS builder
 WORKDIR /app
@@ -1798,7 +2219,10 @@ server {
 }</code></pre>
 
         <h3>11.7 性能优化：Cluster 集群</h3>
-        <p>Node.js 是单进程的，<strong>现代服务器都是多核 CPU</strong>，必须用 cluster 跑满所有核。</p>
+        <p>
+          Node.js 是单进程的，<strong>现代服务器都是多核 CPU</strong>，必须用
+          cluster 跑满所有核。
+        </p>
         <pre><code>// cluster.ts —— 手动 cluster
 import cluster from 'node:cluster'
 import os from 'node:os'
@@ -1820,13 +2244,21 @@ if (cluster.isPrimary) {
           <div class="callout-title">🟢 不用 cluster 的两种方案</div>
           <ol>
             <li><strong>PM2 集群</strong>：运维友好，自动负载均衡（推荐）</li>
-            <li><strong>Node 内置 <code>cluster</code> 模块</strong>：纯代码方案，灵活</li>
-            <li><strong>Docker 多实例 + Nginx upstream</strong>：容器化部署推荐</li>
+            <li>
+              <strong>Node 内置 <code>cluster</code> 模块</strong
+              >：纯代码方案，灵活
+            </li>
+            <li>
+              <strong>Docker 多实例 + Nginx upstream</strong>：容器化部署推荐
+            </li>
           </ol>
         </div>
 
         <h3>11.8 性能优化：缓存策略</h3>
-        <p>详见《Redis 实战指南》专门章节。本节给一个<strong>读多写少接口</strong>的缓存模式：</p>
+        <p>
+          详见《Redis
+          实战指南》专门章节。本节给一个<strong>读多写少接口</strong>的缓存模式：
+        </p>
         <pre><code>// 列表接口：缓存 5 分钟
 async function listUsers() {
   return cacheAside(
@@ -1885,127 +2317,333 @@ app.get('/health', async (req, res) =&gt; {
         <h3>12.1 安装与环境报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>node: command not found</code></td><td>Node 没装 / PATH 没配</td><td>用 nvm 装，或检查环境变量</td></tr>
-            <tr><td><code>npm ERR! ETARGET</code></td><td>package.json 版本号写错</td><td>用 <code>npm view 包名 versions</code> 查可用版本</td></tr>
-            <tr><td>pnpm 装包慢</td><td>没换源</td><td><code>pnpm config set registry https://registry.npmmirror.com</code></td></tr>
-            <tr><td><code>EBADENGINE</code></td><td>Node 版本太低</td><td><code>nvm install 20</code> 升级</td></tr>
-            <tr><td><code>ELIFECYCLE</code></td><td>npm scripts 报错</td><td>看完整 stack trace，通常是 TypeScript 编译错误</td></tr>
+            <tr>
+              <td><code>node: command not found</code></td>
+              <td>Node 没装 / PATH 没配</td>
+              <td>用 nvm 装，或检查环境变量</td>
+            </tr>
+            <tr>
+              <td><code>npm ERR! ETARGET</code></td>
+              <td>package.json 版本号写错</td>
+              <td>用 <code>npm view 包名 versions</code> 查可用版本</td>
+            </tr>
+            <tr>
+              <td>pnpm 装包慢</td>
+              <td>没换源</td>
+              <td>
+                <code
+                  >pnpm config set registry https://registry.npmmirror.com</code
+                >
+              </td>
+            </tr>
+            <tr>
+              <td><code>EBADENGINE</code></td>
+              <td>Node 版本太低</td>
+              <td><code>nvm install 20</code> 升级</td>
+            </tr>
+            <tr>
+              <td><code>ELIFECYCLE</code></td>
+              <td>npm scripts 报错</td>
+              <td>看完整 stack trace，通常是 TypeScript 编译错误</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.2 模块与 ESM 报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>Cannot use import statement outside a module</code></td><td>没开 ESM</td><td>package.json 加 <code>"type": "module"</code>，或改后缀为 <code>.mjs</code></td></tr>
-            <tr><td><code>require() of ES Module ... not supported</code></td><td>CJS 文件 require 了 ESM</td><td>改用 <code>import()</code> 动态加载</td></tr>
-            <tr><td><code>__dirname is not defined</code></td><td>ESM 没有 <code>__dirname</code></td><td>用 <code>fileURLToPath(import.meta.url)</code> 模拟</td></tr>
-            <tr><td><code>Cannot find module</code></td><td>路径错误或没装包</td><td>检查 <code>import</code> 路径，<code>pnpm add</code> 装上</td></tr>
+            <tr>
+              <td><code>Cannot use import statement outside a module</code></td>
+              <td>没开 ESM</td>
+              <td>
+                package.json 加 <code>"type": "module"</code>，或改后缀为
+                <code>.mjs</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>require() of ES Module ... not supported</code></td>
+              <td>CJS 文件 require 了 ESM</td>
+              <td>改用 <code>import()</code> 动态加载</td>
+            </tr>
+            <tr>
+              <td><code>__dirname is not defined</code></td>
+              <td>ESM 没有 <code>__dirname</code></td>
+              <td>用 <code>fileURLToPath(import.meta.url)</code> 模拟</td>
+            </tr>
+            <tr>
+              <td><code>Cannot find module</code></td>
+              <td>路径错误或没装包</td>
+              <td>检查 <code>import</code> 路径，<code>pnpm add</code> 装上</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.3 Express 与 HTTP 报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>EADDRINUSE</code></td><td>端口被占用</td><td><code>lsof -i :3000</code> 查占用进程，杀掉或换端口</td></tr>
-            <tr><td><code>req.body is undefined</code></td><td>没装 <code>express.json()</code></td><td>确认 app.use(express.json())</td></tr>
-            <tr><td><code>CORS error</code></td><td>跨域被拦</td><td>配置 <code>cors()</code>，或在前端用 proxy</td></tr>
-            <tr><td><code>Cannot set headers</code></td><td>已经 res.send 之后又 res.send</td><td>检查代码中是否有多个响应</td></tr>
-            <tr><td><code>UnhandledPromiseRejection</code></td><td>async 函数没 catch</td><td>所有 await 都 try/catch，或加全局监听</td></tr>
-            <tr><td><code>PayloadTooLargeError</code></td><td>请求体超过 100kb</td><td><code>express.json({ limit: '10mb' })</code></td></tr>
+            <tr>
+              <td><code>EADDRINUSE</code></td>
+              <td>端口被占用</td>
+              <td><code>lsof -i :3000</code> 查占用进程，杀掉或换端口</td>
+            </tr>
+            <tr>
+              <td><code>req.body is undefined</code></td>
+              <td>没装 <code>express.json()</code></td>
+              <td>确认 app.use(express.json())</td>
+            </tr>
+            <tr>
+              <td><code>CORS error</code></td>
+              <td>跨域被拦</td>
+              <td>配置 <code>cors()</code>，或在前端用 proxy</td>
+            </tr>
+            <tr>
+              <td><code>Cannot set headers</code></td>
+              <td>已经 res.send 之后又 res.send</td>
+              <td>检查代码中是否有多个响应</td>
+            </tr>
+            <tr>
+              <td><code>UnhandledPromiseRejection</code></td>
+              <td>async 函数没 catch</td>
+              <td>所有 await 都 try/catch，或加全局监听</td>
+            </tr>
+            <tr>
+              <td><code>PayloadTooLargeError</code></td>
+              <td>请求体超过 100kb</td>
+              <td><code>express.json({ limit: '10mb' })</code></td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.4 数据库与 Prisma 报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>Can't reach database server</code></td><td>DATABASE_URL 错或库没起</td><td>检查连接串、确认 MySQL 启动、关防火墙</td></tr>
-            <tr><td><code>PrismaClientInitializationError</code></td><td>Prisma Client 没生成</td><td><code>pnpm prisma generate</code></td></tr>
-            <tr><td><code>Unique constraint failed</code></td><td>唯一索引冲突</td><td>业务层先查询再判断，捕获 P2002 错误码</td></tr>
-            <tr><td><code>Foreign key constraint</code></td><td>外键关联数据不存在</td><td>确认关联记录已存在再写入</td></tr>
-            <tr><td><code>Too many connections</code></td><td>连接池耗尽</td><td>单例 Prisma Client，开发期热重载用 globalThis</td></tr>
+            <tr>
+              <td><code>Can't reach database server</code></td>
+              <td>DATABASE_URL 错或库没起</td>
+              <td>检查连接串、确认 MySQL 启动、关防火墙</td>
+            </tr>
+            <tr>
+              <td><code>PrismaClientInitializationError</code></td>
+              <td>Prisma Client 没生成</td>
+              <td><code>pnpm prisma generate</code></td>
+            </tr>
+            <tr>
+              <td><code>Unique constraint failed</code></td>
+              <td>唯一索引冲突</td>
+              <td>业务层先查询再判断，捕获 P2002 错误码</td>
+            </tr>
+            <tr>
+              <td><code>Foreign key constraint</code></td>
+              <td>外键关联数据不存在</td>
+              <td>确认关联记录已存在再写入</td>
+            </tr>
+            <tr>
+              <td><code>Too many connections</code></td>
+              <td>连接池耗尽</td>
+              <td>单例 Prisma Client，开发期热重载用 globalThis</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.5 JWT 与认证报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>JsonWebTokenError: invalid signature</code></td><td>密钥不一致</td><td>access / refresh 用不同密钥，前后端一致</td></tr>
-            <tr><td><code>TokenExpiredError</code></td><td>token 过期</td><td>前端拦截 401 后用 refresh token 续签</td></tr>
-            <tr><td><code>ENOENT: no such file</code></td><td>读 .env 文件路径不对</td><td>确认 .env 在项目根目录，启动用正确 cwd</td></tr>
-            <tr><td>密码登录一直失败</td><td>bcrypt cost 太大 / 数据库存的不是 hash</td><td>cost 调到 10-12，确认数据库存的是 hash 而非明文</td></tr>
+            <tr>
+              <td><code>JsonWebTokenError: invalid signature</code></td>
+              <td>密钥不一致</td>
+              <td>access / refresh 用不同密钥，前后端一致</td>
+            </tr>
+            <tr>
+              <td><code>TokenExpiredError</code></td>
+              <td>token 过期</td>
+              <td>前端拦截 401 后用 refresh token 续签</td>
+            </tr>
+            <tr>
+              <td><code>ENOENT: no such file</code></td>
+              <td>读 .env 文件路径不对</td>
+              <td>确认 .env 在项目根目录，启动用正确 cwd</td>
+            </tr>
+            <tr>
+              <td>密码登录一直失败</td>
+              <td>bcrypt cost 太大 / 数据库存的不是 hash</td>
+              <td>cost 调到 10-12，确认数据库存的是 hash 而非明文</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.6 部署与运维报错</h3>
         <table>
           <thead>
-            <tr><th>报错</th><th>原因</th><th>解决办法</th></tr>
+            <tr>
+              <th>报错</th>
+              <th>原因</th>
+              <th>解决办法</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>PM2 启动后立刻退出</td><td>缺环境变量或数据库连不上</td><td><code>pm2 logs</code> 看错误；用 <code>pm2 start</code> 时配 env</td></tr>
-            <tr><td>容器跑起来后立刻 exit</td><td>CMD 写错或环境变量缺失</td><td>Dockerfile CMD 用绝对路径，<code>docker logs</code> 看输出</td></tr>
-            <tr><td>Nginx 502 Bad Gateway</td><td>Node 进程没起或端口不通</td><td>确认 Node 在监听、curl 测端口、看 nginx error.log</td></tr>
-            <tr><td>内存爆炸 OOM</td><td>代码内存泄漏 / 没限流</td><td>用 clinic.js 排查，加内存限制重启</td></tr>
-            <tr><td>定时任务不执行</td><td>PM2 多进程重复执行</td><td>用 Redis 分布式锁，或单进程 + 通知其他实例</td></tr>
+            <tr>
+              <td>PM2 启动后立刻退出</td>
+              <td>缺环境变量或数据库连不上</td>
+              <td>
+                <code>pm2 logs</code> 看错误；用 <code>pm2 start</code> 时配 env
+              </td>
+            </tr>
+            <tr>
+              <td>容器跑起来后立刻 exit</td>
+              <td>CMD 写错或环境变量缺失</td>
+              <td>
+                Dockerfile CMD 用绝对路径，<code>docker logs</code> 看输出
+              </td>
+            </tr>
+            <tr>
+              <td>Nginx 502 Bad Gateway</td>
+              <td>Node 进程没起或端口不通</td>
+              <td>确认 Node 在监听、curl 测端口、看 nginx error.log</td>
+            </tr>
+            <tr>
+              <td>内存爆炸 OOM</td>
+              <td>代码内存泄漏 / 没限流</td>
+              <td>用 clinic.js 排查，加内存限制重启</td>
+            </tr>
+            <tr>
+              <td>定时任务不执行</td>
+              <td>PM2 多进程重复执行</td>
+              <td>用 Redis 分布式锁，或单进程 + 通知其他实例</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>12.7 完整验证清单（项目上线前必做）</h3>
         <ol class="steps">
-          <li>✅ <strong>本地可启动</strong>：<code>pnpm dev</code> 能跑起来，访问 <code>/health</code> 返回 200</li>
-          <li>✅ <strong>核心接口通过测试</strong>：<code>pnpm test</code> 覆盖率 > 70%</li>
+          <li>
+            ✅ <strong>本地可启动</strong>：<code>pnpm dev</code> 能跑起来，访问
+            <code>/health</code> 返回 200
+          </li>
+          <li>
+            ✅ <strong>核心接口通过测试</strong>：<code>pnpm test</code> 覆盖率
+            > 70%
+          </li>
           <li>✅ <strong>ESLint 无错误</strong>：<code>pnpm lint</code></li>
-          <li>✅ <strong>TypeScript 编译通过</strong>：<code>pnpm build</code> 无报错</li>
+          <li>
+            ✅ <strong>TypeScript 编译通过</strong>：<code>pnpm build</code>
+            无报错
+          </li>
           <li>✅ <strong>环境变量校验通过</strong>：缺关键配置启动失败</li>
-          <li>✅ <strong>数据库迁移成功</strong>：<code>prisma migrate deploy</code></li>
-          <li>✅ <strong>Docker 镜像能跑</strong>：本地 <code>docker run</code> 验证</li>
-          <li>✅ <strong>PM2 能起集群</strong>：<code>pm2 start ecosystem.config.js</code></li>
+          <li>
+            ✅ <strong>数据库迁移成功</strong>：<code
+              >prisma migrate deploy</code
+            >
+          </li>
+          <li>
+            ✅ <strong>Docker 镜像能跑</strong>：本地
+            <code>docker run</code> 验证
+          </li>
+          <li>
+            ✅ <strong>PM2 能起集群</strong>：<code
+              >pm2 start ecosystem.config.js</code
+            >
+          </li>
           <li>✅ <strong>Nginx 反代通</strong>：curl 测试 80/443 端口</li>
-          <li>✅ <strong>HTTPS 证书有效</strong>：<code>certbot renew --dry-run</code></li>
-          <li>✅ <strong>健康检查可访问</strong>：<code>/health</code> 200，<code>/health/ready</code> 503 当依赖挂掉</li>
-          <li>✅ <strong>日志有输出</strong>：<code>pm2 logs</code> 或 docker logs 能看到结构化 JSON</li>
+          <li>
+            ✅ <strong>HTTPS 证书有效</strong>：<code
+              >certbot renew --dry-run</code
+            >
+          </li>
+          <li>
+            ✅ <strong>健康检查可访问</strong>：<code>/health</code> 200，<code
+              >/health/ready</code
+            >
+            503 当依赖挂掉
+          </li>
+          <li>
+            ✅ <strong>日志有输出</strong>：<code>pm2 logs</code> 或 docker logs
+            能看到结构化 JSON
+          </li>
         </ol>
 
         <h3>12.8 Node.js 后端学习口诀</h3>
         <div class="callout tip">
           <div class="callout-title">📌 十六句口诀</div>
           <ol>
-            <li><strong>nvm 装 LTS</strong>：永远装 LTS，别用 Current 版本上生产</li>
+            <li>
+              <strong>nvm 装 LTS</strong>：永远装 LTS，别用 Current 版本上生产
+            </li>
             <li><strong>pnpm 装包</strong>：磁盘省、速度快、依赖严格</li>
-            <li><strong>新项目用 ESM</strong>：package.json 加 type:module，命名导入</li>
+            <li>
+              <strong>新项目用 ESM</strong>：package.json 加
+              type:module，命名导入
+            </li>
             <li><strong>异步用 await</strong>：所有 Promise 都 try/catch</li>
-            <li><strong>事件循环懂顺序</strong>：同步 → nextTick → 微任务 → 宏任务</li>
-            <li><strong>大文件用 Stream</strong>：readFile 爆内存，pipe 流式处理</li>
-            <li><strong>分层架构</strong>：route → controller → service → model，职责清晰</li>
-            <li><strong>Prisma 用 type</strong>：generate 后所有查询都有类型提示</li>
+            <li>
+              <strong>事件循环懂顺序</strong>：同步 → nextTick → 微任务 → 宏任务
+            </li>
+            <li>
+              <strong>大文件用 Stream</strong>：readFile 爆内存，pipe 流式处理
+            </li>
+            <li>
+              <strong>分层架构</strong>：route → controller → service →
+              model，职责清晰
+            </li>
+            <li>
+              <strong>Prisma 用 type</strong>：generate 后所有查询都有类型提示
+            </li>
             <li><strong>密码 bcrypt</strong>：cost ≥ 12，永远不存明文</li>
             <li><strong>JWT 双 token</strong>：access 短期 + refresh 长期</li>
             <li><strong>输入校验 Zod</strong>：请求体 schema 校验后再处理</li>
             <li><strong>日志用 pino</strong>：结构化 JSON，不记敏感信息</li>
             <li><strong>PM2 集群</strong>：跑满所有 CPU 核，自动重启</li>
-            <li><strong>Nginx 反代 + HTTPS</strong>：certbot 免费证书，强制 443</li>
+            <li>
+              <strong>Nginx 反代 + HTTPS</strong>：certbot 免费证书，强制 443
+            </li>
             <li><strong>缓存放 Redis</strong>：session、计数器、热点数据</li>
-            <li><strong>监控 + 健康检查</strong>：<code>/health</code> 端点必做，故障告警自动</li>
+            <li>
+              <strong>监控 + 健康检查</strong>：<code>/health</code>
+              端点必做，故障告警自动
+            </li>
           </ol>
         </div>
 
-        <p>按这十六句口诀对照检查，Node.js 后端开发就能上手做项目。指南到这里就结束了，<strong>祝你编码愉快</strong>。</p>
-      </section>    </main>
+        <p>
+          按这十六句口诀对照检查，Node.js
+          后端开发就能上手做项目。指南到这里就结束了，<strong>祝你编码愉快</strong>。
+        </p>
+      </section>
+    </main>
     <script>
       const toggle = document.getElementById('menuToggle')
       const sidebar = document.getElementById('sidebar')
