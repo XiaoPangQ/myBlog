@@ -331,7 +331,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 10px 0 14px;
+        padding: 10px 0 6px;
         background: linear-gradient(var(--paper) 76%, rgba(247, 245, 239, 0));
       }
       .search-box {
@@ -359,7 +359,7 @@
       }
       .search-tip {
         display: inline-block;
-        margin-top: 8px;
+        margin-top: 4px;
         font-size: 0.78rem;
         color: var(--muted);
       }
@@ -662,6 +662,326 @@
           animation: none !important;
         }
       }
+
+      /* ========== 添加工具按钮 ========== */
+      .add-tool-btn {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        height: 43px;
+        padding: 0 18px;
+        border: 1px solid var(--green);
+        border-radius: 12px;
+        background: var(--green);
+        color: var(--surface);
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.18s,
+          transform 0.18s,
+          box-shadow 0.18s;
+      }
+      .add-tool-btn:hover {
+        background: var(--green);
+        filter: brightness(0.92);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px -4px rgba(47, 111, 84, 0.45);
+      }
+      .add-tool-btn:active {
+        transform: translateY(0);
+      }
+      .add-tool-btn .btn-plus {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      /* ========== 添加工具弹窗 ========== */
+      .tool-modal-mask {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(23, 33, 27, 0.55);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .tool-modal-mask.show {
+        display: flex;
+        opacity: 1;
+      }
+      .tool-modal {
+        width: 100%;
+        max-width: 480px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 18px 50px -10px rgba(23, 33, 27, 0.32);
+        padding: 24px;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: translateY(-12px) scale(0.98);
+        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .tool-modal-mask.show .tool-modal {
+        transform: translateY(0) scale(1);
+      }
+      .tool-modal-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+      .tool-modal-head h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tool-modal-close {
+        flex: 0 0 auto;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.18s,
+          color 0.18s,
+          border-color 0.18s;
+      }
+      .tool-modal-close:hover {
+        background: var(--orange-soft);
+        color: var(--orange);
+        border-color: var(--orange);
+      }
+      .tool-modal .modal-subtitle {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin: 0 0 18px;
+      }
+      .tool-form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .tool-form-row label {
+        font-size: 0.82rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .tool-form-row label .req {
+        color: var(--orange);
+        margin-left: 2px;
+      }
+      .tool-form-row input,
+      .tool-form-row select,
+      .tool-form-row textarea {
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 0.92rem;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        outline: none;
+        transition:
+          border-color 0.18s,
+          box-shadow 0.18s;
+        width: 100%;
+      }
+      .tool-form-row input:focus,
+      .tool-form-row select:focus,
+      .tool-form-row textarea:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px var(--green-soft);
+      }
+      .tool-form-row textarea {
+        min-height: 60px;
+        resize: vertical;
+        font-family: inherit;
+      }
+      .tool-form-row .field-error {
+        font-size: 0.75rem;
+        color: var(--orange);
+        display: none;
+      }
+      .tool-form-row.error input,
+      .tool-form-row.error select,
+      .tool-form-row.error textarea {
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px var(--orange-soft);
+      }
+      .tool-form-row.error .field-error {
+        display: block;
+      }
+      .tool-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 90px;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .tool-form-grid .tool-form-row {
+        margin-bottom: 0;
+      }
+      .tool-modal-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+      .tool-modal-actions .action-left {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .tool-modal-actions .action-left kbd {
+        display: inline-block;
+        padding: 1px 6px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+        font-family: var(--serif);
+        font-size: 0.78rem;
+        color: var(--green);
+      }
+      .tool-modal-actions .action-right {
+        display: inline-flex;
+        gap: 10px;
+      }
+      .tool-btn {
+        padding: 10px 18px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--ink);
+        transition:
+          background 0.18s,
+          color 0.18s,
+          border-color 0.18s,
+          transform 0.18s;
+      }
+      .tool-btn:hover {
+        background: var(--green-soft);
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .tool-btn:active {
+        transform: translateY(1px);
+      }
+      .tool-btn-primary {
+        background: var(--green);
+        color: var(--surface);
+        border-color: var(--green);
+      }
+      .tool-btn-primary:hover {
+        background: var(--green);
+        filter: brightness(0.92);
+        color: var(--surface);
+        border-color: var(--green);
+      }
+
+      /* ========== 自定义 chip（带删除按钮） ========== */
+      .chip.is-custom {
+        position: relative;
+        border-color: var(--orange);
+        background: var(--orange-soft);
+      }
+      .chip.is-custom:hover {
+        border-color: var(--orange);
+        background: var(--orange-soft);
+        color: var(--orange);
+        box-shadow: 0 4px 12px -6px rgba(200, 107, 60, 0.5);
+      }
+      .chip .del-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin-left: 4px;
+        border-radius: 50%;
+        background: rgba(200, 107, 60, 0.18);
+        color: var(--orange);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0;
+        transition:
+          opacity 0.15s,
+          background 0.15s,
+          color 0.15s;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+      }
+      .chip:hover .del-btn {
+        opacity: 1;
+      }
+      .chip .del-btn:hover {
+        background: var(--orange);
+        color: var(--surface);
+      }
+
+      /* ========== 响应式：添加按钮 & 弹窗 ========== */
+      @media (max-width: 768px) {
+        .add-tool-btn {
+          height: 43px;
+          padding: 0 14px;
+        }
+        .add-tool-btn .btn-text {
+          display: none;
+        }
+        .tool-modal {
+          padding: 20px;
+        }
+        .tool-form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .tool-modal {
+          border-radius: 12px;
+        }
+        .tool-modal-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .tool-modal-actions .action-right {
+          display: flex;
+        }
+        .tool-modal-actions .action-right .tool-btn {
+          flex: 1;
+        }
+      }
     </style>
   </head>
   <body class="sidebar-open">
@@ -857,9 +1177,17 @@
               placeholder="🔍 搜索工具 / 站点名称（实时过滤）"
               autocomplete="off"
               spellcheck="false" />
-            <span class="search-tip">提示：按 <kbd>/</kbd> 快速聚焦搜索框</span>
           </div>
+          <button
+            type="button"
+            id="addToolBtn"
+            class="add-tool-btn"
+            aria-label="添加工具">
+            <span class="btn-plus" aria-hidden="true">＋</span>
+            <span class="btn-text">添加工具</span>
+          </button>
         </div>
+        <span class="search-tip">提示：按 <kbd>/</kbd> 快速聚焦搜索框</span>
         <section class="group" id="g0">
           <h2 class="group-title">🛠️ 效率工具 <span class="count">29</span></h2>
           <div class="chips">
@@ -7289,6 +7617,89 @@
       </main>
     </div>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="tool-modal-mask" id="toolModal" role="dialog" aria-modal="true" aria-labelledby="toolModalTitle">
+      <div class="tool-modal">
+        <div class="tool-modal-head">
+          <h3 id="toolModalTitle">🧰 添加一个工具</h3>
+          <button
+            type="button"
+            class="tool-modal-close"
+            id="toolModalClose"
+            aria-label="关闭弹窗">✕</button>
+        </div>
+        <p class="modal-subtitle">
+          填写下面的表单，新工具会保存到浏览器本地，下次打开还在。
+        </p>
+        <form id="addToolForm" novalidate>
+          <div class="tool-form-row">
+            <label for="toolName">工具名称<span class="req">*</span></label>
+            <input
+              type="text"
+              id="toolName"
+              name="toolName"
+              placeholder="例如：极客视界"
+              maxlength="40"
+              required />
+            <span class="field-error">请填写工具名称</span>
+          </div>
+          <div class="tool-form-row">
+            <label for="toolUrl">链接地址<span class="req">*</span></label>
+            <input
+              type="url"
+              id="toolUrl"
+              name="toolUrl"
+              placeholder="https://example.com"
+              required />
+            <span class="field-error">请填写正确的链接地址（需以 http:// 或 https:// 开头）</span>
+          </div>
+          <div class="tool-form-row">
+            <label for="toolDesc">简介（可选）</label>
+            <input
+              type="text"
+              id="toolDesc"
+              name="toolDesc"
+              placeholder="一句话介绍这个工具"
+              maxlength="80" />
+          </div>
+          <div class="tool-form-row">
+            <label for="toolCategory">分类<span class="req">*</span></label>
+            <select id="toolCategory" name="toolCategory" required>
+              <option value="">— 请选择 —</option>
+            </select>
+            <span class="field-error">请选择一个分类</span>
+          </div>
+          <div class="tool-form-grid" id="newCatFields" style="display: none">
+            <div class="tool-form-row">
+              <label for="toolNewCatName">新分类名称<span class="req">*</span></label>
+              <input
+                type="text"
+                id="toolNewCatName"
+                name="toolNewCatName"
+                placeholder="例如：我的收藏"
+                maxlength="20" />
+              <span class="field-error">请填写新分类名称</span>
+            </div>
+            <div class="tool-form-row">
+              <label for="toolNewCatEmoji">图标</label>
+              <input
+                type="text"
+                id="toolNewCatEmoji"
+                name="toolNewCatEmoji"
+                placeholder="📌"
+                maxlength="2" />
+            </div>
+          </div>
+          <div class="tool-modal-actions">
+            <span class="action-left">快捷键：<kbd>Esc</kbd> 关闭 · <kbd>Enter</kbd> 保存</span>
+            <span class="action-right">
+              <button type="button" class="tool-btn" id="toolModalCancel">取消</button>
+              <button type="submit" class="tool-btn tool-btn-primary" id="toolModalSave">保存</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script>
       ;(function () {
         // ====== 数据统计自动同步 ======
@@ -7548,6 +7959,396 @@
             input.value = ''
             input.dispatchEvent(new Event('input'))
             input.blur()
+          }
+        })
+
+        // ====== 自定义工具增删（localStorage 持久化） ======
+        const CUSTOM_TOOLS_KEY = 'zinx-toolbox-custom-tools'
+
+        // 工具函数
+        const escapeHtml = (str) => {
+          if (str === null || str === undefined) return ''
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+        }
+        const isValidUrl = (url) => {
+          if (!url) return false
+          try {
+            const u = new URL(url)
+            return u.protocol === 'http:' || u.protocol === 'https:'
+          } catch (e) {
+            return false
+          }
+        }
+
+        // localStorage 读写
+        const loadCustomTools = () => {
+          try {
+            const raw = localStorage.getItem(CUSTOM_TOOLS_KEY)
+            if (!raw) return []
+            const parsed = JSON.parse(raw)
+            return Array.isArray(parsed) ? parsed : []
+          } catch (err) {
+            console.warn('[Zinx] 读取自定义工具失败：', err)
+            return []
+          }
+        }
+        const saveCustomTools = (tools) => {
+          try {
+            localStorage.setItem(CUSTOM_TOOLS_KEY, JSON.stringify(tools))
+            return true
+          } catch (err) {
+            console.error('[Zinx] 保存自定义工具失败：', err)
+            return false
+          }
+        }
+
+        // 同步顶部 + 侧栏的统计数字
+        const syncStats = () => {
+          const g = document.querySelectorAll('.group').length
+          const c = document.querySelectorAll('.chip').length
+          setText('stat-groups', g)
+          setText('stat-chips', c)
+          setText('side-stat-groups', g)
+          setText('side-stat-chips', c)
+        }
+
+        // 从 DOM 提取所有现有分类
+        const collectExistingCategories = () => {
+          const cats = []
+          document.querySelectorAll('.group').forEach((g) => {
+            const titleEl = g.querySelector('.group-title')
+            if (!titleEl) return
+            const clone = titleEl.cloneNode(true)
+            clone
+              .querySelectorAll('.count, .badge-new, .emoji')
+              .forEach((n) => n.remove())
+            const name = (clone.textContent || '').trim()
+            cats.push({ id: g.id, name })
+          })
+          return cats
+        }
+
+        // 创建一个新分类（同时插入 main 和 sidebar toc）
+        const createNewCategoryGroup = (name, emoji) => {
+          const safeName = String(name || '').trim()
+          const safeEmoji = String(emoji || '').trim() || '🆕'
+          // 避免重复：同名新分类复用
+          let existing = null
+          document.querySelectorAll('.group.is-new-cat').forEach((g) => {
+            if (g.getAttribute('data-cat-name') === safeName) existing = g
+          })
+          if (existing) return existing
+          const id = 'gcustom-' + Date.now()
+          const main = document.querySelector('.main')
+          const section = document.createElement('section')
+          section.className = 'group is-new-cat'
+          section.id = id
+          section.setAttribute('data-cat-name', safeName)
+          section.innerHTML =
+            '<h2 class="group-title">' +
+            '<span class="emoji">' +
+            escapeHtml(safeEmoji) +
+            '</span>' +
+            '<span class="cat-name">' +
+            escapeHtml(safeName) +
+            '</span>' +
+            '<span class="count">0</span>' +
+            '<span class="badge-new">NEW</span>' +
+            '</h2><div class="chips"></div>'
+          main.appendChild(section)
+          const toc = document.getElementById('toc')
+          if (toc) {
+            const link = document.createElement('a')
+            link.className = 'toc-link'
+            link.href = '#' + id
+            link.setAttribute('data-new-toc', 'true')
+            link.innerHTML =
+              '<span class="toc-emoji"></span>' +
+              '<span class="toc-name">' +
+              escapeHtml(safeEmoji) +
+              ' ' +
+              escapeHtml(safeName) +
+              '</span>' +
+              '<span class="toc-count">0</span>'
+            toc.appendChild(link)
+            link.addEventListener('click', () => {
+              if (isMobile()) closeSidebar()
+            })
+          }
+          return section
+        }
+
+        // 重新渲染所有自定义工具
+        const renderCustomTools = () => {
+          // 先清理旧的渲染（避免累积）
+          document.querySelectorAll('.chip.is-custom').forEach((n) => n.remove())
+          document
+            .querySelectorAll('.group.is-new-cat')
+            .forEach((g) => g.remove())
+          document
+            .querySelectorAll('.toc-link[data-new-toc]')
+            .forEach((l) => l.remove())
+
+          const tools = loadCustomTools()
+          tools.forEach((tool) => {
+            // 优先按 categoryId 找
+            let group = tool.categoryId
+              ? document.getElementById(tool.categoryId)
+              : null
+            // 兼容旧数据：按分类名匹配现有分类
+            if (!group) {
+              const found = collectExistingCategories().find(
+                (c) => c.name === tool.category,
+              )
+              if (found) group = document.getElementById(found.id)
+            }
+            // 仍未找到：说明属于新建分类（已被上面清理掉，需重新创建）
+            if (!group) {
+              group = createNewCategoryGroup(
+                tool.category,
+                tool.categoryEmoji || '🆕',
+              )
+            }
+            const chipsContainer = group.querySelector('.chips')
+            if (!chipsContainer) return
+
+            const a = document.createElement('a')
+            a.className = 'chip is-custom'
+            a.href = tool.url
+            a.target = '_blank'
+            a.rel = 'noopener noreferrer'
+            a.title = tool.desc || tool.name
+            a.setAttribute('data-id', tool.id)
+            a.innerHTML =
+              escapeHtml(tool.name) +
+              '<span class="ext">↗</span>' +
+              '<button type="button" class="del-btn" data-id="' +
+              escapeHtml(tool.id) +
+              '" title="删除" aria-label="删除">×</button>'
+            chipsContainer.appendChild(a)
+
+            // 同步分类计数
+            const totalChips = chipsContainer.querySelectorAll('.chip').length
+            const countEl = group.querySelector('.group-title .count')
+            if (countEl) countEl.textContent = String(totalChips)
+            const tocLink = document.querySelector(
+              '.toc-link[href="#' + group.id + '"]',
+            )
+            if (tocLink) {
+              const tCount = tocLink.querySelector('.toc-count')
+              if (tCount) tCount.textContent = String(totalChips)
+            }
+          })
+
+          syncStats()
+        }
+
+        // 弹窗相关 DOM
+        const modal = document.getElementById('toolModal')
+        const addBtn = document.getElementById('addToolBtn')
+        const modalCancel = document.getElementById('toolModalCancel')
+        const modalClose = document.getElementById('toolModalClose')
+        const modalForm = document.getElementById('addToolForm')
+        const catSelect = document.getElementById('toolCategory')
+        const newCatFields = document.getElementById('newCatFields')
+        const nameInput = document.getElementById('toolName')
+        const urlInput = document.getElementById('toolUrl')
+        const newCatNameInput = document.getElementById('toolNewCatName')
+        const newCatEmojiInput = document.getElementById('toolNewCatEmoji')
+
+        // 填充分类下拉
+        const populateCategorySelect = () => {
+          const cats = collectExistingCategories()
+          let html = '<option value="">— 请选择 —</option>'
+          cats.forEach((c) => {
+            html +=
+              '<option value="' +
+              escapeHtml(c.id) +
+              '">' +
+              escapeHtml(c.name) +
+              '</option>'
+          })
+          html += '<option value="__new__">＋ 新建分类…</option>'
+          catSelect.innerHTML = html
+        }
+
+        const clearAllErrors = () => {
+          modal.querySelectorAll('.tool-form-row').forEach((r) =>
+            r.classList.remove('error'),
+          )
+        }
+
+        // 打开 / 关闭弹窗
+        const openModal = () => {
+          populateCategorySelect()
+          modalForm.reset()
+          catSelect.value = ''
+          newCatFields.style.display = 'none'
+          clearAllErrors()
+          modal.classList.add('show')
+          document.body.style.overflow = 'hidden'
+          setTimeout(() => nameInput.focus(), 80)
+        }
+        const closeModal = () => {
+          modal.classList.remove('show')
+          document.body.style.overflow = ''
+        }
+
+        if (addBtn) addBtn.addEventListener('click', openModal)
+        if (modalCancel) modalCancel.addEventListener('click', closeModal)
+        if (modalClose) modalClose.addEventListener('click', closeModal)
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal()
+          })
+        }
+        if (catSelect) {
+          catSelect.addEventListener('change', () => {
+            newCatFields.style.display =
+              catSelect.value === '__new__' ? '' : 'none'
+            catSelect.closest('.tool-form-row').classList.remove('error')
+          })
+        }
+
+        // 输入时实时清错
+        ;[nameInput, urlInput, newCatNameInput].forEach((el) => {
+          if (el) {
+            el.addEventListener('input', () => {
+              const row = el.closest('.tool-form-row')
+              if (row) row.classList.remove('error')
+            })
+          }
+        })
+
+        // 提交
+        if (modalForm) {
+          modalForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const name = nameInput.value.trim()
+            const url = urlInput.value.trim()
+            const desc = document.getElementById('toolDesc').value.trim()
+            const catValue = catSelect.value
+            clearAllErrors()
+
+            let categoryId = ''
+            let categoryName = ''
+            let isNew = false
+            let emoji = ''
+
+            if (catValue === '__new__') {
+              const newName = newCatNameInput.value.trim()
+              emoji = newCatEmojiInput.value.trim() || '🆕'
+              if (!newName) {
+                newCatNameInput.closest('.tool-form-row').classList.add('error')
+                newCatNameInput.focus()
+                return
+              }
+              categoryName = newName
+              isNew = true
+            } else if (catValue) {
+              categoryId = catValue
+              const found = collectExistingCategories().find(
+                (c) => c.id === categoryId,
+              )
+              categoryName = found ? found.name : ''
+            }
+
+            let ok = true
+            if (!name) {
+              nameInput.closest('.tool-form-row').classList.add('error')
+              ok = false
+            }
+            if (!isValidUrl(url)) {
+              urlInput.closest('.tool-form-row').classList.add('error')
+              ok = false
+            }
+            if (!catValue) {
+              catSelect.closest('.tool-form-row').classList.add('error')
+              ok = false
+            }
+            if (!ok) return
+
+            const tools = loadCustomTools()
+            const tool = {
+              id: 'c' + Date.now() + Math.random().toString(36).slice(2, 7),
+              name: name,
+              url: url,
+              desc: desc,
+              category: categoryName,
+              categoryId: categoryId,
+              categoryEmoji: emoji,
+              isNewCategory: isNew,
+              createdAt: Date.now(),
+            }
+            tools.push(tool)
+            if (!saveCustomTools(tools)) {
+              alert('保存失败：浏览器可能禁用了 localStorage')
+              return
+            }
+            renderCustomTools()
+            closeModal()
+            // 滚到新工具
+            setTimeout(() => {
+              const newChip = document.querySelector(
+                '.chip.is-custom[data-id="' + tool.id + '"]',
+              )
+              if (newChip) {
+                newChip.scrollIntoView({ behavior: 'smooth', block: 'center' })
+              }
+            }, 80)
+          })
+        }
+
+        // 删除自定义 chip（事件委托）
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.del-btn')
+          if (!btn) return
+          e.preventDefault()
+          e.stopPropagation()
+          const id = btn.getAttribute('data-id')
+          if (!id) return
+          const tools = loadCustomTools()
+          const target = tools.find((t) => t.id === id)
+          if (!target) return
+          if (!confirm('确定要删除「' + target.name + '」吗？')) return
+          saveCustomTools(tools.filter((t) => t.id !== id))
+          renderCustomTools()
+        })
+
+        // 初始化：渲染 localStorage 中已保存的自定义工具
+        renderCustomTools()
+
+        // 自定义分类的搜索过滤（弥补原 handler 不会包含动态新增的 group）
+        input.addEventListener('input', () => {
+          const q = input.value.trim().toLowerCase()
+          document.querySelectorAll('.group.is-new-cat').forEach((g) => {
+            let any = false
+            g.querySelectorAll('.chip').forEach((c) => {
+              const m = !q || c.textContent.toLowerCase().includes(q)
+              c.classList.toggle('hidden', !m)
+              if (m) any = true
+            })
+            g.classList.toggle('hidden', !any)
+          })
+          // 修正 no-result：若自定义分类下有可见 chip，强制隐藏提示
+          if (q) {
+            const anyNewVisible =
+              document.querySelectorAll(
+                '.group.is-new-cat:not(.hidden) .chip:not(.hidden)',
+              ).length > 0
+            if (anyNewVisible) noResultTip.style.display = 'none'
+          }
+        })
+
+        // ESC 关闭弹窗
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+            closeModal()
           }
         })
       })()
