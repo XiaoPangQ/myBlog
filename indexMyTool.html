@@ -836,15 +836,6 @@
       .tool-form-row.error .field-error {
         display: block;
       }
-      .tool-form-grid {
-        display: grid;
-        grid-template-columns: 1fr 90px;
-        gap: 12px;
-        align-items: flex-start;
-      }
-      .tool-form-grid .tool-form-row {
-        margin-bottom: 0;
-      }
       .tool-modal-actions {
         display: flex;
         justify-content: space-between;
@@ -962,9 +953,6 @@
         }
         .tool-modal {
           padding: 20px;
-        }
-        .tool-form-grid {
-          grid-template-columns: 1fr;
         }
       }
       @media (max-width: 480px) {
@@ -7668,26 +7656,15 @@
             </select>
             <span class="field-error">请选择一个分类</span>
           </div>
-          <div class="tool-form-grid" id="newCatFields" style="display: none">
-            <div class="tool-form-row">
-              <label for="toolNewCatName">新分类名称<span class="req">*</span></label>
-              <input
-                type="text"
-                id="toolNewCatName"
-                name="toolNewCatName"
-                placeholder="例如：我的收藏"
-                maxlength="20" />
-              <span class="field-error">请填写新分类名称</span>
-            </div>
-            <div class="tool-form-row">
-              <label for="toolNewCatEmoji">图标</label>
-              <input
-                type="text"
-                id="toolNewCatEmoji"
-                name="toolNewCatEmoji"
-                placeholder="📌"
-                maxlength="2" />
-            </div>
+          <div class="tool-form-row" id="newCatNameWrap" style="display: none">
+            <label for="toolNewCatName">新分类名称<span class="req">*</span></label>
+            <input
+              type="text"
+              id="toolNewCatName"
+              name="toolNewCatName"
+              placeholder="例如：我的收藏"
+              maxlength="20" />
+            <span class="field-error">请填写新分类名称</span>
           </div>
           <div class="tool-modal-actions">
             <span class="action-left">快捷键：<kbd>Esc</kbd> 关闭 · <kbd>Enter</kbd> 保存</span>
@@ -7850,21 +7827,17 @@
         })
 
         // ====== 当前分类高亮 ======
-        const tocLinks = document.querySelectorAll('.toc-link')
-        const groupMap = new Map()
-        groups.forEach((g) => {
-          const id = g.id
-          const link = document.querySelector('.toc-link[href="#' + id + '"]')
-          if (link) groupMap.set(g, link)
-        })
-
+        // 注意：自定义分类是页面加载后由 renderCustomTools() 动态插入的，
+        // 这里不能再缓存 NodeList/Map，每次同步都重新查询，避免新分类高亮丢失
         const syncActiveToc = () => {
+          const currentGroups = document.querySelectorAll('.group')
+          const currentTocLinks = document.querySelectorAll('.toc-link')
           const viewportAnchor = window.innerHeight * 0.35
           let activeId = null
           let activeLink = null
           let bestDistance = Number.POSITIVE_INFINITY
 
-          groups.forEach((g) => {
+          currentGroups.forEach((g) => {
             if (g.classList.contains('hidden')) return
             const rect = g.getBoundingClientRect()
             const distance = Math.abs(rect.top - viewportAnchor)
@@ -7887,7 +7860,7 @@
             }
           })
 
-          tocLinks.forEach((link) => {
+          currentTocLinks.forEach((link) => {
             const isActive = link.getAttribute('href') === '#' + activeId
             link.classList.toggle('active', isActive)
           })
@@ -8017,18 +7990,21 @@
           setText('side-stat-chips', c)
         }
 
-        // 从 DOM 提取所有现有分类
+        // 从 DOM 提取所有现有分类（name 已剥离 count/badge-new，emoji 单独返回供下拉使用）
         const collectExistingCategories = () => {
           const cats = []
           document.querySelectorAll('.group').forEach((g) => {
             const titleEl = g.querySelector('.group-title')
             if (!titleEl) return
             const clone = titleEl.cloneNode(true)
+            // 取出 emoji（如果存在），然后再剥离 .count / .badge-new / .emoji
+            const emojiEl = titleEl.querySelector('.emoji')
+            const emoji = emojiEl ? (emojiEl.textContent || '').trim() : ''
             clone
               .querySelectorAll('.count, .badge-new, .emoji')
               .forEach((n) => n.remove())
             const name = (clone.textContent || '').trim()
-            cats.push({ id: g.id, name })
+            cats.push({ id: g.id, name, emoji })
           })
           return cats
         }
@@ -8043,7 +8019,11 @@
             if (g.getAttribute('data-cat-name') === safeName) existing = g
           })
           if (existing) return existing
-          const id = 'gcustom-' + Date.now()
+          const id =
+            'gcustom-' +
+            Date.now() +
+            '-' +
+            Math.random().toString(36).slice(2, 6)
           const main = document.querySelector('.main')
           const section = document.createElement('section')
           section.className = 'group is-new-cat'
@@ -8060,7 +8040,13 @@
             '<span class="count">0</span>' +
             '<span class="badge-new">NEW</span>' +
             '</h2><div class="chips"></div>'
-          main.appendChild(section)
+          // 新分类插到首个原有分类之前（即"效率工具"上方），多条新分类时后建的在前
+          const firstGroup = main.querySelector('.group')
+          if (firstGroup) {
+            main.insertBefore(section, firstGroup)
+          } else {
+            main.appendChild(section)
+          }
           const toc = document.getElementById('toc')
           if (toc) {
             const link = document.createElement('a')
@@ -8075,7 +8061,13 @@
               escapeHtml(safeName) +
               '</span>' +
               '<span class="toc-count">0</span>'
-            toc.appendChild(link)
+            // 同步插入到 sidebar 目录首部
+            const firstTocLink = toc.querySelector('.toc-link')
+            if (firstTocLink) {
+              toc.insertBefore(link, firstTocLink)
+            } else {
+              toc.appendChild(link)
+            }
             link.addEventListener('click', () => {
               if (isMobile()) closeSidebar()
             })
@@ -8130,7 +8122,11 @@
               '<button type="button" class="del-btn" data-id="' +
               escapeHtml(tool.id) +
               '" title="删除" aria-label="删除">×</button>'
-            chipsContainer.appendChild(a)
+            // 新添加的工具排到分类顶部（先来后到的反向）
+            chipsContainer.insertBefore(
+              a,
+              chipsContainer.firstChild,
+            )
 
             // 同步分类计数
             const totalChips = chipsContainer.querySelectorAll('.chip').length
@@ -8155,23 +8151,61 @@
         const modalClose = document.getElementById('toolModalClose')
         const modalForm = document.getElementById('addToolForm')
         const catSelect = document.getElementById('toolCategory')
-        const newCatFields = document.getElementById('newCatFields')
+        const newCatNameWrap = document.getElementById('newCatNameWrap')
         const nameInput = document.getElementById('toolName')
         const urlInput = document.getElementById('toolUrl')
         const newCatNameInput = document.getElementById('toolNewCatName')
-        const newCatEmojiInput = document.getElementById('toolNewCatEmoji')
 
-        // 填充分类下拉
+        // 新分类随机图标池（按种子去重，避免连续多个新分类撞同一个图标）
+        const RANDOM_EMOJIS = [
+          '🎯', '📦', '🧭', '🧰', '🔧', '🛠️', '⚙️', '🔑', '💡', '🔦',
+          '🧪', '🔬', '📡', '🌐', '🚀', '✨', '🌟', '⭐', '🔥', '💎',
+          '🌈', '📚', '📖', '✏️', '🎨', '🎭', '🎬', '🎮', '🎵', '🎸',
+          '🏆', '🎁', '🌸', '🍀', '🦋', '🐝', '🧠', '🧲', '🎲', '🎰',
+        ]
+        const usedEmojis = new Set()
+        const pickRandomEmoji = () => {
+          // 先剔除已经用过的；都用过就重置
+          const pool = RANDOM_EMOJIS.filter((e) => !usedEmojis.has(e))
+          const list = pool.length > 0 ? pool : RANDOM_EMOJIS
+          if (pool.length === 0) usedEmojis.clear()
+          const emoji = list[Math.floor(Math.random() * list.length)]
+          usedEmojis.add(emoji)
+          return emoji
+        }
+
+        // 填充分类下拉（顺序与页面 / 侧栏 TOC 保持一致：新建分类在前）
         const populateCategorySelect = () => {
           const cats = collectExistingCategories()
-          let html = '<option value="">— 请选择 —</option>'
+          const oldCats = []
+          const newCats = []
           cats.forEach((c) => {
-            html +=
+            const el = document.getElementById(c.id)
+            if (el && el.classList.contains('is-new-cat')) {
+              newCats.push(c)
+            } else {
+              oldCats.push(c)
+            }
+          })
+          let html = '<option value="">— 请选择 —</option>'
+          // 先新后旧，顺序与主内容、侧栏 TOC 完全一致；emoji 与页面保持一致
+          const formatOpt = (c, suffix) => {
+            const e = c.emoji || ''
+            const n = c.name || ''
+            return (
               '<option value="' +
               escapeHtml(c.id) +
               '">' +
-              escapeHtml(c.name) +
+              escapeHtml(e ? e + ' ' + n : n) +
+              (suffix || '') +
               '</option>'
+            )
+          }
+          newCats.forEach((c) => {
+            html += formatOpt(c, ' · NEW')
+          })
+          oldCats.forEach((c) => {
+            html += formatOpt(c, '')
           })
           html += '<option value="__new__">＋ 新建分类…</option>'
           catSelect.innerHTML = html
@@ -8188,7 +8222,7 @@
           populateCategorySelect()
           modalForm.reset()
           catSelect.value = ''
-          newCatFields.style.display = 'none'
+          newCatNameWrap.style.display = 'none'
           clearAllErrors()
           modal.classList.add('show')
           document.body.style.overflow = 'hidden'
@@ -8209,7 +8243,7 @@
         }
         if (catSelect) {
           catSelect.addEventListener('change', () => {
-            newCatFields.style.display =
+            newCatNameWrap.style.display =
               catSelect.value === '__new__' ? '' : 'none'
             catSelect.closest('.tool-form-row').classList.remove('error')
           })
@@ -8242,7 +8276,7 @@
 
             if (catValue === '__new__') {
               const newName = newCatNameInput.value.trim()
-              emoji = newCatEmojiInput.value.trim() || '🆕'
+              emoji = pickRandomEmoji()
               if (!newName) {
                 newCatNameInput.closest('.tool-form-row').classList.add('error')
                 newCatNameInput.focus()
